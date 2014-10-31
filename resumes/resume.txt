@@ -1,0 +1,46 @@
+Antonio Abella
+
+anontioabella.me
+antonio@antonioabella.me 
+(305)926-6587
+
+OBJECTIVE:
+To fulfill a dream of working with the latest and greatest technological advancements. To experience experimental technologies years ahead of its public debut. To obtain a position with an established and respected organization where my skills can be challenged, put to use, and improved upon.
+
+SKILLS:
+	•	Extensive experience with software troubleshooting and support
+	•	Extensive experience with type-2 virtualization (VMWare Workstation, Virtualbox, KVM/Qemu)
+	•	Experienced with Windows and Linux administration
+	•	Familiar with server and network administration
+	•	Familiar with Java, PostgreSQL, and shell scripts
+	•	Fully fluent in written and verbal English and Spanish
+
+EDUCATION:
+Florida International University							exp. Dec 2015 
+Miami, FL
+Pursuing Bachelors of Science in Information Technology
+
+  Relevant Coursework:
+	•	Managing and administering a CentOS 5.11 virtual server handling multiple roles including web, MySQL, and SaltStack among others. Documentation available on antonioabella.me and github.com/a-abella
+	•	Administering PostgreSQL databases
+	•	Writing and Deploying Java webapps
+	•	Highest level mathematics: Calculus 1
+	•	Highest level classical science: Physics w/ Calc 1
+
+WORK EXPERIENCE:
+Information Technology Services						                  2009-2013
+General Technician
+Customer Service Representative
+	•	Hardware and software troubleshooting of consumer-grade desktop and laptop PCs
+	•	Troubleshooting of consumer-grade networking devices on and off site
+	•	Sourced parts and built desktop PCs based on client needs
+
+PERSONAL EXPERIENCE:
+	•	Run a Linux workstation for hosting a virtual home networking lab 
+		o	To facilitate switch for Windows users, Windows 7 runs over KVM/Qemu using IOMMU passthrough
+	•	Manage a handful of VPSs to experiment with web hosting, VPN, mail, personal cloud, and more
+		o	Manage and actively develop antonioabella.me. Runs on a DigitalOcean VPS using Nginx webserver, page source available on GitHub
+	•	Built a low-noise, low-power, small form factor Home Theater PC to replace cable TV and cut bills
+	•	Learning Python and Ruby (via exercism.io) to enhance scripting abilities. Exercises are available on GitHub
+	•	Stay on top of developmental technology news in mobile, desktop, and general sciences
+	•	And an extreme general interest in all things technological and electronic since a very early age
