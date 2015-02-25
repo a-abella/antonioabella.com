@@ -1,0 +1,110 @@
+Install asterisk voip and a softphone
+
+Install build utilities:
+	yum -y install gcc gcc-c++
+	yum -y install kernel-xen-devel
+	yum -y install newt-devel
+	yum -y install mlocate lynx tar wget nmap bzip2 mod_ssl crontabs vixie-cron
+
+Download asterisk source tarballs, module tarballs,a nd compenent tarballs. Extract them
+	mkdir -p /usr/src/asterisk
+	cd /usr/src/asterisk
+	wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-1.6.1-current.tar.gz
+	wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-addons-1.6.1-current.tar.gz
+	wget http://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linux-complete-current.tar.gz
+	wget http://soft-switch.org/downloads/spandsp/spandsp-0.0.6pre18.tgz (or most current version)
+	wget http://downloads.digium.com/pub/libpri/libpri-1.4-current.tar.gz
+	tar -zxf dahdi-linux-complete-current.tar.gz
+	tar -zxf asterisk-1.6.1-current.tar.gz
+	tar -zxf spandsp-0.0.6pre18.tgz
+	tar -zxf libpri-1.4-current.tar.gz
+	tar -zxf asterisk-addons-1.6.1-current.tar.gz
+
+Make and install dahdi
+	cd /usr/src/asterisk/dahdi-linux-complete-VERSION
+	make all
+	make install
+	make config
+
+Start dhadi and bootup service
+	chkconfig dahdi on
+	service dahdi start
+
+Make and install asterisk with all modules and addons
+	cd /usr/src/asterisk/asterisk-VERSION
+	make clean
+	./configure
+
+	make menuselect
+	make
+	make install
+
+	make samples
+	make progdocs
+	make config
+	chkconfig asterisk on
+
+	Check to see asterisk starts properly:
+	asterisk -vvvvvvvvvvvvvvvvvvvc
+	stop now
+
+	If not, try starting service manually:
+	service asterisk start
+
+	Now build addons:
+	
+	cd /usr/src/asterisk/asterisk-addons-VERSION
+
+	make clean
+	./configure
+	make menuselect
+
+	make
+	make install
+
+	make samples
+
+Create sip accounts in sip.conf
+	nano /etc/asterisk/sip.conf
+	
+	[general]
+	context=defau;t
+	srvlookup=yes
+	bindaddr=131.94.134.13
+	port=5061
+
+	disallow=all
+	allow=ulaw
+	allow=alaw
+	allow=ilbc
+	allow=gsm
+	allow=h261
+
+	[antonio]
+	type=friend
+	host=dynamic
+	nat=no
+	qualify=yes
+
+Open udp port 5061 for asterisk:
+	-A RH-Firewall-1-INPUT -p udp -m udp --dport 5061 -j ACCEPT
+
+Configure a softphone:
+
+Install twinkle, the old default softphone clinet for the KDE desktop environemnt
+	yum install twinkle -y
+
+Configure user for registration with SIP:
+	Open Twinkle in graphical enviornemnt
+	Edit > User Profile
+	Your name: antonio
+	User name: antonio
+	Domain: 131.94.134.13
+
+To verify the user is registering with SIP and the asterisk voip server
+	Registration > Show Registrations
+	
+	In console:
+	
+	asterisk -vvvvvr
+	To watch notices as users are registered and unregistered from the asterisk SIP registry when starting and stopping twinkle

@@ -1,0 +1,34 @@
+Download and run Lmbench bencharking utility
+
+Download tarball to desired directory:
+	cd /path/to/dir
+	wget http://www.cs.fiu.edu/~osorioj/lmbench-3.0-a8.tgz
+
+Untar contents to desired directory:
+	tar zxvf lmbench-3.0-a8.tgz
+
+Make the applciation:
+	cd lmbench-3.0-a8
+	make
+
+Run the benchmark:
+	make results
+	NOTE: select defaults during all prompts except the final. Select Mail Setup - NO
+	Benchmark will run for many minutes
+
+Change to old kernel:
+	Reboot
+	Select old kernel in GRUB menu
+
+Run benchamrk again:
+	cd /path/to/dir/lmbench-3.0-a8
+	make results
+
+View results in file:
+	cat results/i686-pc-linux-gnu/<any file>
+	cat results/summary.out
+
+
+Results:
+	We have chosen to remain with the custom kernel. However, as can be seen in summary.out, the becnhmark had to be run four times. This is because it crashed due to low memory twice. As a result, I do not feel supremely confident in the accuracy of the benchmark. We choose the custom kernel on the basis of the reported latency figures being about on par with the old kernel, and sometimes lower.
+

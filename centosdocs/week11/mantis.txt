@@ -1,0 +1,47 @@
+Install and configure MantisBT
+
+Install the prerequisite redhat EPEL repository:
+	rpm -Uvh http://download.fedora.redhat.com/pub/epel/5/i386/epel-release-5-4.noarch.rpm
+	yum update
+
+Install PHPMailer from the new repository:
+	yum install php-PHPMailer
+
+Edit /etc/php.ini to match MantisBT upload file size:
+	nano /etc/php.ini
+	Edit line:
+		upload_max_filesize = 5M
+
+Restart apache web server:
+	service httpd restart
+
+Download and install Mantis to apache document root:
+	cd /var/www/html
+	wget http://downloads.sourceforge.net/project/mantisbt/mantis-stable/1.2.4/mantisbt-1.2.4.tar.gz
+	tar xvzf mantisbt-1.2.4.tar.gz
+	
+Rename directory and grant owneership to apache:
+	mv mantisbt-1.2.4 mantisbt
+	chown -R apache:apache /var/www/html/mantisbt
+
+Navigate to MantisBT in browser and install:
+	cts4348-node-13.cs.fiu.edu/mantisbt
+	Follow on-screen instructions
+
+Configure MantisBT:
+After installation you will be redirected to login:
+	Username: Administrator
+	Password: <default admin account pw is "root">
+
+Add new users to MantisBT:
+	Click "Manage" in menu bar
+	Click "Manage Users" below menu bar
+	Click "Create New Account" button above table of users
+	Assign new user credentials and permissions
+
+Add new projects to MantisBT:
+	Click "Manage" in menu bar
+	Click "Manage Projects" below menu bar
+	Click "Create New Project" button above table of projects
+	Assign project name, status, and description
+	Assign users to the project via Manage Users page

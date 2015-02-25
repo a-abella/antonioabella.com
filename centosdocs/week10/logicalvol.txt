@@ -1,0 +1,34 @@
+Adding a virtual hard disk and expanding the logical volume
+
+Add the virtual harddisk to the machine:
+	Shutdown the server
+	Enter the VMWare Server Console as the VM Creator account
+	Right Click the VM > Settings
+	On bottom left, click Add
+	Enter configuration wizard
+	Select Hard Disk
+	Select SCSI
+	Determine size (4 GB, 4096 MB)
+	Do not select pre-allocation
+	Do not select to split into multiple files
+
+Boot the Server
+
+Verify the new drive exists in the system by listing disks and partition tables:
+	fdisk -l
+
+Create a physical volume:
+	pvcreate /dev/sdb
+
+Extend VolumeGroup into /dev/sdb
+	vgextend VolGroup00 /dev/sdb
+
+Expand logical volume into the exta volume group sapce
+	lvextend -L +4000M /dev/VolGroup00/LogVol00
+
+Resize filesystem to fit volume:
+	resize2fs /dev/VoLGroup00/LogVol00
+
+View LogVol00 disk usage and available space:
+	df -h
+

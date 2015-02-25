@@ -1,0 +1,30 @@
+Installing Glassfish
+
+Navigate to desired installation directory:
+	cd /path/to/installation
+
+Download Glassfish archive:
+	wget http://dlc.sun.com.edgesuite.net/glassfish/4.1/release/glassfish-4.1.zip
+
+Unpack the archive:
+	unzip glassfish-4.1.zip
+
+Change default port from 8080 to 8888:
+	nano /path/to/install/glassfish4/glassfish/domains/domain1/config/domain.xml
+	Ctrl+W to search for "8080"
+	Replace with 8888
+
+Open ports 8888 and 4848 in iptables:
+	-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 4848 -j ACCEPT
+	-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 8888 -j ACCEPT
+
+Create Glassfish service:
+	/path/to/install/glassfish4/glassfish/bin/asadmin
+	>create-service
+
+Start Glassfish Service
+	service GlassFish_domain1 start
+
+
+Note: the create-service command adds GlassFish to startup services automatically via the rc*.d directories.
+

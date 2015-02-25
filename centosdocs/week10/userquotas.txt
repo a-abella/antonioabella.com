@@ -1,0 +1,33 @@
+Creating user quotas on hard disks
+
+Add userquota statement to the mountded parititon in fstab:
+	nano /etc/fstab
+	Find the filesystem you'd like to quota
+	Append "usrquota" in the fourth column with comma delimination
+
+	/dev/sdc2	/ext3part	ext3	defaults,usrquota	0	0
+
+Create quota file in partition to be quota'd and give it permissions:
+	(as root)
+	touch /ext3part/aquota.user
+	chmod 600 /ext3part/aquota.user
+
+Remount partition:
+	mount -o remount /ext3part
+
+Run quotacheck:
+	quotacheck -v /dev/sdc2
+
+SELinux shenanigans:
+	restorecon /ext3part/aquota*
+
+Enable quotas:
+	quotaon -av
+
+Edit quotas:
+	edquota -u <user-id>
+	Grant quotas desired
+
+
+
+Test by copying files until you reach quota limit.

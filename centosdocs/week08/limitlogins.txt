@@ -1,0 +1,15 @@
+Limit concurrent logins
+
+Login limits are set in /etc/security/limits.conf
+Edit file with folowing syntax:
+	<user or @group>		<limit type soft|hard>	<what to limit>		<value>
+
+Limit profe account logins:
+	profe		hard		maxlogins		2
+
+Limit student account logins:
+	@students	hard		maxlogins		5
+
+
+
+Test by beginning multiple ssh sessions until limit is reached and error is given.

@@ -1,0 +1,28 @@
+Install and configure the XRDP service
+
+We will be building from source, so isntall the C compiler, build tools, and dependencies:
+	yum install gcc -y
+	yum install makeyum install pam-develyum install openssl-develyum install vnc-server -y
+
+Download and build the package:
+	wget http://ncu.dl.sourceforge.net/sourceforge/xrdp/xrdp-0.4.1.tar.gz
+	tar -zxvf xrdp-0.4.1.tar.gz
+	cd xrdp-0.4.1
+	make
+	make install
+
+Start the service:
+	cd /usr/local/xrdp
+	./xrdp_control.sh start
+
+Add to startup
+	cp xrdp_control.sh /etc/init.d/xrdp_control
+	chkconfig --add xrdp_control
+	chkconfig xrdp_control on
+	service xrdp_control start
+
+Open default rdp port (3389)
+	-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 3389 -j ACCEPT
+
+
+Test by connecting to VM via Remote Desktop at Windows PCs in JCCL lab.

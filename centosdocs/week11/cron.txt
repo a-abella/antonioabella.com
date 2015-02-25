@@ -1,0 +1,15 @@
+Cron exercises
+
+Make a cron entry to run system updates every other day at 1am
+	As root:
+	crontab -e
+	Add lines: 
+		00 1 */2 * * yum update
+		0 */6 * * * uptime >> /var/log/running.log
+	
+	su profe
+	crontab -e
+	Add lines:
+		0 0,5,10,15,20 * * 0,4,6 who | mail -s "CURRENTLY LOGON USERS" root; ps | mail -s "ACTIVELY RUNNING PROCESSES" root
+		30 2,7,12,17,22  * * 0,4,6 who | mail -s "CURRENTLY LOGON USERS" root; ps | mail -s "ACTIVELY RUNNING PROCESSES" root 
+

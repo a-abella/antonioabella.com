@@ -1,0 +1,10 @@
+Machine Settings (VMWare Server Console)
+
+Machine name: AHKM
+2 CPU
+512MB RAM
+15GB HDD
+	-do not allocate now
+	-do not break into 2GB files
+Configured Ethernet Adapter
+	-/dev/vmnet1

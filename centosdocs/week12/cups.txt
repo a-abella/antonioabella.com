@@ -1,0 +1,45 @@
+Install and configure a CUPS network printer
+
+Install cups from repos:
+	yum install cups
+
+Configure with /etc/cups/cupsd.conf
+	nano /etc/cups/cupsd.conf
+		# Only Listen for connections from the local machine
+		Listen 631 
+		Listen 131.94.134.13:631 # Restrict access to the server
+		Allow all 
+		# Restrict access to the admin pages
+		Allow all 
+		# Restrict access to configuration files
+		Allow all
+
+Configure mime.convs
+	nano /etc/cups/mime.convs
+	Application/octet-stream    application/vnd.cups.raw
+
+Open tcp and udp in iptables on port 631:
+	nano /etc/sysconfig/iptables
+	-A RH-Firewall-1-INPUT -p udp -m udp --dport 631 -j ACCEPT
+	-A RH-Firewall-1-INPUT -p tcp -m tcp --dport 631 -j ACCEPT
+	service iptables restart
+
+Start service and enable startup
+	service cups start
+	chkconfig cups on
+
+Navigate to cts4348-node-13.cs.fiu.edu:631 in web browser:
+	Click on Administration tab
+	Add a new printer:
+		Name: Venom
+		Location: JCC Lab
+		Description: HP LaserJet 8150DN
+	DEVICE FOR TEST, select ipp then enter device url (lpd://ferret.cs.fiu.edu/venom)
+	MAKE/MANUFACTURER FOR TEST, select HP, Model: LaserJet 8150 Series Postscript
+	Authenticate with root credentials
+	Print a test page
+	Set default printer
+	Go to SET PRINTER OPTIONS
+	Duplex option to Flip on Long Edge (Standard)
+	Set printer's starting banner as Classified and Ending Banner to the topsecret option
+

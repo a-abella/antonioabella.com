@@ -1,0 +1,14 @@
+Find and install mkpasswd tool
+
+To locate the package that provides mkpasswd, run:
+	yum whatprovides */mkpasswd
+	
+Install the resulting package
+
+Read documentation
+	man mkpasswd
+
+
+Purpose:
+
+Generates random strings to be used as passwords. User can specificy constraints such as string length, minimum number of digits, minimum number of lower case character, minimum number of upper case characters, and minimum number of special characters. If called without a username argument, will print the password string to stdout. If called with a username argument, the tool will apply the new password to the specified user.

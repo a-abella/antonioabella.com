@@ -1,0 +1,22 @@
+Installation
+
+Download rpm
+	wget http://downloads.sourceforge.net/webadmin/usermin-1.520-1.noarch.rpm
+
+Install downloaded rpm
+	rpm -U usermin-1.520-1.noarch.rpm
+
+Start usermin service
+	service usermin start
+
+Start usermin on boot
+	chkconfig usermin on
+
+Open usermin's default binded port in iptables
+	nano /etc/sysconfig/iptables
+	
+	Add line before REJECT statement:
+	-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 20000 -j ACCEPT
+
+Restart iptables
+	service iptables restart

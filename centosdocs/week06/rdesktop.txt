@@ -1,0 +1,8 @@
+Download and install rdekstop remote desktop client
+
+Install from the repositories
+	yum install rdesktop -y
+
+To connect to JCCL Lab PC
+	rdesktop -u <username> <ip address>
+	enter password when prompted

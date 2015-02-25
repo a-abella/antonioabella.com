@@ -1,0 +1,49 @@
+Install and configure UnrealIRCd irc server
+
+Install dependencies for SSL if you have certs:
+	yum install build-essential
+ 	yum install openssl
+	yum install libcurl4-openssl-dev
+
+Download and extract tarball to desired directory:
+	 wget http://www.unrealircd.com/downloads/Unreal3.2.8.1.tar.gz
+	  tar zxvf Unreal3.2.8.1.tar.gz
+
+Configure, Build, and Install
+	cd Unreal3.2
+	./Config
+	Answer prompts with defaults
+	On prompt "Specify the directory you installed libcurl to":
+		enter: /usr
+	Continue with defaults
+
+	make
+
+Config files in untar'd directory:
+	nano unrealircd.conf
+	Uncomment the Linux and Windows modules
+	Enter personal info in me{} block
+	Enter personal info in admin{} block
+	Enter info in oper{} block for operator-user logins. The operator manages the chat room form inside
+	Change services link{} block to refelct your host name
+	Change network settings{} block to reflect your ip address and desired port
+	Change server serttings{} block to give users server information
+
+
+Open port in iptables (default port 6667)
+	nano /etc/sysconfig/iptables
+	-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 6667 -j ACCEPT
+	service iptables restart
+
+Start unrealircd servier
+	cd Unreal3.2
+	./unreal start
+
+Start unrealircd on boot
+	Unrealircd does not include traditional startup scripts that work with chkconfig or rc*.d
+	To start unrealirc at boot, the developers suggest creating a cronjob that attempts to execute "./unreal start" every 10 minutes
+
+Connect to server from remote IRC client such as pidgin
+	account: anyuser@cts4348-node-13.cs.fiu.edu
+	channel: any channel. Channels are created when first user joins it. Channels start with a # symbol
+	password: blank

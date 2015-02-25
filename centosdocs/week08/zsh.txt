@@ -1,0 +1,27 @@
+Install zsh shell and configure
+
+Install form repos:
+	yum isntall zsh -y
+
+Change profe account's default shell:
+(this can be done either by editing /etc/passwd or via logged in as root then 'su profe; chsh /bin/zsh')
+
+	(as root)
+	su profe
+	chsh /bin/zsh
+	su -
+
+Verify shell change occured
+
+	(as root)
+	su profe
+	echo $1
+	Should return "zsh"
+
+Extra: Modify zsh shell prompt to match bash prompt
+
+	nano /home/profe/.zshrc
+	Write:
+		#!/bin/zsh
+		PS1="[%n@%M %t %d #%h] "
+

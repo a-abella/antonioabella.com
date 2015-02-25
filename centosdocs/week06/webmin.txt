@@ -1,0 +1,32 @@
+Installation
+
+Download rpm
+	wget http://downloads.sourceforge.net/webadmin/webmin-1.600-1.noarch.rpm
+
+Install downloaded rpm
+	rpm -U webmin-1.600-1.noarch.rpm
+
+Start usermin service
+	service webin start
+
+Start usermin on boot
+	chkconfig webmin on
+
+Open webmin's default binded port in iptables
+	nano /etc/sysconfig/iptables
+	
+	Add line before REJECT statement:
+	-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 10000 -j ACCEPT
+
+Restart iptables
+	service iptables restart
+
+
+Add a webmin user with root-level permissions
+	Enter webmin via cts4348-node-13.cs.fiu.edu:10000
+	Login with root account
+	Navigate to Webmin > Webmin Users
+	Click Create a new Webmin User
+	Fill forms
+	At Available Webmin modules, click Select All
+	At Permissions for all modules, select most permissive options

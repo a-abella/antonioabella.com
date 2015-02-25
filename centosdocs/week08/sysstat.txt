@@ -1,0 +1,43 @@
+Install sysstat package
+
+Install from repository:
+	yum install sysstat -y
+
+
+Documentation:
+
+Sysstat is a collection of utilities to monitor system performance and usage activity. 
+
+
+iostat
+	Reports CPU stats and I/O stats for devices, partitions, and NFSs
+
+mpstat
+	Processor-related stats
+
+pidstat
+	Stats for processes (CPU, mem%, I/O)
+
+sar
+	System activity information log
+
+sadc
+	Service for sar
+
+sa1
+	Frontend for sadc
+
+sa2
+	Daily activity summary
+
+sadf
+	Displays data collected by sar in multiple formats. useful for parsing and databasing
+
+sysstat
+	Manual page
+
+nfsiostat
+	Like iostat but only for NFSs
+
+cifsiostat
+	CIFS I/O stats

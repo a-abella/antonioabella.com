@@ -1,0 +1,55 @@
+Download and run a security audit utility
+NOTE: Due to the package being very out of date, we replaced Bastille with Lynis
+
+Choose a holding directory
+Lynis does not require isntallation, it runs from whatever location it exists in:
+	mkdir /usr/local/lynis
+	cd /usr/local/lynis
+
+Download Lynis:
+	wget http://www.rootkit.nl/files/lynis-1.3.0.tar.gz
+	tar -xvf lynis-1.3.0.tar.gz
+
+Running Lynis:
+	cd lynis-1.3.0
+	./lynis
+
+Processing:
+	Run witout options to print isntructions.
+	To begin audit of entire system, run:
+		./lynis -c -Q
+	
+	Note: the -Q option can be used to skip all "Press Enter to continue" prompts.
+
+
+Audit will run over time and display results to terminal.
+A log of the scan is available at /var/log/lynis-report.dat
+
+
+
+
+WARNING AND ERRORS GIVEN:
+
+	-WARNING: bootloader password protection
+	-WARNING: consistency of group files (grpck)
+	-WARNING: Checking Linux single user mode authentication
+	-WARNING: checking for unused riles (iptabels)
+	-WARNING: Checking for a running NTP daemon or client
+	-WARNING: Checking SSL Certificate expiration
+
+	grpck binary found errors in one or more group files
+
+
+	-WEAK: /etc/motd contents
+	-WEAK: /etc/issue contents
+	-WEAK: /etc/issues.net contents
+
+	Kernel Hardening:
+	DIFFERENT:
+	-net.ipv4.conf.all.accept_redirects (exp: 0)
+	-net.ipv4.conf.all.log_martians (exp: 1)
+	-net.ipv4.conf.all.send_redirects (exp: 0)
+	-net.ipv4.conf.all.rp_filter (exp: 1)
+	-net.ipv4.conf.default.accept_redirects (exp: 0)
+	-net.ipv4.conf.default.log_martians (exp: 1) 
+	-net.ipv4.tcp_timestamps (exp: 0)

@@ -1,0 +1,37 @@
+Webserver Installation
+
+Logged in as root:
+
+yum install httpd
+chkconfig --add httpd
+chkconfig httpd on
+service httpd start
+
+Configuring httpd:
+	configuration file located at /etc/httpd/config/httpd.conf
+ 
+In text editor:
+
+		Find entry '#ServerName www.example.com:80'
+	add below:
+		ServerName 131.94.134.13:80
+
+		Find entry '#ServerAdmin root@localhost'
+	add below:
+		ServerAdmin [an email address here]
+
+Restart httpd for changes to take effect:
+	service httpd restart
+
+Manually configure access over port 80 (Apache default Listen port)
+Firewall configuration through either iptables command or iptables file:
+
+	using file (located at /etc/sysconfig/iptables):
+		add before final REJECT statement:
+		-A RH-Firewall-1-INPUT -m state --state NEW -p tcp --dport 80 -j ACCEPT
+
+	Restart firewall service:
+		service iptables restart
+
+
+Apache test page should now be accessible remotely via http://131.94.134.13

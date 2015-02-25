@@ -1,0 +1,17 @@
+Access etc/sudoers through a text editor, such as nano.
+
+
+
+	nano /etc/sudoers
+
+
+
+Scroll down to the command section and add the name of a user under the root and type:
+
+	
+
+user ALL=(ALL)	ALL
+
+
+
+Press Ctrl+X to save, press Y for Yes, then hit enter to close nano.

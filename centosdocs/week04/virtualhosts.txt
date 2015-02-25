@@ -1,0 +1,36 @@
+Add local virtualhosts
+
+Create directories:
+	mkdir /var/www/ahkmweb1
+	mkdir /var/www/ahkmweb2
+
+Create simple index.html files in each dir
+Edit httpd.conf to enable virtualhosts. Existing main host listed first in the .conf so that it is the default:
+
+
+	NameVirtualHost *:80
+
+	<VirtualHost *:80>
+		DocumentRoot /var/www/html
+		ServerName cts4348-node-13.cs.fiu.edu
+	</VirtualHost>
+
+	<VirtualHost *:80>
+		DocumentRoot /var/www/ahkmweb1
+		ServerName www.ahkmweb1.com
+	</VirtualHost>
+
+	<VirtualHost *:80>
+		DocumentRoot /var/www/ahkmweb2
+		ServerName www.ahkmweb2.com
+	</VirtualHost>
+
+Edit hosts file to be able to access the virtualhosts locally:
+	nano /etc/hosts
+Add lines:
+	131.94.134.13           cts4348-node-13.cs.fiu.edu cts4348-node-13
+	131.94.134.13           www.ahkmweb1.com
+	131.94.134.13           www.ahkmweb2.com
+
+Restart apache after config changes:
+	service httpd restart

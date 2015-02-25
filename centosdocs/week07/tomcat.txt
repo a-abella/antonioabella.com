@@ -1,0 +1,31 @@
+Install tomcat dynamic web server
+
+Navigate to desired installation directory:
+	cd /path/to/installation
+
+Download tomcat tarball
+	wget http://mirrors.koehn.com/apache/tomcat/tomcat-<version>/<version>/bin/apache-tomcat<version>.tar.gz
+
+Extract tarball:
+	tar zxvf apache-tomcat<version>.tar.gz
+
+Create an environmental variable in /etc/profile to allow Tomcat to start up and shutdown:
+	CATALINA_HOME=/path/to/installation/apache-tomcat-<version>
+	export CATALINA_HOME PATH=$JAVA_HOME:$CATALINA_HOME:$PATH 
+	
+	NOTE: make sure to inclde the $JAVA_HOME statement in PATH
+
+Open tomcat's default port (8080) in iptables. Add before the REJECT statement:
+	-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
+
+Restart iptables
+	service iptables restart
+
+Start tomcat server
+	$CATALINA_HOME/bin/startup.sh
+
+Add tomcat startup script to /etc/init.d to start at boot
+	cp $CATALINA_HOME/bin/startup.sh /etc/init.d/tomcat
+
+Test by going to site on port 8080
+	www.cts4348-node-13.cs.fiu.edu:8080

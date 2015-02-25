@@ -1,0 +1,45 @@
+Configure samba to allow mapping as network drive to a Windows PC in JCCL Lab
+
+Open iptable tcp and udp ports:
+	-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 445 -j ACCEPT
+	-A RH-Firewall-1-INPUT -m state --state NEW -m udp -p tcp --dport 445 -j ACCEPT
+
+Configure smb.conf
+	nano /etc/samba/smb.conf
+	[SHARED]
+        	path = /home/shared
+        	read only = No
+        	writable = Yes
+        	guest ok = Yes
+        	public = Yes
+        	force user = root
+        	force group = root
+        	create mask = 666
+        	directory mask = 666
+        	security mask = 666
+        	force create mode = 666
+
+Restart samba service:
+	service smb restart
+
+Chamge permissions of share folder:
+	chmod 755 /home/shared
+
+SELinux configuration:
+	setsebool -P samba_export_all_rw=1
+	/sbin/restorecon -RF /home/shared
+
+Check and change SELinux context on share:
+	ls -laZ /home/shared
+	/usr/sbin/semanage fcontext -a -t public_content_rw_t '/home/shared(/.*)?'
+
+Change SELinux configurations in the graphical tool:
+	Navigate to System > Administration > SELinux Administration
+	Check "Allow Samba to write filesin directories labeled public_content_rw_t"
+
+Connect JCCL Windwos PC to Samba share:
+	Open Explorer
+	At top, click Map a Network Drive
+	Enter address: \\131.94.134.13\SHARED
+
+	Should connect as guest without asking for credentials

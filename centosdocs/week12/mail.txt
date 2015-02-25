@@ -1,0 +1,46 @@
+Configure advanced mail services
+
+Install and start sendmail:
+	yum install sendmail -y
+	service sendmail start
+	chkconfig sendmail on
+
+Open firewall port 25:
+	nano /etc/sysconfig/iptables
+	-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 25 -j ACCEPT
+	service iptables restart
+
+Install rpocmail adn spamassassin
+	yum install procmail spamassassin -y
+	service spamassassin start
+	chkconfig spamsassissin on
+	
+
+Configure procmail recipies for spamassassin:
+	# By using the f and w flags and no condition, spamassassin is going add the X-Spam headers to every single mail, and then process other recipes.
+	# No lockfile is used.
+	:0fw
+	| /usr/bin/vendor_perl/spamc
+
+	# Messages with a 5 stars or higher spam level are going to be deleted right away
+	# And since we never touch any inbox, no lockfile is needed.
+	:0
+	* ^X-Spam-Level: \*\*\*\*\*
+	/dev/null
+
+	# If a mail with spam-status:yes wasn't deleted by previous line, it could be a false positive. So its going to be sent to an spam mailbox instead.
+	# Since we don't want the possibility of one procmail instance messing with another procmail instance, we use a lockfile
+	:0:
+	* ^X-Spam-Status: Yes
+	$HOME/mail/Spam
+
+Install and configure dovecot:
+	yum isntall dovecot -y
+	service dovecot start
+	chkconfig dovecot on
+
+Open dovecot ports in iptables:
+	nano /etc/sysconfig/iptables
+	-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 110 -j ACCEPT
+	-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 143 -j ACCEPT
+	service iptables restart

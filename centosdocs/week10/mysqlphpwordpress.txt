@@ -1,0 +1,46 @@
+Installing mySQL, php, and WordPress
+
+Install packages from repos:
+	yum install mysql mysql-server php php-mysql -y
+
+Start mysql service:
+	service mysqld start
+
+Add mysql to startup services:
+	chkconfig mysqld on
+
+Restart apache webserver:
+	service httpd restart
+
+Download Wordpress to webserver root:
+	cd /var/www/html
+	wget http://wordpress.org/latest.tar.gz
+	tar zxvf wordpress* /var/www/html
+
+Create a database:
+	Enter mysql with:
+		mysql -u root -p
+		root password will initially be blank
+	Within mysql:
+		>CREATE DATABASE databasename;
+		> GRANT ALL PRIVILEGES ON databasename.* TO “root”@”localhost” IDENTIFIED BY “<redacted>”;
+		> FLUSH PRIVILEGES;
+		> EXIT;
+
+Setup Wordpress:
+	Backup wp-config-sample.php
+		cat wp-config-sample.php > wp-config.php
+	Edit wp-config.php:
+		define('DB_NAME', 'ThirteenDB');
+		define('DB_USER', 'root');
+		define('DB_PASSWORD', '<redacted>');
+		define('DB_HOST', 'localhost');
+		define('DB_CHARSET', 'utf8');
+		define('DB_COLLATE', '');
+		define('SECRET_KEY', 'yogurt');
+
+Install WordPress with browser installer:
+	Navigate to cts4348-node-13.cs.fiu.edu/wordpress/wp-admin/install.php
+	Follow instructions
+	After installation completes, change admin password
+

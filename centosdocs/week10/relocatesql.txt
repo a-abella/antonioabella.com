@@ -1,0 +1,24 @@
+Relocate mySQL file to XFS partition
+
+Stop the mySQL service:
+	service mysqld stop
+
+rsync copies files while retaining permissions and ownership
+Copy the mySQL data files to the XFS partition using rsync:
+	mkdir /xfspart/mysql
+	rsync -avz /var/lib/mysql/ /xfspart/mysql
+	chown mysql.mysql /xfspart/mysql
+
+Map mySQL configuration to the new directory:
+	nano /etc/my.cnf
+	Edit line:
+		datadir = /xfspart/mysql
+
+Start the mySQL service:
+	service mysqld start
+
+Verify datadir variable has been set in my.cnf:
+	mysql -u root -p
+	<password>
+	>SHOW VARIABLES LIKE 'datadir';
+

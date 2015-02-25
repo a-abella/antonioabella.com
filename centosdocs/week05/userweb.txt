@@ -1,0 +1,39 @@
+Allow users to serve webpages from home directory
+
+Edit httpd.conf to enable userdir:
+	nano /etc/httpd/conf/httpd.conf
+
+Make the following edits:
+	Inside nano:
+	ctrl+W to search: UserDir
+
+	Comment out line UserDir disable
+	#UserDir disable
+
+	Uncomment public_html line:
+	ctrl+W to search: public_html
+	
+	Remove # from line:
+	UserDir public_html
+
+As root, access a user home folder and create html directory:
+	su -
+	cd ~<user>
+	mkdir public_html	
+
+Change home folder permissions to allow reads:
+	chmod 711 ~<user>
+
+Change public_html permissions to be accessed as requested:
+	chmod 755 public_html
+
+Create an index file for that user:
+	nano public_html/index.html
+	Write page
+
+Fix SELinux conditions to allow external access:
+	chcon -R -h -t httpd_sys_content_t public_html
+	chcon -t httpd_sys_content_t public_html/index.html
+
+Restart apache after httpd.conf changes:
+	service httpd restart

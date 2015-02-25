@@ -1,0 +1,59 @@
+Partition, format, and mount filesystems
+
+Add a third virtual hard drive to the machine:
+	Shutdown the server
+	Enter the VMWare Server Console as the VM Creator account
+	Right Click the VM > Settings
+	On bottom left, click Add
+	Enter configuration wizard
+	Select Hard Disk
+	Select SCSI
+	Determine size (4 GB, 4096 MB)
+	Do not select pre-allocation
+	Do not select to split into multiple files
+
+Boot the machine
+
+Verify the new hard disk exists in the system:
+	fdisk -l
+
+Partition the new hard disk into equal halves:
+	fdisk /dev/sdc
+	Select n
+	Select p
+	Select 1
+	Select 1
+	Select half of the number printed or a value in Megabytes:
+		2048M
+	Select n
+	Select p
+	Select 2
+	Select default
+	Select maximum value printed
+	
+	Select w to write the partition table
+
+Format the partitions:
+	First partition will be formatted to XFS:
+	Download XFS:
+		yum install binutils -y
+		yum install xfsprogs yum-kmod kmod-xfs-xen
+
+		mkdir /xfspart
+		mkfs.xfs -l /xfspart /dev/sdc1
+
+	Second partition will be formatted to ext3:
+
+		mkdir /ext3part
+		mkfs.ext3 /ext3part /dev/sdc2
+
+Mount the partitions:
+	mount /dev/sdc1 /xfspart
+	mount /dev/sdc2 /ext3part
+
+Mount on boot by adding to fstab:
+	nano /etc/fstab
+	Add lines:
+		/dev/sdc1	/xfspart	xfs	defaults	0	0
+		/dev/sdc2	/ext3part	ext3	defaults	0	0
+

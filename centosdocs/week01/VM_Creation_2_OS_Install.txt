@@ -1,0 +1,20 @@
+OS Installation (GUI)
+
+CentOS 5.10 x86_64 iso
+Default locale and keyboard (US English)
+Network Configuration
+	-Satic IP: 131.94.134.13
+	-Netmask: 255.255.255.224
+	-Gateway: 131.94.134.1
+	-Primary DNS: 131.94.134.129
+	-Secondary DNS: 131.94.134.130
+	-Hostname: cts4348-node-13.cs.fiu.edu
+Desktop Environemnt: Gnome
+Root password: <redacted>
+
+
+Verify Install
+
+uname -a
+
+Linux cts4348-node-13.cs.fiu.edu 2.6.18-371.e15 #1 SMP Tue Oct 1 08:35:08 EDT 2013 x86_64 c86_64 GNU/Linux

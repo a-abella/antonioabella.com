@@ -1,0 +1,56 @@
+Export a Samaba share for workgroup
+
+Install Samba from repos:
+	yum install samba
+	yum install samba-common
+	yum install samba-client
+
+Samba services stuff
+	chkconfig smb on
+	service smb start
+
+Create samba user accounts:
+	cd /etc/samba
+	smbpasswd -a antonio
+
+Install SWAT to configure and manage samba
+	yum install samba-swat
+	chkconfig xinetd on
+
+Edit xinetd configurtion:
+	nano /etc/xinetd.d/swat
+	Set 'disable=no' (was 'disable=yes')
+	service xinetd start
+
+Open firewall port for samba
+	-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 901 -j ACCEPT
+
+Create the share directory:
+	mkdir /home/shared
+
+Set up samba share with SWAT browser configuration utility:
+	Within the server's graphical environment:
+		Open browser, navigate to http://localhost:901 (SWAT Tool).
+		Click on 'Global', change workgroup to CTS4348.
+		Click Commit Change.
+		Click on 'Shares'.
+		Type in new share 'SHARED' and then click 'Create new Share'.
+		Click on 'Shares' again.
+		Select 'SHARED' from the selection box, then 'Change Share'.
+		Set the 'path' option to '/home/shared'.
+		Set 'guest ok' to 'yes'.
+		Set 'available' to 'yes'.
+		Click on 'Commit Changes'.
+
+Verify available samba shares:
+	smbclient -L //localhost -U joe
+
+Connect to samba share as guest:
+	smbclient //localhost/SHARED -U guest
+
+SELinux confguration for home folder sharing:
+	/usr/sbin/setsebool -P samba_enable_home_dirs=1)
+
+Connect to user home share folder:
+	smbclient //localhost/antonio -U antonio
+

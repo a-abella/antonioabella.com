@@ -1,0 +1,32 @@
+Installation from tarball:
+
+As a root user in the graphical environment:
+	Open web browser
+	Navigate to latest Java JDK page on oracle.com
+	Download the tarball (.tar.gz), must accept license terms
+	Once downloaded, log out graphical environemnt
+
+
+As root in terminal:
+
+Move tarball to desired intallation directory:
+	mv jdk-<version>-linux-x64.tar.gz /path/to/directory/jdk.tar.gz
+
+Navigate to desired installation directory:
+	cd /path/to/directory
+
+Extract tarball:
+	tar zxvf jdk.tar.gz
+
+Configure PATH env variable to allow users to use java by entering following lines in /etc/profile:
+	JAVA_HOME=/path/to/installation/jdk<version>/bin
+	export JAVA_HOME PATH=$JAVA_HOME:$PATH
+
+Create simple java file to test:
+	cd ~
+	nano test.java
+	(write code, save and exit)
+	javac test.java
+	java test
+
+If properly configured and code is properly written, program should execute without errors to console

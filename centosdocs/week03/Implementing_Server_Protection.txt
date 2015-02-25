@@ -1,0 +1,53 @@
+Go to Apache dir
+
+	
+cd /var/www/html
+
+
+Create a seperate subdirectory in Apache dir
+	
+
+mkdir journals
+
+	cd journals
+
+
+Create the .htaccess file and insert contents:
+
+	
+AuthType Basic
+
+	AuthName "Restricted Files"
+
+	# (Following line optional)
+
+	AuthBasicProvider file
+
+	AuthUserFile /var/www/passwd/passwords
+
+	Require valid-user
+
+
+Go to /var/www/ and create new directory called passwd
+
+
+	cd ../../
+
+	mkdir passwd
+
+	cd passwd
+
+
+Create password for users entered in .htaccess to make new .htpasswd file, using -c to clear if needed
+
+
+	htpasswd -c .htpasswd <user>
+
+
+If there are multiple users, use command for each, but without -c
+
+
+	htpasswd .htpasswd <user2>
+
+
+Enter password twice to finish implementing password protection for user account(s).

@@ -1,0 +1,8 @@
+Week 1
+
+User Account Creation
+
+	useradd <name>
+	passwd <name>
+
+Created antonio and ricardo accounts

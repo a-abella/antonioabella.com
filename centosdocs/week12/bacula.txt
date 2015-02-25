@@ -1,0 +1,61 @@
+Install and configure bacula
+
+Ensure mysqld is running:
+	service mysqld status
+	(start if needed)
+
+Install dependencies:
+	yum install mysql-devel -y
+
+Because the EPEL repository has already been added, we can isntall Bacula from the repos:
+	yum install mysql-server -y
+	yum install bacula-storage-mysql bacula-docs -y
+	yum install bacula-director-mysql bacula-console -y
+	yum install bacula-client -y
+
+Run scripts to configure bacula:
+	/usr/libexec/bacula/grant_mysql_privileges -u root -p
+	/usr/libexec/bacula/create_mysql_database -u root -p
+	/usr/libexec/bacula/make_mysql_tables -u root -p
+	/usr/libexec/bacula/grant_bacula_privileges -u root -p
+
+Config bacula files:
+	nano:
+		Change director password, address and password on client, storage address, passwd, and console passwd:
+		/etc/bacula/bacula-dir.conf
+
+		Change passwd, bacula-mon passwd: 
+		/etc/bacula/bacula-fd.conf
+
+		Change bacula-dir passwd, change bacula-mon passwd, change Device (/xfspart/backup/):
+		/etc/bacula/bacula-sd.conf
+
+		Change address and password:
+		/etc/bacula/bconsole.conf
+
+Create backup media (in this case a fodler)
+	mkdir /xfspart/backup
+	chown bacula /xfspart/backup
+
+Set mysql password for bacula:
+	mysql -u root -p
+	<password prompt>
+	
+	>UPDATE mysql.user SET password=PASSWORD ('somepassword')
+	>WHERE user='bacula';
+	>UPDATE mysql.user SET password=PASSWORD ('somepassword') WHERE user='bacula';
+	>FLUSH PRIVILEGES;
+	>quit
+
+Start bacula services and add to startup
+
+	service bacula-dir start
+	service bacula-fd start
+	service bacula-sd start
+	chkconfig bacula-dir on
+	chkconfig bacula-fd on
+	chkconfig bacula-sd on
+
+
+
+Test Bacula by running a job from bconsole

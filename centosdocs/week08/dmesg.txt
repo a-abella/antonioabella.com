@@ -1,0 +1,8 @@
+dmesg
+
+dmesg is a command used to print messages from the kernel log. It is frequently used to debug attached devices as the kernel attempts to initialize them, and to debug startup issues. 
+
+dmesg log is stored in /var/log/dmesg
+
+A scenario where the output of the command may be essential could be when attaching a secondary storage device but not seeing it initialized in /dev. You could use the dmesg command to look for whether or not the kernel recognized the new hardware.
+

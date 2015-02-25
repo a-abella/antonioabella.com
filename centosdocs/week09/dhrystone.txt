@@ -1,0 +1,46 @@
+Install and configure Dhrystone benchmarking tool
+
+Download rpm file:
+	http://users.cis.fiu.edu/~osorioj/dhrystone-2.1-1.src.rpm
+
+Install the rpm:
+	rpm -iv dhrystone-2.1-1.src.rpm
+
+Change directory to SPECS:
+	cd /usr/src/redhat/SPECS
+
+Edit dhrystone-2.1.spec:
+	nano dhrystone-2.1.spec
+	
+	Remove line "Copyright: distributable"
+	Add line "License: GPLv2"
+
+Execute in order:
+	rpmbuild -ba dhrystone-2.1.spec
+	rpmbuild -bp dhrystone-2.1.spec
+
+Copy executeable to /var/www/cgi-bin
+	cd ../BUILD/dhry2.1
+	cp dry2 /var/www/cgi-bin/dry2
+	cp dry2-reg /var/www/cgi-bin/dry2-reg
+
+Create dhry.cgi script in /var/www/cgi-bin using given script.
+Change permissions of dhry.cgi:
+	chmod og+x dhry.cgi
+
+Create dhry.html in /var/www/html to server as frontend for cgi script:
+	nano /var/www/html/dhry.html
+	Paste given code
+	Save file and exit
+
+Enable cgi scripts in httpd.conf
+	nano /etc/httpd/conf/httpd.conf
+	Add line or remove comment: 
+		AddHandler cgi-script .cgi
+
+Restart httpd service:
+	service httpd restart
+
+
+
+Test script at cts4348-node-13.cs.fiu.edu/dhry.html

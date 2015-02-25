@@ -1,0 +1,45 @@
+Compile custom kernel
+
+Ensure gcc and g++ are isntalled on the server:
+	gcc -v
+	g++ -v
+
+If not installed, get from repos:
+	yum install gcc gcc-c++ -y
+
+Download a kernel image from Fedora's update mirror:
+	wget http://vault.centos.org/5.10/updates/SRPMS/kernel-2.6.18-371.12.1.el5.src.rpm
+
+Download build utilties:
+	yum install unifdef -y
+
+Install the kernel to /usr/src
+	rpm -Uvh kernel-2.6.18-371.12.1.el5.src.rpm
+
+Go to SPECS directory:
+	cd /usr/src/redhat/SPECS/
+	NOTE: create this directory if it does not exist
+
+Install more build utilities:
+	yum install redhat-rpm-config rpm-build -y
+
+Create symlink between kernel tree directory and /usr/src:
+	ln -s /usr/src/redhat/BUILD/kernel-2.6.18/linux-2.6.18-371.12.1.el5.x86_64  /usr/src/linux
+
+Compile the kernel:
+	make bzImage
+	make modules
+	make
+
+Install the compiled kernel and modules:
+	make moduled_install
+	make install
+
+Veryfy bootloader configuration for new kernel:
+	nano /boot/grub/menu.lst
+	default=1
+	timeout=60
+	Comment out "hiddenmenu" attribute
+
+Reboot system.
+At bootloader prompt, select the new kernel and boot.

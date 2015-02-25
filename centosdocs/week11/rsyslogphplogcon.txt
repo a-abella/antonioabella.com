@@ -1,0 +1,90 @@
+Install and configure rsyslog and phplogcon/Adiscon LogAnalyzer
+
+Install build dependencies:
+	yum install php php-mysql mysql-server -y
+
+Disable stock syslogd:
+	service syslog stop
+	chkconfig syslog off
+
+Download rsyslog to desired directory and extract:
+	cd path/to/dir
+	wget http://download.rsyslog.com/rsyslog/rsyslog-3.21.1.tar.gz
+	tar zxf rsyslog-3.21.1.tar.gz
+	cd rsyslog-3.21.1
+
+Configure and build
+	./configure --enable-mysql
+	make
+	make install
+
+Create database and user:
+	mysql -u root -p < /usr/share/doc/rsyslog-mysql-3.21.1/createDB.sql
+	<enter password at prompt>
+
+	mysql -u root -p
+	<enter password at prompt>
+	
+	>GRANT ALL ON Syslog.* TO 'rsyslog'@'localhost' IDENTIFIED BY 'rsyslogthirteen';
+	>FLUSH PRIVILEGES;
+	>exit
+	
+Configue rsyslogd for use with mysql:
+	nano /etc/rsyslogd.conf
+	Add lines:
+		$ModLoad ommysql
+		*.*	:ommysql:127.0.0.1,Syslog,rsyslog,rsyslogthirteen
+
+Start rsyslog service:
+	service rsyslog start
+	chkconfig rsyslog on
+
+
+
+Download and install Adiscon LogAnalyzer (previously known as phplogcon)
+
+	wget http://download.adiscon.com/loganalyzer/loganalyzer-3.6.5.tar.gz
+	tar xzf loganalyzer-3.6.5.tar.gz
+
+Copy loganalyzer-3.6.5/src to webserver root:
+	cp loganalyzer-3.6.5/src /var/www/html/loganalyzer
+
+Create configuration document and rant owenership/permissions:
+	cd /var/www/html/loganalyzer
+	touch config.php
+	chown apache:apache config.php
+	chmod 777 config.php
+
+Navigate to browser installation via:
+	cts4348-node-13.cs.fiu.edu/loganalyzer/install.php
+	Follow on-screen instructions
+	Step 3 - Enter mysql configuration and credentials when requested:
+		Database Host: localhost
+		Database Port: <default value is fine>
+		Database Name: Syslog
+		Table prefix: logcon_
+		Database USer: rsyslog
+		Database Password: rsyslogthirteen
+	Step 6 - Continue through installation until main user account creation:
+		Username: admin
+		Password: cavitymentortrack
+	Step 7 - Continue to enter database credentials again:
+		Database Host: localhost
+		Database Name: Syslog
+		Database TableName: SystemEvents
+		Database User:	rsyslog
+		Database Password: rsyslogthirteen
+	Continue through steps until done.
+
+First login:
+	Username: admin
+	Password: cavitymentortrack
+
+
+You should now be logged in. Table may be empty if no messages were porinted during the installation process.
+
+You can send a test logger message and refresh the LogAnalyzer to see if it's working:
+	logger This is a test message
+
+Refresh the LogAnalyzer page to verify
+
