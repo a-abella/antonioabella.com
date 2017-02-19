@@ -1,0 +1,58 @@
+Mac OS X 10.11 Client
+---------------------------
+VMWare Workstation 12 Guest
+Host: Windows 10
+
+Hardware:
+---------
+2 CPU
+2GB RAM
+LAN Segment network
+
+
+
+Install/Set Up Operating System
+    -Follow on-screen prompts
+    -When setting up networking, use DHCP. Leave "search domains" blank
+    -Follow more prompts
+
+Verify DHCP/DNS has been recieved
+    -Press Super+Space to open Spotlight
+    -Search "terminal" and hit enter
+    -`ifconfig` -> should have a v4 address from DHCP lease pool
+    -`cat /etc/resolv.conf` -> should have DHCP advertised DNS servers
+
+Configure time server
+    -Click System Preferences
+    -Click Date & Time
+    -Click padlock on lower left and authenticate with user account info
+    -Ensure "Set date and time automatically" is checked
+    -Type in DC ip address in dropdown menu to the right
+    -Click padlock to lock settings
+    -Exit
+
+Bind to AD Domain
+    -Click System Preferences
+    -Click Users & Groups
+    -Click padlock on lower left, authenticate with local credentials
+    -Click "Login Options", also on lower left
+    -Click "Join" button on bottom right
+    -Enter DC server IP in dialogue box
+    -Enter AD Admin username
+    -Enter AD Admin password
+    -Domain has been joined. Click padock to lock settings
+
+Verify Domain user logins
+    -Log out
+    -Select Other... at login screen
+    -Enter domain+user under name in the format "DOMAIN\username" eg: TESTENV\Administrator
+    -Enter domain user password
+    -Login
+    -Access network shares for good measure
+    -Open Finder
+    -On left hadn column, find "Shared" section
+    -Click DC name (testserv)
+    -View Shares
+
+
+

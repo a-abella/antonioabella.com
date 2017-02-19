@@ -1,0 +1,55 @@
+Server 2012 Exchange
+---------------------------
+VMWare Workstation 12 Guest
+Host: Windows 10
+
+Hardware:
+---------
+2 CPU
+2GB RAM
+LAN Segment network
+
+
+
+Server 2012 R2 installation
+    -Boot from iso
+    -If you can't do this part you may want to consider becoming a florist
+
+Change server name
+    -Open Server Manager
+    -Click "Local Server" left panel
+    -Click Computer Name
+    -Click Change
+    -Change name
+    -OK
+    -Reboot
+
+Set static IP
+    -Super+S to search
+    -Search "network connections"
+    -Right click the relevant connection
+    -Properties
+    -Select IPv4
+    -Properties
+    -Use the following IP address:
+        IP Address: 10.1.10.3            //make sure this static address has a DNS record on TESTSERV
+        Subnet mask: 255.0.0.0
+        Def Gateway: 
+    -Use the following DNS server addresses
+        Preferred: 10.1.10.2             //testserv.testenv.com
+        Alternate: 10.1.10.1
+    -OK
+    -OK
+
+Add to AD Domain
+    -Open Server Manager
+    -Left panel, Local Server
+    -Click WORKGROUP
+    -Click Change
+    -Bottom, switch radio button to Domain
+    -Enter domain name: testenv.com
+    -Authenticate with domain admin credentials
+    -Reboot
+
+Verify AD has been joined
+    -Login with AD user with format "\\domain\user"

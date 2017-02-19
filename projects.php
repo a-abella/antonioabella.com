@@ -27,7 +27,7 @@
             </a>
 
             <div class="divider"></div>
-            <a href="projects" class="brownfont">
+            <a href="projects" class="brownfont" id="navselected">
                 <div class="navbutton">PROJECTS</div>
             </a>
 
@@ -42,7 +42,7 @@
             </a>
 
             <div class="divider"></div>
-            <a href="contact" class="brownfont" id="navselected">
+            <a href="contact" class="brownfont">
                 <div class="navbutton">CONTACT</div>
             </a>
         </div>
@@ -54,15 +54,26 @@
     <br/>
 
     <div align="center">
-        <div style="padding: 2rem;">
-        <div style="font-weight: bold; font-size: 3rem; margin-bottom: 0.5rem;">SEE SOMETHING YOU LIKE?</div>
-        <div style="font-weight: 200; font-size: 2rem; font-style: italic; color: #b5b8cc; margin-bottom: 0.75rem;">REALIZE THE MISTAKE YOU'D BE MAKING BY NOT HIRING ME?</div>
-        <div style="font-weight: 600; font-size: 2rem; margin-bottom: 2rem;">Or maybe you just have a question or two.</div>
-        <div style="font-weight: 800; font-size: 4.5rem; margin-bottom: 1.5rem; font-style: italic;">email me!</div>
-        <div style="font-weight: 200; text-decoration: underline; font-size: 6rem; margin-bottom: 4rem"><a href="mailto:me@antonioabella.com" style="color: #3c3c3c">me@antonioabella.com</a></div>
-        <div style="font-weight: 200; font-size: 1.5rem; font-style: italic; color: #b5b8cc; margin-bottom: 10rem;">(or, if you'd rather call, my number is available in the downloadable copies of my resume)</div>
-        </div>
 
+        <div class="mainhead">
+            <!--<h1 style="font-family: Montserrat; font-weight: 400">what I do for fun</h1>-->
+            <h1 style="font-family: Montserrat; font-weight: 400">&gt;cat .bash_history</h1>
+        </div>
+        <div class="main">
+            <br/>
+            <?php
+                $projects = preg_grep('/^([^.])/', scandir('proj', 1));
+                foreach($projects as $p){
+                    echo file_get_contents("proj/$p");
+                    echo '<hr style="margin-bottom: 3.33rem;"></hr>';
+                }
+
+            ?>
+            <br/>
+            <br/>
+            <br/>
+
+        </div>
         <div style="background: #27313e; color: #242a31; width:100%; position:absolute; bottom:0; left:0; padding-top: 10px; padding-bottom: 10px; font-size: 10pt;">
 
             <a href="https://www.linkedin.com/in/antonio-abella-932908113" target="_blank" class="tanfont">LINKEDIN</a>

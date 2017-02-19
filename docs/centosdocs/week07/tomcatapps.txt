@@ -10,7 +10,7 @@ Edit tomcat-users.xml to give users access to applications:
 		<role rolename="manager-status"/>
 		<role rolename="admin-gui"/>
 		<role rolename="admin-script"/>
-		<user username="root" password="bendog2seven" roles="manager-gui,manager-script,manager-jmx,manager-status,admin-gui,admin-script"/>
+		<user username="root" password="<redacted>" roles="manager-gui,manager-script,manager-jmx,manager-status,admin-gui,admin-script"/>
 
 Save and restart Tomcat server:
 	/opt/tomcat/bin/shutdown.sh

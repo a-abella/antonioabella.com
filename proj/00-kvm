@@ -1,0 +1,18 @@
+<div class="project" id="kvm">
+    <h2 style="font-weight: 700">Linux KVM hypervisor with KVM/Qemu Windows instance using IOMMU</h2>
+
+    <p>A typical workstation machine running Arch Linux as the host alongside a Windows VM via KVM/Qemu. IOMMU
+        (Input/Output Memory Management Unit) allows certain hypervisors to take control of assigned hardware
+        devices including PCI controllers. In this application I pass a discrete GPU to the Windows VM which
+        allows up to 95% of the native graphical performance within the VM enabling certain GPU intensive tasks
+        such as gaming, video rendering, and hardware accelerated decode of very high resolution video. The two
+        machines run concurrently with each GPU connected to its own monitor.
+
+    <div class="projdocs">
+        <a href="" class="projlink">KVM/Qemu Configurations</a>
+        <br/>
+        <a href="" class="projlink">Scripts and additional configurations</a>
+        <br/>
+        <a href="" class="projlink">Extended explanations and instructions</a>
+    </div>
+</div>

@@ -4,8 +4,8 @@ body, html {
     font-family: 'Open Sans';
     font-size: 12pt;
     font-weight: 400;
-    color: #3b3a32;
-    background-color: #EEECDB;
+    color: #3c3c3c;
+    background-color: #fff;
 	height: 100%;
 	width: 100%;
 }
@@ -28,8 +28,12 @@ span {
     background: #3b3a32;
 }
 
+code {
+    background: #f1f1f1;
+}
+
 .line {
-    background: #b9b69b;
+    background: #bdbdbd;
     width: 100%;
     height: 7px;
 }
@@ -38,7 +42,7 @@ span {
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
-    background: #D8DECC;
+    background: #f1f1f1;
     width: 670px;
     height: auto;
     font-size: 11.5pt;
@@ -51,7 +55,7 @@ span {
     padding-right: 20px;
     padding-top: 10px;
     padding-bottom: 25px;
-    background: #D8DECC;
+    background: #f1f1f1;
     width: 670px;
     height: 10px;
     font-size: 10pt;
@@ -84,28 +88,27 @@ span {
     padding-bottom: 5px;
     width: 100px;
     height: 30px;
-    background: #b9b69b;
+    background: #bdbdbd;
     text-align: center;
     font-size: 11pt;
     display: inline-block;
     font-weight: 700;
-    color: #3b3a32;
+    color: #4a4a4a;
 	/*position: relative;*/
 }
 
 .navbutton:hover {
     /*position: relative;*/
-    background: #D8DECC;
-    color: #3b3a32;
+    background: #f1f1f1;
 	height: 30px;
 }
 
 #navselected div {
     /*position: absolute;*/
-    background: #EEECDB;
-    color: #3b3a32;
-    box-shadow: 0px -5px 5px -0.7px #050504;
-	-webkit-box-shadow: 0px -5px 5px #191a16;
+    background: #fff;
+    color: #4a4a4a;
+    box-shadow: 0px -5px 5px -0.7px #242a31;
+	-webkit-box-shadow: 0px -5px 5px #242a31;
 	height: 30px;
 }
 
@@ -120,6 +123,15 @@ span {
     width: 32px;
     height: auto;
     display: inline-block;
+}
+
+.project {
+    margin: 0 0 3.33rem 0;
+}
+
+.project > .projdocs {
+    margin-left: 40px;
+    margin-top: 2.33rem;
 }
 
 .bottomdivider {
@@ -141,26 +153,35 @@ a {
 }
 
 a.brownfont {
-    color: #3b3a32;
+    color: #3c3c3c;
 }
 
 a.brownfont:hover {
-    color: #3b3a32;
+    color: #3c3c3c;
 }
 
 a.brownfont:visited {
-    color: #3b3a32;
+    color: #3c3c3c;
+}
+
+a.projlink {
+    color: #4d8bdc;
+}
+
+
+
+a.projlink:hover {
+    text-decoration: underline;
 }
 
 a.tanfont {
-    color: #C7C4A9;
+    color: #cee0e6;
 }
 
 a.tanfont:hover {
-    color: #C7C4A9;
     text-decoration: underline;
 }
 
 a.tanfont:visited {
-    color: #C7C4A9;
+    color: #dae0e6;
 }

@@ -1,0 +1,33 @@
+Windows 7 Professional Client
+---------------------------
+VMWare Workstation 12 Guest
+Host: Windows 10
+
+Hardware:
+---------
+2 CPU
+2GB RAM
+LAN Segment network
+
+
+Install Windows 7
+    -Select a drive and do literally nothing
+
+Verify DHCP and DNS
+    -Open CMD window
+    -`ip config`
+    -Should have an IP and nameservers from DHCP
+
+Join AD Domain
+    -Open Start Menu
+    -Right Click "Computer" and click Properties
+    -Under "Computer name, domain, and workgroup settings" click "Change settings"
+    -Click "Change" button
+    -Bottom, switch radio button to Domain
+    -Enter domain name: testenv.com
+    -Authenticate with domain admin credentials
+    -Reboot
+
+Verify AD has been joined
+    -Login with AD user with format "\\domain\user"
+

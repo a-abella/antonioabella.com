@@ -1,0 +1,9 @@
+<div class="project" id="antonioabellacom">
+    <h2 style="font-weight: 700">antonioabella.com</h2>
+
+    <p>This site, hosted on a Digital Ocean Ubuntu LTS (14.04) VPS serving virtualhost pages with nginx and php-fpm. Created so I can hand out a website name and craftily appear to be a professional.
+
+    <div class="projdocs">
+        <a href="https://github.com/a-abella/antonioabella.com" target="_blank" class="projlink">Page sources, configs, and changelogs</a>
+    </div>
+</div>

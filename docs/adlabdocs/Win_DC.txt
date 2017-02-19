@@ -1,0 +1,165 @@
+Server 2012 AD + DNS + DHCP + RRAS (Border Router)
+--------------------------------------------------
+VMWare Workstation 12 Guest
+Host: Windows 10
+
+Hardware:
+---------
+2 CPU
+2GB RAM
+2 network interfaces
+    -1 NAT interface
+    -1 LAN Segment
+
+
+Server 2012 R2 installation
+    -Boot from iso
+    -If you can't do this part you may want to consider becoming a florist
+
+Change server name
+    -Open Server Manager
+    -Click "Local Server" left panel
+    -Click Computer Name
+    -Click Change
+    -Change name
+    -OK
+    -Reboot
+
+Adding server roles
+    -Open Server Manager
+    -Click "Manage" top right
+    -Add Roles/Features
+
+    ROLES ADDED:
+        -Active Directory Domain Servives
+        -DHCP
+        -DNS
+            -DHCP and DNS will throw a warning if a static IP is not configured, can configure later
+
+    -Proceed through installation wizard
+    -Reboot if required
+
+Create AD Domain
+    -Open Server Manager
+    -Click Alert flag
+    -Click AD Configuration alert
+    -Select "Create new forest" third radio button
+    -Create a domain name, must be FQDN eg: example.tld
+    -Create NetBIOS name, typically domain in caps eg: EXAMPLE
+    -Complete
+    -Reboot if prompted
+
+
+Set static IP
+    -Super+S to search
+    -Search "network connections"
+    -Right click the relevant connection
+    -Properties
+    -Select IPv4
+    -Properties
+    -Use the following IP address:
+        IP Address: 10.1.10.2
+        Subnet mask: 255.0.0.0
+        Def Gateway: 10.1.10.1
+    -Use the following DNS server addresses
+        Preferred: 10.1.10.2 //self-reference, we will set up DNS later
+        Alternate: 10.1.10.1
+    -OK
+    -OK
+
+Configure DHCP service
+    -----IMPORTANT-----
+    --Make sure no other devices (routers) are serving DHCP addresses
+    -------------------
+    -Open Server Manager
+    -Click Tools, top right
+    -DHCP Management Console
+    -Left panel, testserv.testenv.com
+    -Right Click IPv4
+    -New Scope
+    -Enter a scope name
+    -Enter the desired address range to lease
+    -Enter reserved address space to not lease if it falls within the lease range, or skip if not a problem
+    -Apply and exit
+    -DHCP service will now lease v4 addreses from the scope to devices added to the domain
+    -Advertise DNS via DHCP
+    -Left panel, right click Server Options
+    -Configure Options
+    -Check Name Servers
+    -On bottom, add name server IPs (10.1.10.2, 8.8.8.8 for internet)
+    -Apply
+
+Add A Records to DNS Server
+    -Open Server Manager
+    -Click Tools
+    -DNS
+    -DNS Management Console
+    -Left panel, click Forward Lookup Zones
+    -Right click domain (testenv.com)
+    -New Host (A or AAAA)
+    -Add name and IP of new record
+    -Click Add Host
+    -Open cmd/powershell and ping the hostname, should convert to IP
+
+Create Domain Users
+    -Open Server Manager
+    -Tools > Active Directory Users and Computers
+    -Left panel, open server (testenv.com)
+    -Right Click "Users"
+    -New > User
+    -Fill form info: FN, LN, Username
+    -Next
+    -Assign a password, consider requiring a password reset on first login (first checkbox)
+    -Next
+    -Finish
+
+Add new user to Domain Admin group
+    -Open Server Manager
+    -Tools > Active Directory Users and Computers
+    -Left panel, open server (testenv.com)
+    -Click Users
+    -Find "Domain Admins" group
+    -Double Click
+    -Add...
+    -Type in an existing username or part of an existing username, click Check Names
+    -OK
+    -Apply
+
+Create new group "test group"
+    -Open Server Manager
+    -Tools > Active Directory Users and Computers
+    -Left panel, open server (testenv.com)
+    -Right Click "Users"
+    -New > Group
+    -Assign a name
+    -Assign a group type   //security groups are what allow you to assign permissions, what you will do 99.999% of time
+    -OK
+    -((add test user to test group))
+
+Create Group Policy
+    -Open Server Manager
+    -Tools > Group Policy Management
+    -Forest > Server > Right Click > New Organizational Unit
+    -Name it (test_OU)
+    -Right Click Group Policy Object
+    -Name it (test_GPO_1)
+    -Right click the new Group Policy Object > Edit
+    -You are now in the Group Policy Management Editor. May God have mercy on your soul.
+    -Find whatever you want to add/remove/restrict in the administrative templates, double click it
+    -Click Enable
+    -Apply
+    -OK
+
+Creating Network Shares and Securing by Group
+    -Create a new folder to share
+    -Right Click it, Properties
+    -Sharing tab
+    -Share...
+    -Add groups to share with
+    -Security tab
+    -Edit
+    -Add Groups to assign permissions to them
+    -Allow/deny as needed
+    -Test with users in respective groups by accessing shares at \\[SERVER]\[PATH]
+
+

@@ -1,0 +1,13 @@
+<div class="project" id="cvguild">
+    <h2 style="font-weight: 700">Desktop and mobile sites, form in PHP and JQuery, VOIP services</h2>
+
+    <p>A landing portal and application form for a World of Warcraft raiding guild, server as a virtual host on this same server. Implements php-fpm for form manipulation and jQuery 1.11.2 via Google CDN. The desktop landing page uses a parallax effect design created in pure CSS. The mobile site is responsively designed for any resolution by leveraging the CSS3 viewport-height attribute. This server also hosts a Mumble VOIP server implementing SSL certificate validation for registered and elevated users.
+
+    <div class="projdocs">
+        <a href="http://www.cv-guild.com" target="_blank" class="projlink">Desktop landing page</a><br />
+        <a href="http://m.cv-guild.com" target="_blank" class="projlink">Mobile landing page</a><br />
+        <a href="http://www.cv-guild.com/app.php" target="_blank" class="projlink">PHP application form</a><br />
+        <a href="https://github.com/a-abella/convictionguild" target="_blank" class="projlink">Desktop site page sources and configs</a><br>
+        <a href="https://github.com/a-abella/convictionmobile" target="_blank" class="projlink">Mobile site page sources and configs</a><br>
+    </div>
+</div>

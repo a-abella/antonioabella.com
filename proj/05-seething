@@ -1,0 +1,9 @@
+<div class="project" id="seething">
+    <h2 style="font-weight: 700">Seething Corruption Trainer</h2>
+
+    <p>A simple Python script to help memorize the Seething Corruption positioning call-outs on World of Warcraft's Mythic Archimonde enounter. Written because I'm bad at getting over failure. Pretty much useless to anyone but myself.
+
+    <div class="projdocs">
+        <a href="https://github.com/a-abella/seething-corruption-trainer" target="_blank" class="projlink">Source and sample gif</a>
+    </div>
+</div>

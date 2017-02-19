@@ -1,0 +1,9 @@
+<div class="project" id="macscanner">
+    <h2 style="font-weight: 700">Compiling MAC address data for WakeOnLan</h2>
+
+    <p>Developed in conjunction with my <a class="projlink" href="#psnettools">Wake-Send.ps1 PowerShell script</a>, I needed a reliable and up-to-date source of device MAC addresses on the network so I could construct a <a class="projlink" href="https://en.wikipedia.org/wiki/Wake-on-LAN#Magic_packet" target="_blank">magic packet</a> containing a target PC's MAC address data. Enter macscanner.sh. Parses <code>nmap</code> output, self-cleans repeat entries, is multi-hostname-aware, and requires no maintenance or afterthought. Runs on any Linux server you have lying around that's online on your target network. I run it on a 30 minute cron, and <code>scp</code> it to a network location where Wake-Send.ps1 can access it.
+
+    <div class="projdocs">
+        <a href="https://github.com/a-abella/macscanner.sh" target="_blank" class="projlink">macscanner.sh source and documentation</a>
+    </div>
+</div>

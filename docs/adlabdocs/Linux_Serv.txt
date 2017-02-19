@@ -1,0 +1,104 @@
+CentOS 7 apache and friends
+---------------------------
+VMWare Workstation 12 Guest
+Host: Windows 10
+
+Hardware:
+---------
+1 CPU
+1GB RAM
+LAN Segment network
+
+
+
+CentOS 7 installation
+    -Boot from iso
+    -Boot into LiveCD environment
+    -Execute installation script
+    -Follow on screen prompts to set up root and user accounts
+    -Reboot once installation completes
+    -Accept license agreement
+
+Assign static IP and DNS servers
+    -Open terminal
+    -`sudo vim /etc/sysconfig/network-scripts/ifcfg-eno16777736`
+    -edit DNS1 to 10.1.10.2
+    -edit DNS2 to 8.8.8.8
+    -edit IPADDR to 10.1.10.4               //make sure this static address has an A record on testserv
+    -edit PREFIX to 8
+    -escape key
+    -`:wq`
+    ///NOTE///
+    -At the moment, Linux will only resolve hostnames using FQDNs. probably an AD/Samba issue
+    -Windows hosts will also be unable to ping Linux hosts without FQDN
+    -DHCP should advertise DNS servers once AD is set up, can turn off static servers later
+    //////////
+
+Configure ntpd to poll time from DC
+    -`sudo vim /etc/ntp.conf`
+    -Find "server" line
+    -Alter first server to 10.1.10.2
+    -Comment out remaining lines
+    -`:wq`
+    -Disable vmware-tools timesync if needed
+
+Install Samba and configure
+    -`sudo yum -y install samba krb5 realmd samba-common oddjob oddjob-mkhomedir sssd`
+    -join domain with `realm`
+    -`realm join --user=Administrator@testenv.com testenv.com`
+    -verify domain and authentication type
+    -`realm list`
+    -set up Samba
+    -`sudo vim /etc/samba/smb.conf`
+    -set workgroup to TESTENVCOM
+    -set host IPs to allow 127. and 10.
+    -set security options
+        -security = ads
+        -encrypt passwords = yes
+        -passdb backend = tdbsam
+        -realm = TESTENV.COM
+    -set a folder to share from server (if desired)
+        -[sharename]
+        -path = /path/to/share
+        -public = yes/no
+        -writable = yes/no
+        -guest ok = yes/no
+        -valid users = @"Employees@testenv.com"    //the @ means that we are using AD group instead of users
+    -`:wq`
+    -Assign permissions to the network share folder
+    -`mkdir /path/to/share`
+    -`chown root:Employees@testenv.com /path/to/share`
+    -`chmod 775 /path/to/share`
+    -enable the share in SELinux
+    -`chcon -t samba_share_t /path/to/share`
+    -open samba ports in firewall
+    -`firewall-cmd --permanent --add-service=samba`
+    -`firewall-cmd --reload`
+    -set service to startup
+    -`systemctl enable smb`
+    -start service
+    -`systemctl start smb`
+    -VERIFY AUTHENTICATION BY LOGGING IN AS AD USER
+    -Log out
+    -Switch user
+    -Username: \\testenv\Administrator
+    -Password: enter password
+    -Log in
+    -???
+    -Profit
+    -Open terminal
+    -`whoami` -> "Administrator@testenv.com"@apache
+    -Access Windows network share
+    -Open File Manager
+    -Connect to a Network
+    -smb://testserv.testenv.com
+    -Administrator
+    -testenv
+    -Password
+    -Access shares
+
+    //
+    // DNS should work without FQDNs now
+    // DHCP is getting proper DNS servers too, turn off static DNS servers
+    //
+

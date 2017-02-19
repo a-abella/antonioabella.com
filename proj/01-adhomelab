@@ -1,0 +1,9 @@
+<div class="project" id="adhomelab">
+    <h2 style="font-weight: 700">Windows AD/Exchange virtual lab</h2>
+
+    <p>A virtual network hosted on VMWare Workstation 11 consisting of two Windows Server 2012 R2 servers, one CentOS 7 server, one Windows 7 Professional client, one Mac OS X 10.11 client, and one CentOS 7 client. One Server 2012 instance runs Active Directory, DNS, DHCP, and Routing and Remote Access to serve as a border router granting the virtual network internet connectivity. The second Server 2012 instance runs Exchange and IIS. The Linux server runs Apache and other miscellaneous services. The Linux machines authenticate to Active Directory with Samba/Kerberos, and the OS X client binds to AD with the in-built OS X OpenDirectory utilities.
+
+    <div class="projdocs">
+        <a href="docs/adlabdocs/adlabindex.html" target="_blank" class="projlink">Configs and documentation</a>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="project" id="fiuserver">
+    <h2 style="font-weight: 700">CentOS 5.11 multi-role term project</h2>
+
+    <p>A CentOS 5.11 server with SaltStack configuration management, several web services,
+    Asterisk PBX, instant messaging server, extended logging services, backup management, network printing services, and more.
+    Ran as a guest within a VMWare ESXi 5.5 host.
+
+    <div class="projdocs">
+        <a href="https://github.com/a-abella/centos-server" target="_blank" class="projlink">Configs, binaries, and served web pages</a><br />
+        <a href="docs/centosdocs/howtopage.html" target="_blank" class="projlink">All documentation as plaintext</a>
+    </div>
+</div>
