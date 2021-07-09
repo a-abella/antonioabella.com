@@ -1,0 +1,11 @@
+<div class="project" id="adaccounttool">
+    <h2 style="font-weight: 700">Bulk AD account management with Exchange support</h2>
+
+    <p>My first systems administration position was in a call center, and among my responsibilities was Active Directory administration. Due to the nature of the call center business, customer service representative turnover rates were high enough that user account administration was a hassle. Especially in the holiday seasons, we would frequently receive lists of new hires and terminations <b>60+</b> users long. Prior to my scripted solution, the established method of administering user accounts was to manually create or delete them one-by-one in the AD Users & Groups GUI. Needless to say, as the new-hires and terminations lists grew longer, I grew more and more impatient.<br/><br/>
+
+    My objective was to make the least annoying user management script I could. No pre-formatted CSV files needed, or anything or the sort. Just select an OU from a graphical dialog, paste in whole lists of proper names (with some minor formatting caveats), follow the prompts. Easy, annoyance-free, and greatly enhanced ticket turnaround time. There's still quite a few more features worth adding, but even now it's one of the more valuable tools I've created for myself.
+
+    <div class="projdocs">
+        <a href="https://github.com/a-abella/usermanagement.ps1" target="_blank" class="projlink">usermanagement.ps1 - AD and Exchange account management</a><br />
+    </div>
+</div>

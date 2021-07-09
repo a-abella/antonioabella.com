@@ -1,0 +1,9 @@
+<div class="project" id="locateusers">
+    <h2 style="font-weight: 700">Locate users on the network</h2>
+
+    <p>No matter how many times it has been brought up, a large percentage of ticket submissions would come in with no identifying information on the affected workstation. Growing frustrated, I took matters into my own hands. I wrote a set of functions to search the organization's file servers for connected users and their respective connected IPs. Since every user accesses at least one file share, this was a fairly reliable method of discovery. And since it didn't rely on querying neighboring workstations, it was significantly faster than methods like PSTools' <code>PSLoggedOn.exe</code>.
+
+    <div class="projdocs">
+        <a href="https://github.com/a-abella/locateUser" target="_blank" class="projlink">locateUser.ps1 - Quickly find where a user is logged in.</a><br />
+    </div>
+</div>

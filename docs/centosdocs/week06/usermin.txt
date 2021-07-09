@@ -1,7 +1,7 @@
 Installation
 
 Download rpm
-	wget http://downloads.sourceforge.net/webadmin/usermin-1.520-1.noarch.rpm
+	wget https://downloads.sourceforge.net/webadmin/usermin-1.520-1.noarch.rpm
 
 Install downloaded rpm
 	rpm -U usermin-1.520-1.noarch.rpm

@@ -9,11 +9,11 @@ Install build utilities:
 Download asterisk source tarballs, module tarballs,a nd compenent tarballs. Extract them
 	mkdir -p /usr/src/asterisk
 	cd /usr/src/asterisk
-	wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-1.6.1-current.tar.gz
-	wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-addons-1.6.1-current.tar.gz
-	wget http://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linux-complete-current.tar.gz
-	wget http://soft-switch.org/downloads/spandsp/spandsp-0.0.6pre18.tgz (or most current version)
-	wget http://downloads.digium.com/pub/libpri/libpri-1.4-current.tar.gz
+	wget https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-1.6.1-current.tar.gz
+	wget https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-addons-1.6.1-current.tar.gz
+	wget https://downloads.asterisk.org/pub/telephony/dahdi-linux-complete/dahdi-linux-complete-current.tar.gz
+	wget https://soft-switch.org/downloads/spandsp/spandsp-0.0.6pre18.tgz (or most current version)
+	wget https://downloads.digium.com/pub/libpri/libpri-1.4-current.tar.gz
 	tar -zxf dahdi-linux-complete-current.tar.gz
 	tar -zxf asterisk-1.6.1-current.tar.gz
 	tar -zxf spandsp-0.0.6pre18.tgz

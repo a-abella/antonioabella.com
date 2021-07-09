@@ -5,7 +5,7 @@ We will be building from source, so isntall the C compiler, build tools, and dep
 	yum install makeyum install pam-develyum install openssl-develyum install vnc-server -y
 
 Download and build the package:
-	wget http://ncu.dl.sourceforge.net/sourceforge/xrdp/xrdp-0.4.1.tar.gz
+	wget https://ncu.dl.sourceforge.net/sourceforge/xrdp/xrdp-0.4.1.tar.gz
 	tar -zxvf xrdp-0.4.1.tar.gz
 	cd xrdp-0.4.1
 	make

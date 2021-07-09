@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Antonio Abella - IT Professional and your new best candidate</title>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400|Montserrat:400,700'
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,700,300,600,800,400|Montserrat:400,700'
           rel='stylesheet' type='text/css'/>
     <link rel="stylesheet" type="text/css" href="styles/antonioabella.css"/>
     <link rel="icon" href="favicon.png" sizes="16x16 32x32" type="image/png">

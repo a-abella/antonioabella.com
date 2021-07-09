@@ -1,6 +1,7 @@
 personalsite
 ============
 
-A personal website written in simple HTML and CSS (and a pinch of PHP) to host a bio, a resume, project portfolio, and contact info.
+A personal website written in simple HTML and CSS to host a bio, a resume, docs, and contact info.
 
-It's a small website. What more do you need from me? Colors inspired by the [Nord Atom UI](https://atom.io/themes/nord-atom-ui) color scheme. Typefaces by Google Fonts using Open Sans and Montserrat.
+
+It's a website, and probably made using terrible practices. What more do you need from me? Colors inspired by the Monokai text editor theme. Typefaces by Google Fonts using Open Sans and Montserrat. I should probably learn javascript and use it for something.

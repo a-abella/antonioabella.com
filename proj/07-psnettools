@@ -1,7 +1,7 @@
 <div class="project" id="psnettools">
-    <h2 style="font-weight: 700">Network monitoring & WakeOnLan with AD integration</h2>
+    <h2 style="font-weight: 700">Network querying & WakeOnLan with AD integration</h2>
 
-    <p>When working on desktop inventory, provisioning, or deployment projects I would frequently need to monitor and maintain the online status of a subset of PCs within the organization. For example, when taking software inventory of only a single OU worth of PCs, I would first need to determine the sleep/wake status of all the PCs in the OU, wake the ones that are unresponsive, and keep them awake until the task has been completed. The company I worked at when I wrote these tools had a very "boot-on-ground" approach to this problem (i.e., walk to the computers and slap the spacebars), which I found less than efficient. I wrote these tools to solve that.
+    <p>When working on desktop inventory, provisioning, or deployment projects I would frequently need to monitor and maintain the online status of a subset of PCs within the organization. For example, when taking software inventory of only a single OU worth of PCs, I would first need to determine the sleep/wake status of all the PCs in the OU, wake the ones that are unresponsive, and keep them awake until the task has been completed. The company I worked at when I wrote these tools had a very "boots-on-ground" approach to this problem (i.e., walk to the computers and slap the spacebars), which I found less than efficient. I wrote these tools to solve that.
 
     <div class="projdocs">
         <a href="https://github.com/a-abella/Wake-Send.ps1" target="_blank" class="projlink">Wake-Send.ps1 - WakeOnLan packet constructor with AD integration</a><br />

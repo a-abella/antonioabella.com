@@ -1,0 +1,11 @@
+<div class="project" id="statefulreboots">
+    <h2 style="font-weight: 700">Stateful workstation reboots</h2>
+
+    <p>For some unknown reason, our standard nightly workstation reboot GPO would fail to wake clients for the reboot task. Looking for alternative solutions, we decided on rebooting workstations after an explicit logout. However, disconnected sessions and the Switch User button meant that if a second user logged in and out, existing disconnected sessions would be lost on the reboot, even if that session was just one hour old while the user was out to lunch.<br><br>
+
+    By parsing <code>query user</code> output, we could reboot conditionally based on the state of active and disconnected sessions. We could even get the idle times of disconnected sessions to only reboot when we could consider it "safe." Doing this, we achieved our goal of frequent workstation reboots but without the data loss risk typically associated with such policies.
+
+    <div class="projdocs">
+        <a href="https://github.com/a-abella/stateful-station-reboot" target="_blank" class="projlink">stateful-station-reboot.ps1 - Session-aware regular workstation restarts</a><br />
+    </div>
+</div>

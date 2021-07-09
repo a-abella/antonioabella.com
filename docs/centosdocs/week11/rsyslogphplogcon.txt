@@ -9,7 +9,7 @@ Disable stock syslogd:
 
 Download rsyslog to desired directory and extract:
 	cd path/to/dir
-	wget http://download.rsyslog.com/rsyslog/rsyslog-3.21.1.tar.gz
+	wget https://download.rsyslog.com/rsyslog/rsyslog-3.21.1.tar.gz
 	tar zxf rsyslog-3.21.1.tar.gz
 	cd rsyslog-3.21.1
 
@@ -43,7 +43,7 @@ Start rsyslog service:
 
 Download and install Adiscon LogAnalyzer (previously known as phplogcon)
 
-	wget http://download.adiscon.com/loganalyzer/loganalyzer-3.6.5.tar.gz
+	wget https://download.adiscon.com/loganalyzer/loganalyzer-3.6.5.tar.gz
 	tar xzf loganalyzer-3.6.5.tar.gz
 
 Copy loganalyzer-3.6.5/src to webserver root:

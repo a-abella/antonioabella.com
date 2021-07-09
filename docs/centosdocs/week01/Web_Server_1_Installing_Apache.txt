@@ -34,4 +34,4 @@ Firewall configuration through either iptables command or iptables file:
 		service iptables restart
 
 
-Apache test page should now be accessible remotely via http://131.94.134.13
+Apache test page should now be accessible remotely via https://131.94.134.13

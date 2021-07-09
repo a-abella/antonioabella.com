@@ -1,7 +1,7 @@
 Install and configure Dhrystone benchmarking tool
 
 Download rpm file:
-	http://users.cis.fiu.edu/~osorioj/dhrystone-2.1-1.src.rpm
+	https://users.cis.fiu.edu/~osorioj/dhrystone-2.1-1.src.rpm
 
 Install the rpm:
 	rpm -iv dhrystone-2.1-1.src.rpm

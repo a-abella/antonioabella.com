@@ -1,7 +1,7 @@
 Install and configure MantisBT
 
 Install the prerequisite redhat EPEL repository:
-	rpm -Uvh http://download.fedora.redhat.com/pub/epel/5/i386/epel-release-5-4.noarch.rpm
+	rpm -Uvh https://download.fedora.redhat.com/pub/epel/5/i386/epel-release-5-4.noarch.rpm
 	yum update
 
 Install PHPMailer from the new repository:
@@ -17,7 +17,7 @@ Restart apache web server:
 
 Download and install Mantis to apache document root:
 	cd /var/www/html
-	wget http://downloads.sourceforge.net/project/mantisbt/mantis-stable/1.2.4/mantisbt-1.2.4.tar.gz
+	wget https://downloads.sourceforge.net/project/mantisbt/mantis-stable/1.2.4/mantisbt-1.2.4.tar.gz
 	tar xvzf mantisbt-1.2.4.tar.gz
 	
 Rename directory and grant owneership to apache:

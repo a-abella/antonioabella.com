@@ -6,7 +6,7 @@ Install dependencies for SSL if you have certs:
 	yum install libcurl4-openssl-dev
 
 Download and extract tarball to desired directory:
-	 wget http://www.unrealircd.com/downloads/Unreal3.2.8.1.tar.gz
+	 wget https://www.unrealircd.com/downloads/Unreal3.2.8.1.tar.gz
 	  tar zxvf Unreal3.2.8.1.tar.gz
 
 Configure, Build, and Install

@@ -2,7 +2,7 @@ Download and run Lmbench bencharking utility
 
 Download tarball to desired directory:
 	cd /path/to/dir
-	wget http://www.cs.fiu.edu/~osorioj/lmbench-3.0-a8.tgz
+	wget https://www.cs.fiu.edu/~osorioj/lmbench-3.0-a8.tgz
 
 Untar contents to desired directory:
 	tar zxvf lmbench-3.0-a8.tgz

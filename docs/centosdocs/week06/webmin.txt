@@ -1,7 +1,7 @@
 Installation
 
 Download rpm
-	wget http://downloads.sourceforge.net/webadmin/webmin-1.600-1.noarch.rpm
+	wget https://downloads.sourceforge.net/webadmin/webmin-1.600-1.noarch.rpm
 
 Install downloaded rpm
 	rpm -U webmin-1.600-1.noarch.rpm

@@ -30,7 +30,7 @@ Create the share directory:
 
 Set up samba share with SWAT browser configuration utility:
 	Within the server's graphical environment:
-		Open browser, navigate to http://localhost:901 (SWAT Tool).
+		Open browser, navigate to https://localhost:901 (SWAT Tool).
 		Click on 'Global', change workgroup to CTS4348.
 		Click Commit Change.
 		Click on 'Shares'.

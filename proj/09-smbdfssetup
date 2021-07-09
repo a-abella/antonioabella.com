@@ -1,0 +1,11 @@
+<div class="project" id="smbdfssetup">
+    <h2 style="font-weight: 700">Automated Samba share deployments for DFS</h2>
+
+    <p>At my first organization, the existing network storage solution was a single Windows Share on bare metal. The server was about five years old and supported the entire 1,200 person organization. When ransomware got popular, the lack of a proper permissions structure left it very vulnerable to attack. I was tasked with decentralizing our storage, and the solution I devised was a multi-server, department-segregated Windows Domain DFS Namespace where the shared folders were actually Linux Samba shares. Through the Samba configuration I could "invisibly" fine-tune access control. Running the shares on Linux servers also gave me access to tools like <code>inotify()</code> and <code>auditd</code> for rudimentary intrusion detection.<br /><br />
+
+    At final count, I was planning 11 separate shares on 7-8 separate CentOS 7 hosts. To facilitate the deployment process, I developed a guided interactive script to automatically manage the Samba and Winbind configurations, as well as handle LVM management and base permissions.
+
+    <div class="projdocs">
+        <a href="https://github.com/a-abella/smb-dfs-share-setup.py" target="_blank" class="projlink">smb-dfs-share-setup.py - Automated per-department Samba share configuration</a><br />
+    </div>
+</div>

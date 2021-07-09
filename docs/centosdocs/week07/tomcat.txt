@@ -4,7 +4,7 @@ Navigate to desired installation directory:
 	cd /path/to/installation
 
 Download tomcat tarball
-	wget http://mirrors.koehn.com/apache/tomcat/tomcat-<version>/<version>/bin/apache-tomcat<version>.tar.gz
+	wget https://mirrors.koehn.com/apache/tomcat/tomcat-<version>/<version>/bin/apache-tomcat<version>.tar.gz
 
 Extract tarball:
 	tar zxvf apache-tomcat<version>.tar.gz

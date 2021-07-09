@@ -4,7 +4,7 @@ Navigate to desired installation directory:
 	cd /path/to/installation
 
 Download Glassfish archive:
-	wget http://dlc.sun.com.edgesuite.net/glassfish/4.1/release/glassfish-4.1.zip
+	wget https://dlc.sun.com.edgesuite.net/glassfish/4.1/release/glassfish-4.1.zip
 
 Unpack the archive:
 	unzip glassfish-4.1.zip

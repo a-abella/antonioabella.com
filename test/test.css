@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    font-size: 16pt;
+    font-family: "Source Sans Pro";
+    font-weight: 300;
+}
+.sidebar {
+    position: fixed;
+    width: 400px;
+    height: 100%;
+    background-color: #27313e;
+    border-right: 10px solid #bababa;
+    text-align: center;
+}
+.right-content {
+    position: absolute;
+    left: 410px;
+    width: calc(100% - 410px);
+    text-align: center;
+    height: 100%;
+}
+.menubar {
+    width: calc(100vw - 420px);
+    height: 80px;
+    position: fixed;
+    background-color: white;
+    padding-top: 1%;
+
+}
+.menubar > ul {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+li.menulist {
+    display: inline-block;
+    color: #d3d3d3;
+    text-align: center;
+    width: 22.25%;
+    margin: 0.75%;
+    height: 53%;
+    background-color: white;
+    font-size: 1.8rem;
+    border-bottom: 3px solid #e4e0e0;
+    line-height: 75%;
+}
+li.menulist:hover {
+    border-color: #aaa;
+    color: #8a8a8a;
+}
+li.currentitem {
+    border-color: #364456;
+    color: #8a8a8a;
+}
+li.currentitem:hover {
+    border-color: #364456;
+    color: #8a8a8a;
+}
+.bodycontent {
+    width: 72%;
+    padding-top: 8%;
+    margin: 0 auto;
+    word-wrap: break-word;
+    text-align: left;
+    color: #393939;
+}
+.bodycontent > .bodyheader {
+    font-size: 2.25rem;
+    font-weight: 600;
+    margin-top: 6%;
+}
+.bodycontent > .bodybody {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 6%;
+    padding-bottom: 10%;
+}
+.faceimg {
+    height: 256px;
+    width: 256px;
+    background-image: url("./face.png");
+    background-repeat: no-repeat;
+    margin: 20% auto 30px auto;
+    background-size: cover;
+}
+.sidebar > h1 {
+    color: #f2f2f2;
+    font-weight: 200;
+    font-size: 3.25rem;
+    margin-bottom: 0%;
+    padding: 0
+}
+.sidebar > h2 {
+    color: #bbb;
+    font-size: 1.6rem;
+    font-weight: 200;
+    margin: 0;
+    padding: 0;
+}
+.sidebar > .sidelinks {
+    height: 40%;
+    margin: 0 auto;
+}
+.sidebar > .email {
+    color: #bbb;
+    font-size: 1.65rem;
+    font-weight: 200;
+    margin: 0 auto;
+    padding: 0;
+    border-bottom: 1px solid #bbb;
+    width: 64.5%;
+}
+.sidebar > .email > a {
+    color: #bbb;
+    text-decoration: none;
+}

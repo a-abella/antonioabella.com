@@ -8,7 +8,7 @@ If not installed, get from repos:
 	yum install gcc gcc-c++ -y
 
 Download a kernel image from Fedora's update mirror:
-	wget http://vault.centos.org/5.10/updates/SRPMS/kernel-2.6.18-371.12.1.el5.src.rpm
+	wget https://vault.centos.org/5.10/updates/SRPMS/kernel-2.6.18-371.12.1.el5.src.rpm
 
 Download build utilties:
 	yum install unifdef -y
