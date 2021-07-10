@@ -22,7 +22,7 @@
                 </div>
             </div>
             <hr style="margin: 3.5rem 0 3.15rem 0;"></hr>
-            EOD;
+EOD;
             echo "$entry";
         }
     ?>
