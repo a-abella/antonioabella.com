@@ -11,7 +11,7 @@ body {
     width: 400px;
     height: 100%;
     background-color: #27313e;
-    background-image: url(../images/texture_dark.gif);
+    background-image: url(../images/texture_dark.webp);
     border-right: 7px solid #c7c7ce;
     text-align: center;
     font-family:  "Source Sans Pro", "Corbel", "Helvetica Neue", sans-serif;
@@ -42,13 +42,12 @@ li.menulist {
     display: inline-block;
     color: #d3d3d3;
     text-align: center;
-    width: 22.25vw;
-    margin: 0 0.75vw;
-    height: 2.3rem;
+    width: 34%;
+    margin: 0 1%;
+    height: 2.2rem;
     background-color: white;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     border-bottom: 3px solid #e4e0e0;
-    line-height: 1.8rem;
 }
 li.menulist:hover {
     border-color: #aaa;
@@ -107,7 +106,7 @@ li.currentitem:hover {
 .faceimg {
     height: 245px;
     width: 245px;
-    background-image: url("/images/face_compressed.png");
+    background-image: url("/images/face_compressed.webp");
     background-repeat: no-repeat;
     margin: 20% auto 8% auto;
     background-size: cover;
