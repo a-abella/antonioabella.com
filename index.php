@@ -12,7 +12,7 @@
                 $link_section .= "<a href=\"{$link['href']}\" target=\"_blank\" class=\"projlink\">{$link['title']}</a><br />\n";
             }
             $entry = <<<EOD
-            <div class=\"project\" id=\"$proj\">
+            <div class="project" id="$proj">
                 <h2 class="projhead" style="font-weight: 700">{$proj_content['title']}</h2>
 
                 <p>{$proj_content["body"]}
