@@ -1,8 +1,12 @@
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="/styles/font-faces.css"/>
-        <link rel="stylesheet" type="text/css" href="/styles/fontawesome/css/fontello.css" />
         <link rel="stylesheet" type="text/css" href="/styles/base.css"/>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;600;700&family=Source+Sans+Pro:wght@200;400;600&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="/styles/fontawesome/css/fontello.css" />
         <link rel="icon" href="favicon.ico" sizes="16x16 32x32" type="image/png" />
         <?php 
             $titles = array("Console Commander","Command-line Captain","Webscale Warrior","Uptime Avenger","Cloud Conqueror","Data Defender","Automation Adjucator");
