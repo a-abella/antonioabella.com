@@ -1,27 +1,25 @@
 <?php require("sideandmenu.php"); ?>
 
 <div class="bodybody">
-<div align="center">
-        <div style="font-weight:400">
+<div class="resumebody">
+        <div>
             <div style="text-align: right">Save a copy:
-                <div class="bottomdivider"></div>
-                <a href="resumes/resume-antonio-abella.pdf" class="tanfont" style="color: #4d8bdc">as pdf</a>
-
-                <div class="bottomdivider"></div>
-                <a href="resumes/resume-antonio-abella.docx" class="tanfont" style="color: #4d8bdc">as docx</a>
-
-                <div class="bottomdivider"></div>
-                <a href="resumes/resume-antonio-abella.txt" class="tanfont" style="color: #4d8bdc">as txt</a></div>
+                &nbsp;
+                <a href="resumes/resume-antonio-abella.pdf" class="projlink">pdf</a>
+                &nbsp;|&nbsp;
+                <a href="resumes/resume-antonio-abella.docx" class="projlink">docx</a>
+                &nbsp;|&nbsp;
+                <a href="resumes/resume-antonio-abella.txt" class="projlink">txt</a></div>
         </div>
-        <div style="text-align: center; background-color: #f7f7f7; padding-left: 0.5in; padding-right: 0.5in; padding-top: 0.25in; padding-bottom: 0.25in">
+        <div style="text-align: center; padding-left: 0.5in; padding-right: 0.5in; padding-top: 0.35in; padding-bottom: 0.25in">
 
             <div style="font-size:1.6rem; font-weight:600">Antonio Abella
             </div>
-            <div style="font-size:1.2rem">www.antonioabella.com<br/>
+            <div>www.antonioabella.com<br/>
                 me@antonioabella.com<br/>
-                <i>(phone number in downloadable version)</i>
+                <br />
             </div>
-            <div style="text-align: left;">
+            <div style="text-align: left">
                 <!--<div style="font-size:12pt; font-weight: 600; text-decoration: underline">OBJECTIVE:</div>
                 <div style="font-size:10pt; font-weight: 600">To fulfill a dream of working with the latest and greatest
                     technological advancements. To experience experimental technologies years ahead of its public debut.
@@ -31,10 +29,10 @@
                 <br/>-->
 
                 <div>
-                    <div style="font-size:1.4rem; font-weight: 600; text-decoration: underline; margin-bottom: -10px">
-                        SKILLS:
+                    <div style="font-weight: 600; text-decoration: underline; margin-bottom: -10px">
+                        Skills:
                     </div>
-                    <ul style="font-size:1.2rem">
+                    <ul>
                         <li>Extensive experience with CentOS 6 and CentOS 7, and experienced with CentOS 5, Ubuntu 10.04 LTS+.</li>
                         <ul>
                             <li>Experienced administrating applications and utilities including Samba4, OpenLDAP, Dovecot+Postfix, Spamassassin, NGINX, Apache, MySQL/MariaDB, Nagios monitoring, and more.</li>
@@ -51,16 +49,16 @@
                         <li>Fully fluent in written and verbal English and Spanish.</li>
                     </ul>
                 </div>
-                <div style="font-size:1.4rem; font-weight: 600; text-decoration: underline">WORK EXPERIENCE:</div>
+                <div style="font-weight: 600; text-decoration: underline">Work Experience:</div>
                 <div style="float: left">
-                    <div style="font-size:1.2rem; font-weight: 600">Inktel Contact Center Solutions</div>
+                    <div style="font-weight: 600">Inktel Contact Center Solutions</div>
                 </div>
                 <div style="float: right">
-                    <div style="font-size:1.2rem; font-weight: 600">April 2016 - present</div>
+                    <div style="font-weight: 600">April 2016 - present</div>
                 </div>
-                <div style="clear: both; font-weight: 600; font-style: italic; font-size:1.2rem">Junior Systems Administrator</div>
+                <div style="clear: both; font-weight: 600; font-style: italic;">Junior Systems Administrator</div>
                 <div>
-                    <ul style="font-size:1.2rem">
+                    <ul>
                         <li>Reengineered aged network file share by designing and building secure Samba-share-based DFS Namespace for per-department storage. Developed to enhance the resiliency of network storage solutions against ransomware events and network intrusion. Extras: self-made intrusion detection alarms, python-automated share configuration.</li>
                         <li>Implemented internal group chat and messaging application for secure and auditable intracompany communications. Designed to enhance and well as protect team communications, project replaced proprietary third-party messaging application previously in use. Based on the RocketChat open source project.</li>
                         <li>Strengthened desktop support team effectiveness by providing a remote software deployment system including centralized Samba-based software package repository and client package library synchronization.</li>
@@ -68,21 +66,21 @@
                         <li>Automated Active Directory user account and mailbox creation/deletion process with Powershell scripting, as well as providing managers with a properly delegated account password reset portal written in C#/.NET.</li>
                     </ul>
                 </div>
-                <div style="font-size:1.4rem; font-weight: 600; text-decoration: underline">EDUCATION:</div>
+                <div style="font-weight: 600; text-decoration: underline">Education:</div>
                 <div style="float: left">
-                    <div style="font-size:1.2rem; font-weight: 600">Florida International University</div>
+                    <div style="font-weight: 600">Florida International University</div>
                 </div>
                 <div style="float: right">
-                    <div style="font-size:1.2rem; font-weight: 600">Dec 2015</div>
+                    <div style="font-weight: 600">Dec 2015</div>
                 </div>
-                <div style="clear: both; font-weight: 600; font-style: italic; font-size:1.2rem">Miami, FL</div>
-                <div style="font-weight: 400; font-size: 1.2rem; margin-bottom: 17px">Bachelors of Science in Information Technology
+                <div style="clear: both; font-weight: 600; font-style: italic;">Miami, FL</div>
+                <div style="font-weight: 400; margin-bottom: 17px">Bachelors of Science in Information Technology
                 </div>
                 <div>
-                    <div style="font-size:1.4rem; font-weight: 600; text-decoration: underline; margin-bottom: -10px">
-                        PERSONAL EXPERIENCE:
+                    <div style="font-weight: 600; text-decoration: underline; margin-bottom: -10px">
+                        Personal Experience:
                     </div>
-                    <ul style="font-size:1.2rem">
+                    <ul>
                         <li>Manage a handful of VPSs to experiment with web hosting, VPN, mail, personal cloud, and more
                         </li>
                         <li style="list-style: none; display: inline">

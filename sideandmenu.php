@@ -1,10 +1,9 @@
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="/styles/antonioabella.css"/>
-        <link rel="stylesheet" type="text/css" href="/styles/update.css"/>
+        <link rel="stylesheet" type="text/css" href="/styles/font-faces.css"/>
         <link rel="stylesheet" type="text/css" href="/styles/fontawesome/css/fontello.css" />
-        <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Source+Sans+Pro:300,400" rel="stylesheet" />
-        <link rel="icon" href="favicon.png" sizes="16x16 32x32" type="image/png" />
+        <link rel="stylesheet" type="text/css" href="/styles/base.css"/>
+        <link rel="icon" href="favicon.ico" sizes="16x16 32x32" type="image/png" />
         <?php 
             $titles = array("Console Commander","Command-line Captain","Webscale Warrior","Uptime Avenger","Cloud Conqueror","Data Defender","Automation Adjucator");
             $myTitle = $titles[mt_rand(0, count($titles) - 1)];
@@ -18,7 +17,8 @@
         <div class="sidebar">
             <div class="faceimg"></div>
             <h1>Antonio Abella</h1>
-            <h2>sysadmin &amp; devops</h2>
+            <div class="sep"></div>
+            <h2>DevOps | Site Reliability</h2>
             <h3>Miami, FL</h3>
             <div class="reachme">
                 <div class="sidelinks">
@@ -45,16 +45,6 @@
                     <a href="/resume.php" class="menulink">
                         <li class="menulist  <?= ($activePage == 'resume') ? 'currentitem':''; ?>">
                             R&Eacute;SUM&Eacute;
-                        </li>
-                    </a>
-                    <a href="/aboutme.php" class="menulink">
-                        <li class="menulist  <?= ($activePage == 'aboutme') ? 'currentitem':''; ?>">
-                            ABOUT ME
-                        </li>
-                    </a>
-                    <a href="/contact.php" class="menulink">
-                        <li class="menulist  <?= ($activePage == 'contact') ? 'currentitem':''; ?>">
-                            CONTACT
                         </li>
                     </a>
                 </ul>

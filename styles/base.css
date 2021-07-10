@@ -1,0 +1,192 @@
+body {
+    margin: 0;
+    font-size: 15pt;
+    font-family:  "Arimo", "Helvetica Neue", "Arial", sans-serif;
+    font-weight: 300;
+    color: #555;
+    line-height: 20pt;
+}
+.sidebar {
+    position: fixed;
+    width: 400px;
+    height: 100%;
+    background-color: #27313e;
+    background-image: url(../images/texture_dark.png);
+    border-right: 7px solid #c7c7ce;
+    text-align: center;
+    font-family:  "Source Sans Pro", "Helvetica Neue", "Arial", sans-serif;
+}
+
+.right-content {
+    position: fixed;
+    overflow-y: scroll;
+    left: 407px;
+    text-align: center;
+    height: 100%;
+}
+.menubar {
+    font-family: "Source Sans Pro", "Helvetica Neue", "Arial", sans-serif;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    padding: 1vh 0 2vh 0;
+}
+.menubar > ul {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+li.menulist {
+    display: inline-block;
+    color: #d3d3d3;
+    text-align: center;
+    width: 22.25vw;
+    margin: 0 0.75vw;
+    height: 2.3rem;
+    background-color: white;
+    font-size: 1.8rem;
+    border-bottom: 3px solid #e4e0e0;
+    line-height: 1.8rem;
+}
+li.menulist:hover {
+    border-color: #aaa;
+    color: #8a8a8a;
+}
+li.currentitem {
+    border-color: #6d7c9a;
+    color: #737373;
+    font-weight: 400;
+}
+li.currentitem:hover {
+    border-color: #6d7c9a;
+    color: #737373;
+}
+.bodycontent {
+    width: 72%;
+    padding-top: 4vh;
+    margin: 0 auto;
+    word-wrap: break-word;
+    text-align: left;
+    color: #444;
+}
+.bodycontent > .bodyheader {
+    font-family:  "Source Sans Pro", "Helvetica Neue", "Arial", sans-serif;
+    font-size: 2.25rem;
+    font-weight: 600;
+    margin-top: 6%;
+    color: #444;
+}
+.bodybody {
+    font-weight: 400;
+    font-family: "Arimo", "Helvetica Neue", "Arial", sans-serif;
+}
+.bodybody > .project {
+    color: #444;
+}
+.bodybody > .project > h2:before {
+    display: block;
+    content: "";
+    height: 130px;
+    margin-top: -130px;
+    visibility: hidden;
+}
+.bodycontent > .bodybody {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 6%;
+    padding-bottom: 10%;
+}
+.resumebody {
+    margin: -5vh;
+}
+.faceimg {
+    height: 245px;
+    width: 245px;
+    background-image: url("/images/face.png");
+    background-repeat: no-repeat;
+    margin: 20% auto 8% auto;
+    background-size: cover;
+}
+.sidebar > h1 {
+    color: #f2f2f2;
+    font-weight: 200;
+    font-size: 3.25rem;
+    line-height: 3rem;
+    margin-bottom: 0%;
+    padding: 0;
+}
+.sidebar > h2 {
+    color: #ddd;
+    font-size: 1.8rem;
+    line-height: 3rem;
+    font-weight: 200;
+    margin: 0;
+    padding: 0;
+}
+.sidebar > h3 {
+    color: #ddd;
+    font-size: 1.4rem;
+    font-weight: 200;
+    margin: 0;
+    padding: 0;
+}
+.sidebar > .sep {
+    height: 0.5rem;
+}
+.sidebar > .reachme {
+    color: #bbb;
+    font-size: 1.65rem;
+    font-weight: 200;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    position: absolute;
+    bottom: 0%;
+}
+.sidebar > .reachme > .sidelinks {
+    margin-bottom: 8%;
+    width: 100%;
+}
+.sidebar > .reachme > .sidelinks > a > span {
+    background: transparent;
+    color: #dbdbdb;
+    font-size: 3.2rem;
+    margin: 0 0.8rem;
+    display: inline-block;
+    padding: 0.4rem 0;
+}
+.sidebar > .reachme > .sidelinks > a {
+    color: #dbdbdb;
+    text-decoration: none;
+}
+.sidebar > .reachme > .sidelinks > a > span:hover {
+    color: #fff;
+    background-color: #212835;
+    text-decoration: none;
+}
+.sidebar > .reachme > a {
+    color: #ccc;
+    text-decoration: none;
+}
+.sidebar > .reachme > a:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #262c38;
+}
+a {
+    text-decoration: none;
+}
+
+a.projlink {
+    color: #4d8bdc;
+}
+
+a.projlink:hover {
+    text-decoration: underline;
+}
+code {
+    background: #f1f1f1;
+    font-family: "Andale Mono", "Consolas", "Lucida Console", "Courier New", "Courier", monospace;
+}

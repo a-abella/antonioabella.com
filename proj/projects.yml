@@ -1,0 +1,246 @@
+---
+locateusers:
+  title: Locate users on the network
+  body: |
+    No matter how many times it has been brought up, a large percentage of
+    ticket submissions would come in with no identifying information on the
+    affected workstation. Growing frustrated, I took matters into my own
+    hands. I wrote a set of functions to search the organization's file
+    servers for connected users and their respective connected IPs. Since
+    every user accesses at least one file share, this was a fairly reliable
+    method of discovery. And since it didn't rely on querying neighboring
+    workstations, it was significantly faster than methods like PSTools'
+    <code>PSLoggedOn.exe</code>.
+  links:
+  - title: locateUser.ps1 - Quickly find where a user is logged in
+    href: https://github.com/a-abella/locateUser
+
+statefulreboots:
+  title: Stateful workstation reboots
+  body: |
+    For some unknown reason, our standard nightly workstation reboot GPO would
+    fail to wake clients for the reboot task. Looking for alternative
+    solutions, we decided on rebooting workstations after an explicit logout.
+    However, disconnected sessions and the Switch User button meant that if a
+    second user logged in and out, existing disconnected sessions would be
+    lost on the reboot, even if that session was just one hour old while the
+    user was out to lunch.<br><br>
+
+    By parsing <code>query user</code> output, we could reboot conditionally
+    based on the state of active and disconnected sessions. We could even get
+    the idle times of disconnected sessions to only reboot when we could
+    consider it "safe." Doing this, we achieved our goal of frequent
+    workstation reboots but without the data loss risk typically associated
+    with such policies.
+  links:
+    - title: stateful-station-reboot.ps1 - Session-aware regular workstation restarts
+      href: https://github.com/a-abella/stateful-station-reboot
+
+ransomdetection:
+  title: Ransomware detection with inotify
+  body: |
+    Most ransomware variants encrypt volumes recursive and usually traverse a
+    file system alphabetically. Knowing this, we can lay bait for ransomware,
+    and then sound the alarm when notice something suspicious. When working on
+    my <a class="projlink" href="#smbdfssetup">Samba DFS project</a>, I
+    created world-writable hidden directories at the root of every share, and
+    named them so they sat first in alphabetical order. In each directory were
+    thousands of almost-empty plaintext files. Using <a class="projlink"
+    href="https://github.com/rvoicilas/inotify-tools"><code>inotify-tools&#x1F5D7;</code></a>
+    to interface with Linux's <code>inotify()</code> function, I set up an
+    inode watch on every file of each hidden directory. When a threshold value
+    of files are modified or deleted, the server fires off an email containing
+    the connection information of the user(s) and IP(s) accessing those bait
+    files.<br /><br />
+
+    While the encryption program takes its time to encrypt all the thousands
+    of files (usually a handful of minutes), we are afforded the opportunity
+    to verify and then kill the malicious process ID. To take it a step
+    further, we can even block the IP on every shares' firewall with a single
+    Ansible command. The process is further automatable by killing the PID and
+    setting the firewall rule at another, higher threshold. Using this
+    approach, we've lowered our average frequency of ransomware events
+    (defined as events requiring a file system restore) from 1-2 per month to
+    zero.
+  links:
+    - title: ransom-alarm.sh - Monitoring for ransomware and other intrusion
+      href: https://github.com/a-abella/ransom-alarm.sh
+
+smbdfssetup:
+  title: Automated Samba share deployments for DFS
+  body: |
+    At my first organization, the existing network storage solution was a
+    single Windows Share on bare metal. The server was about five years old
+    and supported the entire 1,200 person organization. When ransomware got
+    popular, the lack of a proper permissions structure left it very
+    vulnerable to attack. I was tasked with decentralizing our storage, and
+    the solution I devised was a multi-server, department-segregated Windows
+    Domain DFS Namespace where the shared folders were actually Linux Samba
+    shares. Through the Samba configuration I could "invisibly" fine-tune
+    access control. Running the shares on Linux servers also gave me access to
+    tools like <code>inotify()</code> and <code>auditd</code> for rudimentary
+    intrusion detection.<br /><br />
+
+    At final count, I was planning 11 separate shares on 7-8 separate CentOS 7
+    hosts. To facilitate the deployment process, I developed a guided
+    interactive script to automatically manage the Samba and Winbind
+    configurations, as well as handle LVM management and base permissions.
+  links:
+    - title: smb-dfs-share-setup.py - Automated per-department Samba share configuration
+      href: https://github.com/a-abella/smb-dfs-share-setup.py
+
+adaccounttool:
+  title: Bulk AD account management with Exchange support
+  body: |
+    My first systems administration position was in a call center, and among
+    my responsibilities was Active Directory administration. Due to the nature
+    of the call center business, customer service representative turnover
+    rates were high enough that user account administration was a hassle.
+    Especially in the holiday seasons, we would frequently receive lists of
+    new hires and terminations <b>60+</b> users long. Prior to my scripted
+    solution, the established method of administering user accounts was to
+    manually create or delete them one-by-one in the AD Users & Groups GUI.
+    Needless to say, as the new-hires and terminations lists grew longer, I
+    grew more and more impatient.<br/><br/>
+
+    My objective was to make the least annoying user management script I
+    could. No pre-formatted CSV files needed, or anything or the sort. Just
+    select an OU from a graphical dialog, paste in whole lists of proper names
+    (with some minor formatting caveats), follow the prompts. Easy,
+    annoyance-free, and greatly enhanced ticket turnaround time. There's still
+    quite a few more features worth adding, but even now it's one of the more
+    valuable tools I've created for myself.
+  links:
+    - title: usermanagement.ps1 - AD and Exchange account management
+      href: https://github.com/a-abella/usermanagement.ps1
+
+psnettools:
+  title: Network querying & WakeOnLan with AD integration
+  body: |
+    When working on desktop inventory, provisioning, or deployment projects I
+    would frequently need to monitor and maintain the online status of a
+    subset of PCs within the organization. For example, when taking software
+    inventory of only a single OU worth of PCs, I would first need to
+    determine the sleep/wake status of all the PCs in the OU, wake the ones
+    that are unresponsive, and keep them awake until the task has been
+    completed. The company I worked at when I wrote these tools had a very
+    "boots-on-ground" approach to this problem (i.e., walk to the computers
+    and slap the spacebars), which I found less than efficient. I wrote these
+    tools to solve that.
+  links:
+    - title: Wake-Send.ps1 - WakeOnLan packet constructor with AD integration
+      href: https://github.com/a-abella/Wake-Send.ps1
+    - title: Mass-Ping.ps1 - Quickly get online status of groups of hosts with AD integration
+      href: https://github.com/a-abella/Mass-Ping.ps1
+
+macscanner:
+  title: Compiling MAC address data for WakeOnLan
+  body: |
+    Developed in conjunction with my <a class="projlink"
+    href="#psnettools">Wake-Send.ps1 PowerShell script</a>, I needed a
+    reliable and up-to-date source of device MAC addresses on the network so I
+    could construct a <a class="projlink"
+    href="https://en.wikipedia.org/wiki/Wake-on-LAN#Magic_packet"
+    target="_blank">magic packet&#x1F5D7;</a> containing a target PC's MAC
+    address data. Enter macscanner.sh. Parses <code>nmap</code> output,
+    self-cleans repeat entries, is multi-hostname-aware, and requires no
+    maintenance or afterthought. Runs on any Linux server you have lying
+    around that's online on your target network. I run it on a 30 minute cron,
+    and <code>scp</code> it to a network location where Wake-Send.ps1 can
+    access it.
+  links:
+    - title: macscanner.sh source and documentation
+      href: https://github.com/a-abella/macscanner.sh
+
+seething:
+  title: Seething Corruption Trainer
+  body: |
+    A simple Python script to help memorize the Seething Corruption
+    positioning call-outs on World of Warcraft's Mythic Archimonde enounter.
+    Written because I'm bad at getting over failure. Pretty much useless to
+    anyone but myself.
+  links:
+    - title: Source and sample gif
+      href: https://github.com/a-abella/seething-corruption-trainer
+
+antonioabellacom:
+  title: antonioabella.com
+  body: |
+    This site, hosted on a Digital Ocean Ubuntu LTS (14.04) VPS serving
+    virtualhost pages with nginx and php-fpm. Created so I can hand out a
+    website name and craftily appear to be a professional.
+  links:
+    - title: Page sources, configs, and changelogs
+      href: https://github.com/a-abella/antonioabella.com
+
+cvguild:
+  title: Desktop and mobile sites, form in PHP and JQuery, VOIP services
+  body: |
+    A landing portal and application form for a World of Warcraft raiding
+    guild, server as a virtual host on this same server. Implements php-fpm
+    for form manipulation and jQuery 1.11.2 via Google CDN. The desktop
+    landing page uses a parallax effect design created in pure CSS. The mobile
+    site is responsively designed for any resolution by leveraging the CSS3
+    viewport-height attribute. This server also hosts a Mumble VOIP server
+    implementing SSL certificate validation for registered and elevated users.
+  links:
+    - title: Desktop landing page
+      href: https://www.cv-guild.com
+    - title: Mobile landing page
+      href: https://m.cv-guild.com
+    - title: PHP application form
+      href: https://www.cv-guild.com/app.php
+    - title: Desktop site page sources and configs
+      href: https://github.com/a-abella/convictionguild
+    - title: Mobile site page sources and configs
+      href: https://github.com/a-abella/convictionmobile
+
+fiuserver:
+  title: CentOS 5.11 multi-role term project
+  body: |
+    A CentOS 5.11 server with SaltStack configuration management, several web
+    services, Asterisk PBX, instant messaging server, extended logging
+    services, backup management, network printing services, and more. Ran as a
+    guest within a VMWare ESXi 5.5 host.
+  links:
+    - title: Configs, binaries, and served web pages
+      href: https://github.com/a-abella/centos-server
+    - title: All documentation as plaintext
+      href: docs/centosdocs/howtopage.html
+
+adhomelab:
+  title: Windows AD/Exchange virtual lab
+  body: |
+    A virtual network hosted on VMWare Workstation 11 consisting of two
+    Windows Server 2012 R2 servers, one CentOS 7 server, one Windows 7
+    Professional client, one Mac OS X 10.11 client, and one CentOS 7 client.
+    One Server 2012 instance runs Active Directory, DNS, DHCP, and Routing and
+    Remote Access to serve as a border router granting the virtual network
+    internet connectivity. The second Server 2012 instance runs Exchange and
+    IIS. The Linux server runs Apache and other miscellaneous services. The
+    Linux machines authenticate to Active Directory with Samba/Kerberos, and
+    the OS X client binds to AD with the in-built OS X OpenDirectory
+    utilities.
+  links:
+    - title: Configs and documentation
+      href: docs/adlabdocs/adlabindex.html
+
+kvm:
+  title: Linux KVM hypervisor with KVM/Qemu Windows instance using IOMMU
+  body: |
+    A typical workstation machine running Arch Linux as the host alongside a
+    Windows VM via KVM/Qemu. IOMMU (Input/Output Memory Management Unit)
+    allows certain hypervisors to take control of assigned hardware devices
+    including PCI controllers. In this application I pass a discrete GPU to
+    the Windows VM which allows up to 95% of the native graphical performance
+    within the VM enabling certain GPU intensive tasks such as gaming, video
+    rendering, and hardware accelerated decode of very high resolution video.
+    The two machines run concurrently with each GPU connected to its own
+    monitor.
+  links:
+    - title: KVM/Qemu Configurations
+      href: ""
+    - title: Scripts and additional configurations
+      href: ""
+    - title: Extended explanations and instructions
+      href: ""
