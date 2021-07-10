@@ -46,7 +46,7 @@
                             PROJECTS
                         </li>
                     </a>
-                    <a href="/resume.php" class="menulink">
+                    <a href="/resume" class="menulink">
                         <li class="menulist  <?= ($activePage == 'resume') ? 'currentitem':''; ?>">
                             R&Eacute;SUM&Eacute;
                         </li>
