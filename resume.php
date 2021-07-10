@@ -5,11 +5,11 @@
         <div>
             <div style="text-align: right">Save a copy:
                 &nbsp;
-                <a href="resumes/resume-antonio-abella.pdf" class="projlink">pdf</a>
+                <a href="resumes/resume-antonio-abella.pdf" target="_blank" class="projlink">pdf</a>
                 &nbsp;|&nbsp;
-                <a href="resumes/resume-antonio-abella.docx" class="projlink">docx</a>
+                <a href="resumes/resume-antonio-abella.docx" target="_blank" class="projlink">docx</a>
                 &nbsp;|&nbsp;
-                <a href="resumes/resume-antonio-abella.txt" class="projlink">txt</a></div>
+                <a href="resumes/resume-antonio-abella.txt" target="_blank" class="projlink">txt</a></div>
         </div>
         <div style="text-align: center; padding-left: 0.5in; padding-right: 0.5in; padding-top: 0.35in; padding-bottom: 0.25in">
 
@@ -20,14 +20,6 @@
                 <br />
             </div>
             <div style="text-align: left">
-                <!--<div style="font-size:12pt; font-weight: 600; text-decoration: underline">OBJECTIVE:</div>
-                <div style="font-size:10pt; font-weight: 600">To fulfill a dream of working with the latest and greatest
-                    technological advancements. To experience experimental technologies years ahead of its public debut.
-                    To obtain a position with an established and respected organization where my skills can be
-                    challenged, put to use, and improved upon.
-                </div>
-                <br/>-->
-
                 <div>
                     <div style="font-weight: 600; text-decoration: underline; margin-bottom: -10px">
                         Skills:

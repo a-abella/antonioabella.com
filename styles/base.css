@@ -92,6 +92,9 @@ li.currentitem:hover {
     margin-top: -130px;
     visibility: hidden;
 }
+.bodybody > .project > .projhead {
+    font-family:  "Source Sans Pro", "Corbel", "Helvetica Neue", sans-serif;
+}
 .bodycontent > .bodybody {
     width: 90%;
     margin: 0 auto;
