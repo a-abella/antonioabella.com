@@ -1,4 +1,161 @@
 ---
+gitshrink:
+  title: Git repository liposuction
+  body: |
+    Many aeons ago, my organization managed an internal git server for all our
+    team's source code. Eventually a decision was made to migrate to GitHub,
+    starting first with new repositories and then later transferring existing
+    ones. All went well until they got to the last and most critical of all the
+    repositories--a 20+ year old behemoth that itself started life as a migrated
+    Subversion repository. Over the decades, users had made the poor decision to
+    check in large binaries. These binaries were eventually removed, but once
+    they're in git history the binary content is checked in forever, taking up
+    space. GitHub imposes a limit on repo import of a maximum 3 GB repo size and
+    100 MB maximum checked-in file size--our repo exceeded both.<br /><br />
+
+    I presented two potential solutions--adopt <a
+    href="https://git-lfs.github.com/">Git LFS&#x1F5D7;</a>, performing a
+    migration of binary files in history to LFS using <a
+    href="https://github.com/bozaro/git-lfs-migrate">git-lfs-migrate&#x1F5D7;</a>,
+    or simply strip all large files from history using <a
+    href="https://rtyley.github.io/bfg-repo-cleaner/">BFG Repo
+    Cleaner&#x1F5D7;</a>. Migrating to LFS would preserve git history but incur
+    a storage cost on GitHub, whereas using BFG Repo Cleaner would alter
+    historical commit IDs as all commit hashes would have to be recalculated
+    after the content was removed from history. We decided that, given our
+    relatively small team, altering history was not a deal-beaker and we could
+    simply all re-clone after the repository was cleaned up. In the end, BFG
+    Repo Cleaner shrunk the repository to around 450 MB, a nearly 90% decrease
+    in footprint. As an added bonus, cloning and navigating the repo became much
+    less painful.
+composeconvert:
+  title: Convert Compose v2 to v3
+  body: |
+    Our team has long-used <code>docker-compose</code> to manage container
+    workloads, writing compose files in the compose v2 format. I was tasked with
+    migrating us to Docker Swarm Mode which exclusively uses compose v3. I was
+    immediately concerned with the implications of maintaining two separate
+    compose files per environment and the potential that creates for
+    configuration drift, so instead I chose to develop a tool to translate a
+    given compose file in the v2 format to v3. This way, we would continue to
+    use the same v2 files we always had, and the deploy pipeline would
+    automatically convert the file to the required format at deploy time.<br
+    /><br />
+
+    Initially I thought this would be a straightforward case of renaming certain
+    yaml keys, or trimming unneeded deprecated configurations. As I began
+    though, I realized that our organization made heavy use of the
+    <code>depends_on</code> and <code>extends</code> features of compose v2 that
+    had been deprecated with no equivalent or replacement as of version 3.8. The
+    challenge then became to find a way to replicate the behavior these two
+    configurations offered during translation.
+  links:
+    - title: compose-convert.py - Make a best-effort translation of compose v2 to Swarm's compose v3
+      href: placeholder
+
+docklog:
+  title: <code>docker logs</code> for multiple containers
+  body: |
+    If you simply google the title above, you'll see very many people asking how
+    to accomplish this task. The demand is so great that it's honestly amazing
+    that Docker have not extended the <code>docker logs</code> command to
+    support multiple containers. Even <code>docker-compose logs</code> will
+    output a stream of logs from all containers defined in the compose file! It
+    seems to be an obvious use-case to everyone but Docker themselves. So to
+    right this wrong I created a tool for myself that streams multiple container
+    logs directly from the Docker API. I placed a hard limit of eight
+    simultaneous streams in case this much concurrency could be a problem for
+    the API, though I've done no testing or research to see if this is even the
+    case.
+  links:
+    - title: docklog.py - Tail many container logs in parallel
+      href: https://github.com/a-abella/docklog
+
+elasticingestnode:
+  title: Elasticsearch ingest pipeline query string parsing
+  body: |
+    Our team was looking for a way to aggregate and report on certain API usage
+    metrics which we could only retrieve from Docker-based HTTP logs. I had
+    previously implemented Docker log aggregation with <a
+    href="https://www.elastic.co/beats/filebeat">Filebeat&#x1F5D7;</a> and <a
+    href="https://www.elastic.co/cloud/">Elastic Cloud&#x1F5D7;</a>. The default
+    Filebeat modules do a great job of parsing common known formats, like
+    Apache's and NGINX's standard HTTP log format, which get chopped up and
+    indexed as individual searchable and aggregatable fields. One of the
+    features of Elasticsearch is the <a
+    href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html">ingest
+    pipeline&#x1F5D7;</a> where you can define parsing and mutation rules for
+    inputs prior to indexing. Many people use Logstash as part of the "ELK
+    stack" for this purpose, but it's less commonly known that parsing and
+    mutation can also be done on Elasticsearch itself, making use of existing
+    compute and placing the parse logic closer to the data resulting in a
+    logging stack with fewer moving parts.<br /><br />
+
+    To accomplish the task of parsing our API metrics, I took the existing
+    NGINX/HTTP log ingest pipeline (provided by Filebeat's NGINX module) and
+    extended it with additional parsing on the query string. Our goal was to be
+    able to search and aggregate over each individual key and value pair in the
+    URL query string when the URL path targets a subset of API endpoints. To
+    that end, I added a <code>grok</code> pattern that would take each query
+    string key and create an indexed keyword field from it, and assign that
+    field the value from the query string. This made possible aggregations like
+    "get count of requests grouped by query string key time_range." The
+    resulting data from this example would be very valuable for determining
+    platform improvements, like optimizing web server cache time and InfluxDB
+    shard group durations.
+
+geninfluxdata:
+  title: InfluxDB sample data generator
+  body: |
+    Time-series data is the heart of the application I support. Our teams'
+    primary customer-facing product is (for the most part) a series of
+    dashboards and reports displaying metric data backended by <a
+    href="https://www.influxdata.com/">InfluxDB&#x1F5D7;</a>. One day one of our
+    QA engineers was expressing that it would be easier to compare the
+    functionality of charts and graphs across different code versions if they
+    were always rendering the same data, regardless of <i>when</i> the
+    comparison was being done.<br /><br />
+
+    I took it upon myself to write a tool that could output a consistent metric
+    set to an InflxuDB instance for any arbitrary window of time. Using this
+    tool, the QA team could eliminate variability in data and perform more
+    consistent testing.
+  links:
+  - title: write-sample-metrics.py - generate and write a reproducible set of metric data to InfluxDB
+    href: https://github.com/a-abella/write-sample-metrics
+
+dynamicinventory:
+  title: Ansible dynamic inventory
+  body: |
+    I came into a new role as a DevOps Engineer at <a
+    href="https://smartbear.com/" style="color:#f5710f">SmartBear&#x1F5D7;</a>,
+    working on an application with some pretty unique infrastructure challenges.
+    In addition to a fairly standard AWS technology stack, my team had to manage
+    a fleet of about 300 additional servers located in around 30 different
+    countries around the world hosted in all manner of ways--colocations,
+    dedicated server providers, VPS services, and larger cloud providers. This
+    situation disallowed the "cattle, not pets" philosophy that is promoted in
+    modern DevOps and SRE.<br /><br />
+
+    Idempotent infrastructure for these 300-ish servers was not possible since
+    we had no direct control over system images or ad-hoc infrastructure
+    deployments. Given the restriction imposed by the underlying infrastructure,
+    <a
+    href="https://github.com/ansible/ansible"><code>ansible&#x1F5D7;</code></a>
+    was the primary tool used to align systems with as much identicality as we
+    could manage. To that end, <a
+    href="https://docs.ansible.com/ansible/latest/user_guide/intro_dynamic_inventory.html">ansible
+    dynamic inventory&#x1F5D7;</a> provided a very powerful way to centrally
+    configure Ansible-managed hosts.<br /><br />
+
+    Fortunately for us, our application already relied on a MySQL server
+    inventory table that we could leverage for Ansible inventory. A
+    <code>host_type</code> field mapped directly to Ansible host groups, and a
+    delimited string of feature flags could be passed as an array hostvar
+    enabling conditional execution of tasks. With these already in-hand, all
+    that was needed was a script to format each host row into Ansible
+    inventory-compatible JSON.
+
 locateusers:
   title: Locate users on the network
   body: |
@@ -24,7 +181,7 @@ statefulreboots:
     However, disconnected sessions and the Switch User button meant that if a
     second user logged in and out, existing disconnected sessions would be
     lost on the reboot, even if that session was just one hour old while the
-    user was out to lunch.<br><br>
+    user was out to lunch.<br /><br />
 
     By parsing <code>query user</code> output, we could reboot conditionally
     based on the state of active and disconnected sessions. We could even get
@@ -156,7 +313,7 @@ seething:
   title: Seething Corruption Trainer
   body: |
     A simple Python script to help memorize the Seething Corruption
-    positioning call-outs on World of Warcraft's Mythic Archimonde enounter.
+    positioning call-outs on World of Warcraft's Mythic Archimonde encounter.
     Written because I'm bad at getting over failure. Pretty much useless to
     anyone but myself.
   links:

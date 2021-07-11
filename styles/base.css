@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-size: 15pt;
+    font-size: 14pt;
     font-family:  "Arimo", "Helvetica Neue", "Arial", sans-serif;
     font-weight: 300;
     color: #555;
@@ -21,6 +21,7 @@ body {
     position: fixed;
     overflow-y: scroll;
     left: 407px;
+    width: calc(100% - 407px);
     text-align: center;
     height: 100%;
 }
@@ -30,7 +31,7 @@ body {
     position: sticky;
     top: 0;
     background-color: white;
-    padding: 1vh 0 2vh 0;
+    padding: 1vh 0 0.3vh 0;
 }
 .menubar > ul {
     list-style-type: none;
@@ -74,7 +75,8 @@ li.currentitem:hover {
     font-family:  "Source Sans Pro", "Corbel", "Helvetica Neue", sans-serif;
     font-size: 2.25rem;
     font-weight: 600;
-    margin-top: 6%;
+    margin-top: 6vh;
+    margin-bottom: 8vh;
     color: #444;
 }
 .bodybody {
@@ -84,24 +86,20 @@ li.currentitem:hover {
 .bodybody > .project {
     color: #444;
 }
-.bodybody > .project > h2:before {
-    display: block;
-    content: "";
-    height: 130px;
-    margin-top: -130px;
-    visibility: hidden;
-}
-.bodybody > .project > .projhead {
+.project > .projhead {
     font-family:  "Source Sans Pro", "Corbel", "Helvetica Neue", sans-serif;
+}
+.project > .projdocs {
+    margin-top: 2rem;
 }
 .bodycontent > .bodybody {
     width: 90%;
     margin: 0 auto;
-    margin-top: 6%;
-    padding-bottom: 10%;
+    margin-top: 3vh;
+    padding-bottom: 6vh;
 }
 .resumebody {
-    margin: -5vh;
+    margin: 0 auto;
 }
 .faceimg {
     height: 245px;
@@ -183,11 +181,11 @@ a {
     text-decoration: none;
 }
 
-a.projlink {
+.bodybody > .project > p > a, a.projlink {
     color: #4d8bdc;
 }
 
-a.projlink:hover {
+.bodybody > .project > p > a, a.projlink:hover {
     text-decoration: underline;
 }
 code {

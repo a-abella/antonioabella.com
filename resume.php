@@ -11,7 +11,7 @@
                 &nbsp;|&nbsp;
                 <a href="resumes/resume-antonio-abella.txt" target="_blank" class="projlink">txt</a></div>
         </div>
-        <div style="text-align: center; padding-left: 0.5in; padding-right: 0.5in; padding-top: 0.35in; padding-bottom: 0.25in">
+        <div style="text-align: center; padding-top: 0.35in; padding-bottom: 0.25in">
 
             <div style="font-size:1.6rem; font-weight:600">Antonio Abella
             </div>

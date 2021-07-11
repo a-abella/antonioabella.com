@@ -8,8 +8,16 @@
         $projects = yaml_parse_file("proj/projects.yml", 0);
         foreach($projects as $proj => $proj_content) {
             $link_section = "";
-            foreach($proj_content['links'] as $link) {
-                $link_section .= "<a href=\"{$link['href']}\" target=\"_blank\" class=\"projlink\">{$link['title']}</a><br />\n";
+            if (array_key_exists('links', $proj_content)) {
+                $link_entry = "";
+                foreach($proj_content['links'] as $link) {
+                    $link_entry .= "<a href=\"{$link['href']}\" target=\"_blank\" class=\"projlink\">{$link['title']}</a><br />\n";
+                }
+                $link_section = <<<EOD
+                <div class="projdocs">
+                    $link_entry
+                </div>
+EOD;
             }
             $entry = <<<EOD
             <div class="project" id="$proj">
@@ -17,11 +25,9 @@
 
                 <p>{$proj_content["body"]}
 
-                <div class="projdocs">
-                    $link_section
-                </div>
+                $link_section
             </div>
-            <hr style="margin: 3.5rem 0 3.15rem 0;"></hr>
+            <hr style="margin: 3rem 0 3.15rem 0;"></hr>
 EOD;
             echo "$entry";
         }
