@@ -48,12 +48,12 @@
         <div class="right-content">
             <div class="menubar">
                 <ul>
-                    <a href="/" class="menulink">
+                    <a href="/" class="menulink" target="_self">
                         <li class="menulist <?= ($activePage == 'index') ? 'currentitem':''; ?>">
                             PROJECTS
                         </li>
                     </a>
-                    <a href="/resume" class="menulink">
+                    <a href="/resume" class="menulink" target="_self">
                         <li class="menulist  <?= ($activePage == 'resume') ? 'currentitem':''; ?>">
                             R&Eacute;SUM&Eacute;
                         </li>
