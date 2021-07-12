@@ -16,8 +16,10 @@
             <div style="font-size:1.6rem; font-weight:600">Antonio Abella
             </div>
             <div>
+                DevOps Engineer
+                <br />
                 me@antonioabella.com
-                <br/>
+                <br />
             </div>
             <div style="text-align: left">
                 <div>
