@@ -33,7 +33,7 @@
             <h3>Miami, FL</h3>
             <div class="reachme">
                 <div class="sidelinks">
-                    <a href="https://www.linkedin.com/in/antonio-abella-932908113" target="_blank" rel="noopener">
+                    <a href="https://www.linkedin.com/in/a-abella/" target="_blank" rel="noopener">
                         <span class="icon-linkedin"></span>
                     </a>
                     <a href="https://github.com/a-abella" target="_blank" rel="noopener">
