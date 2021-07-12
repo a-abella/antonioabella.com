@@ -1,6 +1,42 @@
 ---
+dynamicenvs:
+  title: Transient environments for Docker Swarm
+  body: |
+    Our development team grew to a point where our existing handful of Docker
+    dev and QA environments became a bottleneck and started causing contention
+    over feature deployments. In the past with a smaller team, it was uncommon
+    for two or more developers to be simultaneously but separately working on
+    the same microservices. To deal with this, I was tasked with finding a way
+    to grant developers on-demand, dynamic, individual environments within the
+    development Swarm cluster. Accomplishing this required every tool in our
+    team's arsenal; Terraform, Python, Groovy, MySQL, Ansible, shell scripts,
+    Makefiles, InfluxDB, and Jenkins came together like Voltron to build a
+    system that could:
+
+    <ul>
+      <li>Provision and assign individualized AWS infrastructure, appropriately tagged for cost analysis per-environment and per-user</li>
+      <li>Isolate Docker image builds per-environment to avoid poisoning each other's build caches</li>
+      <li>Support running arbitrary subsets of services from single microservices to full-stack deployments</li>
+      <li>Reconfigure service container environments on-the-fly based on availability of neighboring local services</li>
+      <li>Monitor and alert on environment inactivity to ensure users do not abandon long-running environments</li>
+    </ul>
+
+    <p>The centerpieces that made this system possible are the <a
+    href="https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/data_source">Terraform
+    <code>external</code> datasource&#x1F5D7;</a> which enabled infrastructure
+    configurations to be fetched and generated from a centralized MySQL
+    environment metadata table, the Ansible <a
+    href="https://docs.ansible.com/ansible/latest/collections/community/docker/docker_swarm_module.html#ansible-collections-community-docker-docker-swarm-module"><code>docker_swarm&#x1F5D7;</code></a>
+    and <a
+    href="https://docs.ansible.com/ansible/latest/collections/community/docker/docker_node_module.html#ansible-collections-community-docker-docker-node-module"><code>docker_node&#x1F5D7;</code></a>
+    modules with which EC2 instances could be dynamically added to and removed
+    from the Swarm, and the Jenkins <a
+    href="https://plugins.jenkins.io/extended-choice-parameter/">Extended Choice
+    Parameter plugin&#x1F5D7;</a> with which complex forms could be presented to
+    users for fine-grained control over environment configuration.
+
 gitshrink:
-  title: Git repository liposuction
+  title: Trimming git object history
   body: |
     Many aeons ago, my organization managed an internal git server for all our
     team's source code. Eventually a decision was made to migrate to GitHub,
@@ -26,8 +62,8 @@ gitshrink:
     relatively small team, altering history was not a deal-beaker and we could
     simply all re-clone after the repository was cleaned up. In the end, BFG
     Repo Cleaner shrunk the repository to around 450 MB, a nearly 90% decrease
-    in footprint. As an added bonus, cloning and navigating the repo became much
-    less painful.
+    in footprint.
+
 composeconvert:
   title: Convert Compose v2 to v3
   body: |
@@ -47,11 +83,11 @@ composeconvert:
     though, I realized that our organization made heavy use of the
     <code>depends_on</code> and <code>extends</code> features of compose v2 that
     had been deprecated with no equivalent or replacement as of version 3.8. The
-    challenge then became to find a way to replicate the behavior these two
-    configurations offered during translation.
-  links:
-    - title: compose-convert.py - Make a best-effort translation of compose v2 to Swarm's compose v3
-      href: placeholder
+    challenge then became to find a way to replicate the behaviors v2 offered
+    during translation.
+  # links:
+  #   - title: compose-convert.py - Make a best-effort translation of compose v2 to Swarm's compose v3
+  #     href: placeholder
 
 docklog:
   title: <code>docker logs</code> for multiple containers
@@ -72,42 +108,101 @@ docklog:
       href: https://github.com/a-abella/docklog
 
 elasticingestnode:
-  title: Elasticsearch ingest pipeline query string parsing
+  title: Elasticsearch HTTP log query string indexing
   body: |
     Our team was looking for a way to aggregate and report on certain API usage
     metrics which we could only retrieve from Docker-based HTTP logs. I had
     previously implemented Docker log aggregation with <a
     href="https://www.elastic.co/beats/filebeat">Filebeat&#x1F5D7;</a> and <a
-    href="https://www.elastic.co/cloud/">Elastic Cloud&#x1F5D7;</a>. The default
-    Filebeat modules do a great job of parsing common known formats, like
-    Apache's and NGINX's standard HTTP log format, which get chopped up and
-    indexed as individual searchable and aggregatable fields. One of the
+    href="https://www.elastic.co/cloud/">Elastic Cloud&#x1F5D7;</a>. One of the
     features of Elasticsearch is the <a
     href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html">ingest
     pipeline&#x1F5D7;</a> where you can define parsing and mutation rules for
     inputs prior to indexing. Many people use Logstash as part of the "ELK
     stack" for this purpose, but it's less commonly known that parsing and
     mutation can also be done on Elasticsearch itself, making use of existing
-    compute and placing the parse logic closer to the data resulting in a
-    logging stack with fewer moving parts.<br /><br />
+    compute and reducing complexity in the logging stack.<br /><br />
 
-    To accomplish the task of parsing our API metrics, I took the existing
-    NGINX/HTTP log ingest pipeline (provided by Filebeat's NGINX module) and
-    extended it with additional parsing on the query string. Our goal was to be
-    able to search and aggregate over each individual key and value pair in the
-    URL query string when the URL path targets a subset of API endpoints. To
-    that end, I added a <code>grok</code> pattern that would take each query
-    string key and create an indexed keyword field from it, and assign that
-    field the value from the query string. This made possible aggregations like
-    "get count of requests grouped by query string key time_range." The
-    resulting data from this example would be very valuable for determining
+    I took the existing NGINX log ingest pipeline (provided by Filebeat) and
+    extended it to <code>grok</code> out the query string pattern from the
+    request URL. Once I had the query string separated, it could be split on the
+    <code>&</code> character and each key-value pair could be loaded into the
+    index using the <code>kv</code> processor. This made possible aggregation
+    queries to the effect of <code>"select count(requests) where
+    url.fields.time_range is not NULL group by url.fields.time_range"</code>.
+    The resulting data from this example would be very valuable for determining
     platform improvements, like optimizing web server cache time and InfluxDB
-    shard group durations.
+    shard group durations.<br /><br />
+
+    <pre><code class="language-json">{
+      "grok": {
+        "field": "url.original",
+        "patterns": [
+          "%{GREEDYDATA:trash}\\?%{GREEDYDATA:url.querystring}",
+          ""
+        ],
+        "ignore_missing": true
+      }
+    },
+    {
+      "kv": {
+        "field": "url.querystring",
+        "field_split": "&",
+        "value_split": "=",
+        "target_field": "url.fields",
+        "strip_brackets": true,
+        "ignore_missing": true
+      }
+    },
+    {
+      "remove": {
+      "field": "url.querystring",
+      "ignore_missing": true
+      }
+    }
+    </code></pre>
+
+zabbixactions:
+  title: Zabbix problem auto-resolution
+  body: |
+    Much of modern operations is based around automation. Monitoring and
+    observability are all very important, but if a person has to react and
+    intervene on monitoring alerts then that person becomes a bottleneck.
+    Eventually it was realized that if procedures and remediations could be
+    defined for operators in runbooks, then there's no reason that runbook
+    couldn't be executed automatically--this gave birth to tools like <a
+    href="https://www.rundeck.com/">Rundeck&#x1F5D7;</a>.<br /><br />
+
+    We use many different monitoring tools internally. One of these tools is <a
+    href="https://www.zabbix.com/">Zabbix&#x1F5D7;</a>, a MySQL-based system
+    monitoring suite. We like Zabbix for its flexibility--absolutely any
+    arbitrary data that you can generate at a shell prompt can be regularly
+    collected and monitored by Zabbix without the same kind of cardinality
+    issues that would affect most time-series based monitoring tools. An
+    extension of this capability is Zabbix Actions; the same way arbitrary shell
+    commands can be executed on remote hosts to collect data, arbitrary shell
+    commands can be executed when trigger conditions are met. Assume a trigger
+    that fires when a process <code>$p</code> dies, an Action can simply start
+    <code>$p</code>.<br /><br />
+
+    There was one problem to overcome with this: preventing Zabbix from
+    interfering with an operator. If for whatever reason an operator was
+    intentionally making changes that could trigger alerts, we didn't want
+    Zabbix to then be simultaneously firing off commands, causing confusion and
+    inconsistency. So a crucial requirement was to implement some form of idle
+    session detection--if users were logged in and not idle, then Zabbix should
+    never execute actions on that machine. If there were no sessions or idle
+    sessions, then Zabbix could go ahead and take its remediation steps. We
+    parse the <code>w</code> command for idle times, which counts time since the
+    user's last keystroke.
+  # links:
+  #   - title: zabbix-actions.sh - a wrapper script for safely executing pre-defined Zabbix actions
+  #     href: https://github.com/a-abella/zabbix-actions
 
 geninfluxdata:
   title: InfluxDB sample data generator
   body: |
-    Time-series data is the heart of the application I support. Our teams'
+    Time-series data is at the heart of the application I support. Our teams'
     primary customer-facing product is (for the most part) a series of
     dashboards and reports displaying metric data backended by <a
     href="https://www.influxdata.com/">InfluxDB&#x1F5D7;</a>. One day one of our
@@ -119,10 +214,12 @@ geninfluxdata:
     I took it upon myself to write a tool that could output a consistent metric
     set to an InflxuDB instance for any arbitrary window of time. Using this
     tool, the QA team could eliminate variability in data and perform more
-    consistent testing.
+    consistent testing. Eventually I would like to extend this tool to output
+    data for other commonly used time-series databases, like Prometheus and
+    Graphite.
   links:
-  - title: write-sample-metrics.py - generate and write a reproducible set of metric data to InfluxDB
-    href: https://github.com/a-abella/write-sample-metrics
+  # - title: gen-sample-metrics.py - generate and write a reproducible set of metric data to InfluxDB
+  #   href: https://github.com/a-abella/gen-sample-metrics
 
 dynamicinventory:
   title: Ansible dynamic inventory
