@@ -1,47 +1,49 @@
-Antonio Abella
-antonioabella.com
+ï»¿Antonio Abella
 me@antonioabella.com
-(305) 926-6587
++1 305 926 6587
 
 
 SKILLS:
-
-•	Extensive experience with CentOS 6 and CentOS 7, and experienced with CentOS 5, Ubuntu 10.04 LTS+.
-	o	Experienced administrating applications and utilities including Samba4, OpenLDAP, Dovecot+Postfix, Spamassassin, NGINX, Apache, MySQL/MariaDB, Nagios monitoring, and more.
-•	Extensive experience with Windows Server 2008R2 and Windows Server 2012R2.
-	o	Experienced administering Active Directory Domain Services (domain functional level Server 2008), Group Policy, Exchange Server 2008, DHCP Server, DNS Server, File Server and DFS Namespace Roots, and more.
-•	Extensive experience with VMWare ESXi 5.5 and up, and familiar with KVM/Qemu.
-•	Modest experience with automation tools (Kickstart, Ansible, SaltStack, Kaseya) and scripting languages including Python, Bash/sh, and Powershell. Familiar with Perl.
-•	Familiar with network equipment including Juniper and Cisco routers and firewalls, and Cisco, HP, and Juniper managed switches.
-•	Familiar with Java, PHP, Javascript (JQuery), PostgreSQL/MySQL/MariaDB/SQL Server 2012 query languages. Some exposure to MongoDB query language.
-•	Some exposure to Mac OS X/macOS, FreeBSD, and other Unix or Unix-like systems.
-•	Fully fluent in written and verbal English and Spanish.
+======
+* Expertise in:
+	* Cloud Platforms: AWS (EC2, Route53, RDS, S3, VPC, IAM, ACM, CloudWatch)
+	* Operating Systems: Ubuntu 18.04, 20.04, CentOS 7
+	* Software: Docker, Git, Ansible, Terraform, Jenkins, Grafana, InfluxDB, Zabbix
+	* Languages: Python, Shell (posix sh and bash), PowerShell
+	* Hardware: Dell PowerEdge and HP ProLiant servers
+* Some experience with:
+	* Cloud Platforms: AWS (EKS, Lambda, DynamoDB)
+	* Software: MySQL/MariaDB, MongoDB, RabbitMQ, Memcached, NGINX, Asterisk
+	* Languages: Groovy, Java, SQL, PHP, Javascript, Perl
+	* Hardware: Juniper and Cisco routers and firewalls, Cisco, HP, and Juniper managed switches, SuperMicro servers
+* Additionally experienced with Windows Server 2012R2, VMware ESXi 6.0+, macOS, Samba4, Active Directory.
+* Fully fluent in written and verbal English and Spanish.
 
 
 WORK EXPERIENCE:
+===============
+SmartBear Software
+DevOps Engineer				July 2019 - present
+Junior DevOps Engineer			July 2017 - July 2019
 
-Inktel Contact Center Solutions					April 2016 - present
-Junior Systems Administrator
+	* Designed and implemented a dynamic iptables firewall configuration generator to improve reconfiguration performance on a cluster of 300 hosts. This implementation replaced an existing solution with a 99.95% improvement in runtime, resulting in over 12 hours saved per deployment.
+	* Built and administered a 4 TB self-hosted InfluxDB Enterprise time-series database cluster for backending core application data. Oversaw migration of entire data lifecycle from previous MySQL-based solution. Worked with the development team to carry out performance and load tests prior to bringing the system live.
+	* Migrated core application legacy Docker Swarm clusters to latest Docker Swarm Mode. Defined cluster infrastructure in Terraform for reproducible provisioning and disaster recovery. Conducted staged rollout of new Swarm environments in coordination with development and QA teams. Reconstructed all related CI/CD pipelines to interface with new Docker and Swarm versions.
+	* Engineered solution for self-service provisioning and deployment of transient development environments within Docker Swarm. Extended Terraform configuration to source environment metadata from central database. Provided the development team with the tools to create arbitrary environments to accelerate testing and facilitate code comparisons.
 
-•	Reengineered aged network file share by designing and building secure Samba-share-based DFS Namespace for per-department storage. Developed to enhance the resiliency of network storage solutions against ransomware events and network intrusion. Extras: self-made intrusion detection alarms, python-automated share configuration.
-•	Implemented internal group chat and messaging application for secure and auditable intracompany communications. Designed to enhance and well as protect team communications, project replaced proprietary third-party messaging application previously in use. Based on the RocketChat open source project.
-•	Strengthened desktop support team effectiveness by providing a remote software deployment system including centralized Samba-based software package repository and client package library synchronization.
-•	Restructured entire company’s documentation solution by providing twin documentation resources in the form of a public company Wiki for shared information and self-help, as well as a restricted IT department Wiki. Built with MediaWiki. Company previously used loose Word documents.
-•	Automated Active Directory user account and mailbox creation/deletion process with Powershell scripting, as well as providing managers with a properly delegated account password reset portal written in C#/.NET.
+Inktel Contact Center Solutions
+Junior Systems Administrator		April 2016 - July 2017
 
+	Primary role involved administration and maintenance of AD Domain Services and Exchange mail, and regular maintenance of VMware ESXi hypervisors, CentOS file servers, mail scanners, web servers, and Asterisk servers. Additional responsibilities included researching, designing, and deploying low- or no-cost self-hosted tools and services to improve internal company functions.
 
+ 
 EDUCATION:
-
-Florida International University				Dec 2015 
+=========
+Florida International University	Dec 2015
 Miami, FL
 Bachelors of Science in Information Technology
 
 
-PERSONAL EXPERIENCE:
-
-•	Manage a handful of VPSs to experiment with web hosting, VPN, mail, personal cloud, and more.
-	o	Manage and develop antonioabella.com. Served as a virtual host by Nginx web server on an Ubuntu Server VPS.
-	o	Manage and develop cv-guild.com and m.cv-guild.com, served with Nginx and php-fpm, also hosts a VoIP server, page source and configurations available on GitHub.
-
-
-For more information on myself or a full list of my various projects, please drop by my website: antonioabella.com, or browse through my GitHub page at github.com/a-abella.
+PERSONAL:
+* Portfolio: https://antonioabella.com
+* Projects: https://github.com/a-abella

@@ -15,9 +15,9 @@
 
             <div style="font-size:1.6rem; font-weight:600">Antonio Abella
             </div>
-            <div>www.antonioabella.com<br/>
-                me@antonioabella.com<br/>
-                <br />
+            <div>
+                me@antonioabella.com
+                <br/>
             </div>
             <div style="text-align: left">
                 <div>
@@ -25,62 +25,77 @@
                         Skills:
                     </div>
                     <ul>
-                        <li>Extensive experience with CentOS 6 and CentOS 7, and experienced with CentOS 5, Ubuntu 10.04 LTS+.</li>
+                        <li>Expertise in:</li>
                         <ul>
-                            <li>Experienced administrating applications and utilities including Samba4, OpenLDAP, Dovecot+Postfix, Spamassassin, NGINX, Apache, MySQL/MariaDB, Nagios monitoring, and more.</li>
+                            <li><u>Cloud Platforms:</u> AWS (EC2, Route53, RDS, S3, VPC, IAM, ACM, CloudWatch)</li>
+                            <li><u>Operating Systems:</u> Ubuntu 18.04, 20.04, CentOS 7</li>
+                            <li><u>Software:</u> Docker, Git, Ansible, Terraform, Jenkins, Grafana, InfluxDB, Zabbix</li>
+                            <li><u>Languages:</u> Python, Shell (posix sh and bash), PowerShell</li>
+                            <li><u>Hardware:</u> Dell PowerEdge and HP ProLiant servers</li>
                         </ul>
-                        <li>Extensive experience with Windows Server 2008R2 and Windows Server 2012R2.</li>
+                        <li>Some experience with:</li>
                         <ul>
-                            <li>Experienced administering Active Directory Domain Services (domain functional level Server 2008), Group Policy, Exchange Server 2008, DHCP Server, DNS Server, File Server and DFS Namespace Roots, and more.</li>
+                            <li><u>Cloud Platforms:</u> AWS (EKS, Lambda, DynamoDB)</li>
+                            <li><u>Software:</u> MySQL/MariaDB, MongoDB, RabbitMQ, Memcached, NGINX, Asterisk</li>
+                            <li><u>Languages:</u> Groovy, Java, SQL, PHP, Javascript, Perl</li>
+                            <li><u>Hardware:</u> Juniper and Cisco routers and firewalls, Cisco, HP, and Juniper managed switches, SuperMicro servers</li>
                         </ul>
-                        <li>Extensive experience with VMWare ESXi 5.5 and up, and familiar with KVM/Qemu.</li>
-                        <li>Modest experience with automation tools (Kickstart, Ansible, SaltStack, Kaseya) and scripting languages including Python, Bash/sh, and Powershell. Familiar with Perl.</li>
-                        <li>Familiar with network equipment including Juniper and Cisco routers and firewalls, and Cisco, HP, and Juniper managed switches.</li>
-                        <li>Familiar with Java, PHP, Javascript (JQuery), PostgreSQL/MySQL/MariaDB/SQL Server 2012 query languages. Some exposure to MongoDB query language.</li>
-                        <li>Some exposure to Mac OS X/macOS, FreeBSD, and other Unix or Unix-like systems.</li>
+                        <li>Additionally experienced with Windows Server 2012R2, VMware ESXi 6.0+, macOS, Samba4, Active Directory.</li>
                         <li>Fully fluent in written and verbal English and Spanish.</li>
                     </ul>
                 </div>
                 <div style="font-weight: 600; text-decoration: underline">Work Experience:</div>
+
+                <div style="font-weight: 700">SmartBear Software</div>
                 <div style="float: left">
-                    <div style="font-weight: 600">Inktel Contact Center Solutions</div>
+                    <div style="font-weight: 600;">DevOps Engineer</div>
                 </div>
                 <div style="float: right">
-                    <div style="font-weight: 600">April 2016 - present</div>
+                    <div style="font-weight: 600;">July 2019 - present</div>
                 </div>
-                <div style="clear: both; font-weight: 600; font-style: italic;">Junior Systems Administrator</div>
-                <div>
+                <br />
+                <div style="float: left">
+                    <div style="font-size: 0.85em; font-style: italic;">Junior DevOps Engineer</div>
+                </div>
+                <div style="float: right">
+                    <div style="font-size: 0.85em; font-style: italic;">July 2017 - July 2019</div>
+                </div>
+                <br style="clear: both" />
+                <p>
                     <ul>
-                        <li>Reengineered aged network file share by designing and building secure Samba-share-based DFS Namespace for per-department storage. Developed to enhance the resiliency of network storage solutions against ransomware events and network intrusion. Extras: self-made intrusion detection alarms, python-automated share configuration.</li>
-                        <li>Implemented internal group chat and messaging application for secure and auditable intracompany communications. Designed to enhance and well as protect team communications, project replaced proprietary third-party messaging application previously in use. Based on the RocketChat open source project.</li>
-                        <li>Strengthened desktop support team effectiveness by providing a remote software deployment system including centralized Samba-based software package repository and client package library synchronization.</li>
-                        <li>Restructured entire company&rsquo;s documentation solution by providing twin documentation resources in the form of a public company Wiki for shared information and self-help, as well as a restricted IT department Wiki. Built with MediaWiki. Company previously used loose Word documents.</li>
-                        <li>Automated Active Directory user account and mailbox creation/deletion process with Powershell scripting, as well as providing managers with a properly delegated account password reset portal written in C#/.NET.</li>
+                        <li>Designed and implemented a dynamic <code>iptables</code> firewall configuration generator to improve reconfiguration performance on a cluster of 300 hosts. This implementation replaced an existing solution with a 99.95% improvement in runtime, resulting in over 12 hours saved per deployment.</li>
+                        <li>Built and administered a 4 TB self-hosted InfluxDB Enterprise time-series database cluster for backending core application data. Oversaw migration of entire data lifecycle from previous MySQL-based solution. Worked with the development team to carry out performance and load tests prior to bringing the system live.</li>
+                        <li>Migrated core application legacy Docker Swarm clusters to latest Docker Swarm Mode. Defined cluster infrastructure in Terraform for reproducible provisioning and disaster recovery. Conducted staged rollout of new Swarm environments in coordination with development and QA teams. Reconstructed all related CI/CD pipelines to interface with new Docker and Swarm versions.</li>
+                        <li>Engineered solution for self-service provisioning and deployment of transient development environments within Docker Swarm. Extended Terraform configuration to source environment metadata from central database. Provided the development team with the tools to create arbitrary environments to accelerate testing and facilitate code comparisons.</li>
                     </ul>
+                </p>
+                <div style="font-weight: 700">Inktel Contact Center Solutions</div>
+                <div style="float: left">
+                    <div style="font-style: italic;">Junior Systems Administrator</div>
                 </div>
+                <div style="float: right; font-style: italic;">
+                    <div>April 2016 - July 2017</div>
+                </div>
+                <br />
+                <p style="clear: both;">
+                    Primary role involved administration and maintenance of AD Domain Services and Exchange mail, and maintenance of VMware ESXi hypervisors, and CentOS file servers, mail scanners, web servers, and Asterisk servers. Additional responsibilities included deploying low- or no-cost self-hosted tools and services to improve internal company functions.
+                </p>
                 <div style="font-weight: 600; text-decoration: underline">Education:</div>
                 <div style="float: left">
                     <div style="font-weight: 600">Florida International University</div>
                 </div>
                 <div style="float: right">
-                    <div style="font-weight: 600">Dec 2015</div>
+                    <div style="font-style: italic;">December 2015</div>
                 </div>
-                <div style="clear: both; font-weight: 600; font-style: italic;">Miami, FL</div>
-                <div style="font-weight: 400; margin-bottom: 17px">Bachelors of Science in Information Technology
+                <div style="clear: both; font-weight: 400; margin-bottom: 17px">Bachelors of Science in Information Technology
                 </div>
                 <div>
                     <div style="font-weight: 600; text-decoration: underline; margin-bottom: -10px">
                         Personal Experience:
                     </div>
                     <ul>
-                        <li>Manage a handful of VPSs to experiment with web hosting, VPN, mail, personal cloud, and more
-                        </li>
-                        <li style="list-style: none; display: inline">
-                            <ul>
-                                <li>Manage and develop <i>antonioabella.com</i>. Served as a virtual host by Nginx web server on an Ubuntu Server VPS.</li>
-                                <li>Manage and develop <i>cv-guild.com</i> and <i>m.cv-guild.com</i>. Served as virtual hosts on same DigitalOcean VPS using Nginx and php-fpm, also hosts a VoIP server, page source and configurations available on GitHub.</li>
-                            </ul>
-                        </li>
+                        <li>Portfolio: <a href="https://antonioabella.com" class="projlink">https://antonioabella.com</a></li>
+                        <li>Projects: <a href="https://github.com/a-abella" class="projlink">https://github.com/a-abella</a></li>
                     </ul>
                 </div>
             </div>
