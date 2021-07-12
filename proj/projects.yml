@@ -14,11 +14,12 @@ dynamicenvs:
     system that could:
 
     <ul>
-      <li>Provision and assign individualized AWS infrastructure, appropriately tagged for cost analysis per-environment and per-user</li>
-      <li>Isolate Docker image builds per-environment to avoid poisoning each other's build caches</li>
-      <li>Support running arbitrary subsets of services from single microservices to full-stack deployments</li>
-      <li>Reconfigure service container environments on-the-fly based on availability of neighboring local services</li>
-      <li>Monitor and alert on environment inactivity to ensure users do not abandon long-running environments</li>
+      <li>Provision and assign individualized AWS infrastructure</li>
+      <li>Tag all resources for cost analysis per-environment and per-user</li>
+      <li>Isolate Docker image builds to avoid poisoning each other's build caches</li>
+      <li>Support any size deployment, from individual microservices to full stack</li>
+      <li>Dynamically modify container environments as neighbor services are spun up or down</li>
+      <li>Alert on deployment inactivity to ensure against abandoned environments</li>
     </ul>
 
     <p>The centerpieces that made this system possible are the <a
