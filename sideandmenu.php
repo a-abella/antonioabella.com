@@ -1,5 +1,6 @@
 <html>
     <head>
+        <link href="styles/prism_themes/prism-nord.css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="/styles/base.css"/>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +16,7 @@
         <title>Antonio Abella - <?php echo $myTitle; ?></title>
     </head>
     <body>
+        <script src="scripts/prism.js"></script>
         <?php 
             $activePage = basename($_SERVER['PHP_SELF'], ".php");
         ?>
