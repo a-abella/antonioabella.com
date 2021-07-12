@@ -1,4 +1,5 @@
 ﻿Antonio Abella
+DevOps Engineer
 me@antonioabella.com
 +1 305 926 6587
 
@@ -6,13 +7,13 @@ me@antonioabella.com
 SKILLS:
 ======
 * Expertise in:
-	* Cloud Platforms: AWS (EC2, Route53, RDS, S3, VPC, IAM, ACM, CloudWatch)
-	* Operating Systems: Ubuntu 18.04, 20.04, CentOS 7
+	* Cloud Computing: AWS (EC2, Route53, RDS, S3, VPC, IAM, ACM, CloudWatch)
+	* Operating Systems: Ubuntu Linux 18.04, 20.04, CentOS Linux 7
 	* Software: Docker, Git, Ansible, Terraform, Jenkins, Grafana, InfluxDB, Zabbix
 	* Languages: Python, Shell (posix sh and bash), PowerShell
 	* Hardware: Dell PowerEdge and HP ProLiant servers
 * Some experience with:
-	* Cloud Platforms: AWS (EKS, Lambda, DynamoDB)
+	* Cloud Computing: AWS (EKS, Lambda, DynamoDB)
 	* Software: MySQL/MariaDB, MongoDB, RabbitMQ, Memcached, NGINX, Asterisk
 	* Languages: Groovy, Java, SQL, PHP, Javascript, Perl
 	* Hardware: Juniper and Cisco routers and firewalls, Cisco, HP, and Juniper managed switches, SuperMicro servers

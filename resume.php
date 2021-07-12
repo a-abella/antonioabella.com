@@ -27,15 +27,15 @@
                     <ul>
                         <li>Expertise in:</li>
                         <ul>
-                            <li><u>Cloud Platforms:</u> AWS (EC2, Route53, RDS, S3, VPC, IAM, ACM, CloudWatch)</li>
-                            <li><u>Operating Systems:</u> Ubuntu 18.04, 20.04, CentOS 7</li>
+                            <li><u>Cloud Computing:</u> AWS (EC2, Route53, RDS, S3, VPC, IAM, ACM, CloudWatch)</li>
+                            <li><u>Operating Systems:</u> Ubuntu Linux 18.04, 20.04, CentOS Linux 7</li>
                             <li><u>Software:</u> Docker, Git, Ansible, Terraform, Jenkins, Grafana, InfluxDB, Zabbix</li>
                             <li><u>Languages:</u> Python, Shell (posix sh and bash), PowerShell</li>
                             <li><u>Hardware:</u> Dell PowerEdge and HP ProLiant servers</li>
                         </ul>
                         <li>Some experience with:</li>
                         <ul>
-                            <li><u>Cloud Platforms:</u> AWS (EKS, Lambda, DynamoDB)</li>
+                            <li><u>Cloud Computing:</u> AWS (EKS, Lambda, DynamoDB)</li>
                             <li><u>Software:</u> MySQL/MariaDB, MongoDB, RabbitMQ, Memcached, NGINX, Asterisk</li>
                             <li><u>Languages:</u> Groovy, Java, SQL, PHP, Javascript, Perl</li>
                             <li><u>Hardware:</u> Juniper and Cisco routers and firewalls, Cisco, HP, and Juniper managed switches, SuperMicro servers</li>
