@@ -55,7 +55,7 @@ li.menulist:hover {
     color: #8a8a8a;
 }
 li.currentitem {
-    border-color: #6d7c9a;
+    border-color: #9cb1d0;
     color: #737373;
     font-weight: 400;
 }
@@ -88,10 +88,19 @@ li.currentitem:hover {
 }
 .project > .projhead {
     font-family:  "Source Sans Pro", "Corbel", "Helvetica Neue", sans-serif;
+    margin-bottom: 2.3rem;
 }
 .project > .projdocs {
     margin-top: 2rem;
 }
+.project > pre {
+    font-size: 11pt;
+    max-height: 25rem !important;
+    overflow: auto !important;
+}
+/* .project > pre > code {
+    
+} */
 .bodycontent > .bodybody {
     width: 90%;
     margin: 0 auto;
@@ -104,7 +113,7 @@ li.currentitem:hover {
 .faceimg {
     height: 245px;
     width: 245px;
-    background-image: url("/images/face_compressed.webp");
+    background-image: url("/images/face.webp");
     background-repeat: no-repeat;
     margin: 20% auto 8% auto;
     background-size: cover;
@@ -182,7 +191,7 @@ a {
 }
 
 .bodybody > .project > p > a, a.projlink {
-    color: #4d8bdc;
+    color: #3273ea;
 }
 
 .bodybody > .project > p > a, a.projlink:hover {
@@ -190,5 +199,5 @@ a {
 }
 code {
     background: #f1f1f1;
-    font-family: "Andale Mono", "Consolas", "Lucida Console", "Courier New", "Courier", monospace;
+    font-family: "Fira Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 }
