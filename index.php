@@ -11,7 +11,7 @@
             if (array_key_exists('links', $proj_content)) {
                 $link_entry = "";
                 foreach($proj_content['links'] as $link) {
-                    $link_entry .= "<a href=\"{$link['href']}\" target=\"_blank\" class=\"projlink\">{$link['title']}</a><br />\n";
+                    $link_entry .= "<a href=\"{$link['href']}\" target=\"_blank\" class=\"projlink\" rel=\"noopener\">{$link['title']}</a><br />\n";
                 }
                 $link_section = <<<EOD
                 <div class="projdocs">

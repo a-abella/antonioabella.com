@@ -5,11 +5,11 @@
         <div>
             <div style="text-align: right">Save a copy:
                 &nbsp;
-                <a href="resumes/resume-antonio-abella.pdf" target="_blank" class="projlink">pdf</a>
+                <a href="resumes/resume-antonio-abella.pdf" target="_blank" class="projlink" rel="noopener">pdf</a>
                 &nbsp;|&nbsp;
-                <a href="resumes/resume-antonio-abella.docx" target="_blank" class="projlink">docx</a>
+                <a href="resumes/resume-antonio-abella.docx" target="_blank" class="projlink" rel="noopener">docx</a>
                 &nbsp;|&nbsp;
-                <a href="resumes/resume-antonio-abella.txt" target="_blank" class="projlink">txt</a></div>
+                <a href="resumes/resume-antonio-abella.txt" target="_blank" class="projlink" rel="noopener">txt</a></div>
         </div>
         <div style="text-align: center; padding-top: 0.35in; padding-bottom: 0.25in">
 

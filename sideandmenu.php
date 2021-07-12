@@ -1,5 +1,9 @@
+<!DOCTYPE html>
 <html>
     <head>
+        <meta name="description" content="Antonio Abella - DevOps and SRE portfolio and resume">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <link href="styles/prism_themes/prism-nord.css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="/styles/base.css"/>
 
@@ -14,6 +18,7 @@
             $myTitle = $titles[mt_rand(0, count($titles) - 1)];
         ?>
         <title>Antonio Abella - <?php echo $myTitle; ?></title>
+        <base target="_blank" rel="noopener">
     </head>
     <body>
         <script src="scripts/prism.js"></script>
@@ -28,10 +33,10 @@
             <h3>Miami, FL</h3>
             <div class="reachme">
                 <div class="sidelinks">
-                    <a href="https://www.linkedin.com/in/antonio-abella-932908113" target="_blank">
+                    <a href="https://www.linkedin.com/in/antonio-abella-932908113" target="_blank" rel="noopener">
                         <span class="icon-linkedin"></span>
                     </a>
-                    <a href="https://github.com/a-abella" target="_blank">
+                    <a href="https://github.com/a-abella" target="_blank" rel="noopener">
                         <span class="icon-github-circled"></span>
                     </a>
                     <a href="mailto:me@antonioabella.com">
