@@ -1,5 +1,7 @@
 ﻿Antonio Abella
 DevOps Engineer
+
+Fort Lauderdale, FL
 me@antonioabella.com
 +1 305 926 6587
 
@@ -7,37 +9,37 @@ me@antonioabella.com
 SKILLS:
 ======
 * Expertise in:
-	* Cloud Computing: AWS (EC2, Route53, RDS, S3, VPC, IAM, ACM, CloudWatch)
-	* Operating Systems: Ubuntu Linux 18.04, 20.04, CentOS Linux 7
-	* Software: Docker, Git, Ansible, Terraform, Jenkins, Grafana, InfluxDB, Zabbix
-	* Languages: Python, Shell (posix sh and bash), PowerShell
-	* Hardware: Dell PowerEdge and HP ProLiant servers
+    * Cloud Computing: Amazon AWS (EC2, Route53, RDS, S3, VPC, ACM, CloudWatch)
+    * Operating Systems: Ubuntu 18.04, 20.04; CentOS 7
+    * Programming Languages: Python, Shell (posix sh and bash), PowerShell
+    * Software & Tools: Docker, Git, Ansible, Terraform, Jenkins, Grafana, InfluxDB, Zabbix
+    * Hardware: Dell PowerEdge and HP ProLiant servers
 * Some experience with:
-	* Cloud Computing: AWS (EKS, Lambda, DynamoDB)
-	* Software: MySQL/MariaDB, MongoDB, RabbitMQ, Memcached, NGINX, Asterisk
-	* Languages: Groovy, Java, SQL, PHP, Javascript, Perl
-	* Hardware: Juniper and Cisco routers and firewalls, Cisco, HP, and Juniper managed switches, SuperMicro servers
-* Additionally experienced with Windows Server 2012R2, VMware ESXi 6.0+, macOS, Samba4, Active Directory.
-* Fully fluent in written and verbal English and Spanish.
+    * Cloud Computing: Amazon AWS (IAM, EKS, Lambda, DynamoDB)
+    * Programming Languages: Groovy, Java, SQL, PHP, Javascript, Perl
+    * Software & Tools: MySQL/MariaDB, MongoDB, RabbitMQ, Memcached, NGINX, Make
+    * Hardware: Juniper and Cisco routers and firewalls, Cisco and HP managed switches
+* Additionally experienced with Windows Server 2012R2, VMware ESXi 6.0+, Active Directory 
+* Fully fluent in written and verbal English and Spanish 
 
 
 WORK EXPERIENCE:
 ===============
 SmartBear Software
-DevOps Engineer				July 2019 - present
-Junior DevOps Engineer			July 2017 - July 2019
+DevOps Engineer				        July 2019 - present
+Junior DevOps Engineer              July 2017 - July 2019
 
-	* Designed and implemented a dynamic iptables firewall configuration generator to improve reconfiguration performance on a cluster of 300 hosts. This implementation replaced an existing solution with a 99.95% improvement in runtime, resulting in over 12 hours saved per deployment.
-	* Built and administered a 4 TB self-hosted InfluxDB Enterprise time-series database cluster for backending core application data. Oversaw migration of entire data lifecycle from previous MySQL-based solution. Worked with the development team to carry out performance and load tests prior to bringing the system live.
+	* Designed and implemented a dynamic iptables firewall configuration generator to improve reconfiguration performance on a cluster of 300 hosts. This implementation yielded a 99.95% improvement in runtime over the previous solution, resulting in over 12 hours saved per deployment.
+	* Built and administered a self-hosted InfluxDB Enterprise time-series database cluster hosting core application data. Oversaw migration of the entire data lifecycle from the previous solution. Worked with the development team to carry out performance and load benchmarking at production scale.
 	* Migrated core application legacy Docker Swarm clusters to latest Docker Swarm Mode. Defined cluster infrastructure in Terraform for reproducible provisioning and disaster recovery. Conducted staged rollout of new Swarm environments in coordination with development and QA teams. Reconstructed all related CI/CD pipelines to interface with new Docker and Swarm versions.
-	* Engineered solution for self-service provisioning and deployment of transient development environments within Docker Swarm. Extended Terraform configuration to source environment metadata from central database. Provided the development team with the tools to create arbitrary environments to accelerate testing and facilitate code comparisons.
+	* Engineered platform for self-service provisioning and deployment of transient development environments within Docker Swarm. Extended Terraform configuration to source dynamic environment metadata from a central database. Provided the development team with the tools to accelerate testing and facilitate code comparisons.
 
 Inktel Contact Center Solutions
-Junior Systems Administrator		April 2016 - July 2017
+Junior Systems Administrator        April 2016 - July 2017
 
-	Primary role involved administration and maintenance of AD Domain Services and Exchange mail, and regular maintenance of VMware ESXi hypervisors, CentOS file servers, mail scanners, web servers, and Asterisk servers. Additional responsibilities included researching, designing, and deploying low- or no-cost self-hosted tools and services to improve internal company functions.
+	Responsibilities involved the administration of Active Directory Domain Services and Exchange mail, and the regular maintenance of VMware ESXi hypervisors, CentOS file servers, mail scanners, web servers, and Asterisk servers. Additionally tasked with researching and deploying low- or no-cost self-hosted tools and services to improve internal company functions.
 
- 
+
 EDUCATION:
 =========
 Florida International University	Dec 2015

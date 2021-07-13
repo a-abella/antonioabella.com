@@ -16,7 +16,7 @@
             <div style="font-size:1.6rem; font-weight:600">Antonio Abella
             </div>
             <div>
-                DevOps Engineer
+                DevOps Engineer | Fort Lauderdale, FL
                 <br />
                 me@antonioabella.com
                 <br />
@@ -29,28 +29,28 @@
                     <ul>
                         <li>Expertise in:</li>
                         <ul>
-                            <li><u>Cloud Computing:</u> AWS (EC2, Route53, RDS, S3, VPC, IAM, ACM, CloudWatch)</li>
-                            <li><u>Operating Systems:</u> Ubuntu Linux 18.04, 20.04, CentOS Linux 7</li>
-                            <li><u>Software:</u> Docker, Git, Ansible, Terraform, Jenkins, Grafana, InfluxDB, Zabbix</li>
-                            <li><u>Languages:</u> Python, Shell (posix sh and bash), PowerShell</li>
+                            <li><u>Cloud Computing:</u> Amazon AWS (EC2, Route53, RDS, S3, VPC, ACM, CloudWatch)</li>
+                            <li><u>Operating Systems:</u> Ubuntu 18.04, 20.04; CentOS 7</li>
+                            <li><u>Programming Languages:</u> Python, Shell (posix sh and bash), PowerShell</li>
+                            <li><u>Software & Tools:</u> Docker, Git, Ansible, Terraform, Jenkins, Grafana, InfluxDB, Zabbix</li>
                             <li><u>Hardware:</u> Dell PowerEdge and HP ProLiant servers</li>
                         </ul>
                         <li>Some experience with:</li>
                         <ul>
-                            <li><u>Cloud Computing:</u> AWS (EKS, Lambda, DynamoDB)</li>
-                            <li><u>Software:</u> MySQL/MariaDB, MongoDB, RabbitMQ, Memcached, NGINX, Asterisk</li>
-                            <li><u>Languages:</u> Groovy, Java, SQL, PHP, Javascript, Perl</li>
-                            <li><u>Hardware:</u> Juniper and Cisco routers and firewalls, Cisco, HP, and Juniper managed switches, SuperMicro servers</li>
+                            <li><u>Cloud Computing:</u> Amazon AWS (IAM, EKS, Lambda, DynamoDB)</li>
+                            <li><u>Programming Languages:</u> Groovy, Java, SQL, PHP, Javascript, Perl</li>
+                            <li><u>Software & Tools:</u> MySQL/MariaDB, MongoDB, RabbitMQ, Memcached, NGINX, Make</li>
+                            <li><u>Hardware:</u> Juniper and Cisco routers and firewalls, Cisco and HP managed switches</li>
                         </ul>
-                        <li>Additionally experienced with Windows Server 2012R2, VMware ESXi 6.0+, macOS, Samba4, Active Directory.</li>
-                        <li>Fully fluent in written and verbal English and Spanish.</li>
+                        <li>Additionally experienced with Windows Server 2012R2, VMware ESXi 6.0+, Active Directory</li>
+                        <li>Fully fluent in written and verbal English and Spanish</li>
                     </ul>
                 </div>
                 <div style="font-weight: 600; text-decoration: underline">Work Experience:</div>
 
                 <div style="font-weight: 700">SmartBear Software</div>
                 <div style="float: left">
-                    <div style="font-weight: 600;">DevOps Engineer</div>
+                    <div style="font-style: italic;">DevOps Engineer</div>
                 </div>
                 <div style="float: right">
                     <div style="font-weight: 600;">July 2019 - present</div>
@@ -65,10 +65,10 @@
                 <br style="clear: both" />
                 <p>
                     <ul>
-                        <li>Designed and implemented a dynamic <code>iptables</code> firewall configuration generator to improve reconfiguration performance on a cluster of 300 hosts. This implementation replaced an existing solution with a 99.95% improvement in runtime, resulting in over 12 hours saved per deployment.</li>
-                        <li>Built and administered a 4 TB self-hosted InfluxDB Enterprise time-series database cluster for backending core application data. Oversaw migration of entire data lifecycle from previous MySQL-based solution. Worked with the development team to carry out performance and load tests prior to bringing the system live.</li>
+                        <li>Designed and implemented a dynamic iptables firewall configuration generator to improve reconfiguration performance on a cluster of 300 hosts. This implementation yielded a 99.95% improvement in runtime over the previous solution, resulting in over 12 hours saved per deployment.</li>
+                        <li>Built and administered a self-hosted InfluxDB Enterprise time-series database cluster hosting core application data. Oversaw migration of the entire data lifecycle from the previous solution. Worked with the development team to carry out performance and load benchmarking at production scale.</li>
                         <li>Migrated core application legacy Docker Swarm clusters to latest Docker Swarm Mode. Defined cluster infrastructure in Terraform for reproducible provisioning and disaster recovery. Conducted staged rollout of new Swarm environments in coordination with development and QA teams. Reconstructed all related CI/CD pipelines to interface with new Docker and Swarm versions.</li>
-                        <li>Engineered solution for self-service provisioning and deployment of transient development environments within Docker Swarm. Extended Terraform configuration to source environment metadata from central database. Provided the development team with the tools to create arbitrary environments to accelerate testing and facilitate code comparisons.</li>
+                        <li>Engineered platform for self-service provisioning and deployment of transient development environments within Docker Swarm. Extended Terraform configuration to source dynamic environment metadata from a central database. Provided the development team with the tools to accelerate testing and facilitate code comparisons.</li>
                     </ul>
                 </p>
                 <div style="font-weight: 700">Inktel Contact Center Solutions</div>
@@ -80,18 +80,15 @@
                 </div>
                 <br />
                 <p style="clear: both;">
-                    Primary role involved administration and maintenance of AD Domain Services and Exchange mail, and maintenance of VMware ESXi hypervisors, and CentOS file servers, mail scanners, web servers, and Asterisk servers. Additional responsibilities included deploying low- or no-cost self-hosted tools and services to improve internal company functions.
+                Responsibilities involved the administration of Active Directory Domain Services and Exchange mail, and the regular maintenance of VMware ESXi hypervisors, CentOS file servers, mail scanners, web servers, and Asterisk servers. Additionally tasked with researching and deploying low- or no-cost self-hosted tools and services to improve internal company functions.
                 </p>
+
                 <div style="font-weight: 600; text-decoration: underline">Education:</div>
-                <div style="float: left">
-                    <div style="font-weight: 600">Florida International University</div>
-                </div>
-                <div style="float: right">
-                    <div style="font-style: italic;">December 2015</div>
-                </div>
-                <div style="clear: both; font-weight: 400; margin-bottom: 17px">Bachelors of Science in Information Technology
-                </div>
-                <div>
+                <div style="font-weight: 600">Florida International University</div>
+                <div style="float: left; font-weight: 400; margin-bottom: 17px">Bachelors of Science in Information Technology</div>
+                <div style="font-style: italic; float: right">December 2015</div>
+
+                <div style="clear: both">
                     <div style="font-weight: 600; text-decoration: underline; margin-bottom: -10px">
                         Personal Experience:
                     </div>
