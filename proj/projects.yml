@@ -253,6 +253,9 @@ dynamicinventory:
     enabling conditional execution of tasks. With these already in-hand, all
     that was needed was a script to format each host row into Ansible
     inventory-compatible JSON.
+  links:
+  - title: dynamic-inventory - Boilerplate components for SQL-based Ansible dynamic inventory
+    href: https://github.com/a-abella/dynamic-inventory
 
 locateusers:
   title: Locate users on the network
