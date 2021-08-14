@@ -1,0 +1,40 @@
+.sidebar {
+    position: static;
+    width: auto;
+    border-right: 0;
+    margin-bottom: 0.75rem;
+}
+
+.right-content {
+    position: static;
+    overflow-y: visible;
+    left: auto;
+    width: auto;
+}
+.bodycontent {
+    width: 90%;
+}
+.faceimg {
+    display: none;
+}
+.sidebar > h1 {
+    font-size: 2.75rem;
+    margin: 0;
+    padding: 1rem 0 0 0;
+}
+.sidebar > h2 {
+    font-size: 1.5rem;
+    padding: 0 0 1rem 0;
+}
+.sidebar > h3 {
+    display: none;
+}
+.sidebar > .sep {
+    display: none;
+}
+.sidebar > .reachme {
+    display: none;
+}
+.sidebar > .reachme > .sidelinks {
+    display: none;
+}

@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="description" content="Antonio Abella - DevOps and SRE portfolio and resume">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="/styles/base.css" title="default" />
+        <link rel="stylesheet" type="text/css" href="/styles/narrow.css" title="narrow" disabled/>
+        <script src="scripts/layout.js" type="text/javascript"></script>
 
-        <link href="styles/prism_themes/prism-nord.css" rel="stylesheet" />
-        <link rel="stylesheet" type="text/css" href="/styles/base.css"/>
-
+        <link href="styles/prism_themes/prism-nord.css" rel="stylesheet" title="default" />
+        <link rel="stylesheet" type="text/css" href="/styles/fontawesome/css/fontello.css" title="default" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;600;700&family=Source+Sans+Pro:wght@200;400;600&display=swap" rel="stylesheet">
-
-        <link rel="stylesheet" type="text/css" href="/styles/fontawesome/css/fontello.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;600;700&family=Source+Sans+Pro:wght@200;400;600&display=swap" rel="stylesheet" title="default">
+        
+        <meta name="description" content="Antonio Abella - DevOps and SRE portfolio and resume">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="favicon.ico" sizes="16x16 32x32" type="image/png" />
+
+        <script src="scripts/prism.js"></script>
+
         <?php 
             $titles = array("Console Commander","Command-line Captain","Webscale Warrior","Uptime Avenger","Cloud Conqueror","Data Defender","Automation Adjucator");
             $myTitle = $titles[mt_rand(0, count($titles) - 1)];
@@ -21,7 +25,6 @@
         <base target="_blank" rel="noopener">
     </head>
     <body>
-        <script src="scripts/prism.js"></script>
         <?php 
             $activePage = basename($_SERVER['PHP_SELF'], ".php");
         ?>
