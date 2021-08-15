@@ -6,6 +6,13 @@ body {
     color: #555;
     line-height: 20pt;
 }
+@media only screen and (max-width: 450px) {
+    body {
+        font-size: 11pt;
+        line-height: 14pt;
+    }
+}
+
 .sidebar {
     position: fixed;
     width: 400px;
