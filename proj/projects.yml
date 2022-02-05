@@ -218,7 +218,7 @@ geninfluxdata:
     consistent testing. Eventually I would like to extend this tool to output
     data for other commonly used time-series databases, like Prometheus and
     Graphite.
-  links:
+    # links:
   # - title: gen-sample-metrics.py - generate and write a reproducible set of metric data to InfluxDB
   #   href: https://github.com/a-abella/gen-sample-metrics
 
