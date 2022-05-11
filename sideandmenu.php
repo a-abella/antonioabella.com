@@ -18,8 +18,9 @@
         <script src="scripts/prism.js"></script>
 
         <?php 
-            $titles = array("Console Commander","Command-line Captain","Webscale Warrior","Uptime Avenger","Cloud Conqueror","Data Defender","Automation Adjucator");
-            $myTitle = $titles[mt_rand(0, count($titles) - 1)];
+            #$titles = array("Console Commander","Command-line Captain","Webscale Warrior","Uptime Avenger","Cloud Conqueror","Data Defender","Automation Adjucator");
+            #$myTitle = $titles[mt_rand(0, count($titles) - 1)];
+	    $myTitle = "DevOps | SRE";
         ?>
         <title>Antonio Abella - <?php echo $myTitle; ?></title>
         <base target="_blank" rel="noopener">
