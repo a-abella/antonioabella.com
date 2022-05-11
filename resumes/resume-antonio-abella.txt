@@ -1,7 +1,7 @@
 ﻿Antonio Abella
 DevOps Engineer
 
-Fort Lauderdale, FL
+Miami, FL
 me@antonioabella.com
 +1 305 926 6587
 
@@ -26,7 +26,8 @@ SKILLS:
 WORK EXPERIENCE:
 ===============
 SmartBear Software
-DevOps Engineer				        July 2019 - present
+Senior DevOps Engineer              September 2021 - present
+DevOps Engineer	                    July 2019 - September 2021
 Junior DevOps Engineer              July 2017 - July 2019
 
 	* Designed and implemented a dynamic iptables firewall configuration generator to improve reconfiguration performance on a cluster of 300 hosts. This implementation yielded a 99.95% improvement in runtime over the previous solution, resulting in over 12 hours saved per deployment.
