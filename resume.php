@@ -50,11 +50,18 @@
 
                 <div style="font-weight: 700">SmartBear Software</div>
                 <div style="float: left">
-                    <div style="font-style: italic;">DevOps Engineer</div>
+                    <div style="font-style: italic;">Senior DevOps Engineer</div>
                 </div>
                 <div style="float: right">
-                    <div style="font-weight: 600;">July 2019 - present</div>
+                    <div style="font-weight: 600;">September 2021 - present</div>
                 </div>
+		<br />
+                <div style="float: left">
+                    <div style="font-size: 0.85em; font-style: italic;">DevOps Engineer</div>
+                </div>
+                <div style="float: right">
+                    <div style="font-size: 0.85em; font-style: italic;">July 2019 - September 2021</div>
+		</div>
                 <br />
                 <div style="float: left">
                     <div style="font-size: 0.85em; font-style: italic;">Junior DevOps Engineer</div>
