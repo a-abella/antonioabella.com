@@ -34,7 +34,7 @@
             <h1>Antonio Abella</h1>
             <div class="sep"></div>
             <h2>DevOps | Site Reliability</h2>
-            <h3>Miami, FL</h3>
+            <h3><a href="https://smartbear.com">SmartBear</a> | Miami, FL</h3>
             <div class="reachme">
                 <div class="sidelinks">
                     <a href="https://www.linkedin.com/in/a-abella/" target="_blank" rel="noopener">
