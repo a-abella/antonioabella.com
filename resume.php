@@ -16,7 +16,7 @@
             <div style="font-size:1.6rem; font-weight:600">Antonio Abella
             </div>
             <div>
-                DevOps Engineer | Fort Lauderdale, FL
+                DevOps Engineer | Miami, FL
                 <br />
                 me@antonioabella.com
                 <br />
