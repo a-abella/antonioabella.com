@@ -151,12 +151,12 @@ li.currentitem:hover {
     padding: 0;
 }
 .sidebar > h3 > a {
-    color: #ff882f;
+    color: #ff9647;
     display: inline-block;
     /*border-bottom: 1px solid #f5710f;*/
 }
 .sidebar > h3 > a:hover {
-    border-bottom: 1px solid #ff882f;
+    border-bottom: 1px solid #ff9647;
 }
 .sidebar > .sep {
     height: 0.5rem;
