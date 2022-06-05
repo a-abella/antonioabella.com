@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-size: 14pt;
-    font-family:  "Arimo", "Helvetica Neue", "Arial", sans-serif;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
     font-weight: 300;
     color: #555;
     line-height: 20pt;
@@ -21,7 +21,7 @@ body {
     background-image: url(../images/texture_dark.webp);
     border-right: 7px solid #c7c7ce;
     text-align: center;
-    font-family:  "Source Sans Pro", "Corbel", "Helvetica Neue", sans-serif;
+    font-family:  "Corbel", "Helvetica Neue", sans-serif;
 }
 
 .right-content {
@@ -33,7 +33,7 @@ body {
     height: 100%;
 }
 .menubar {
-    font-family:  "Source Sans Pro", "Corbel", "Helvetica Neue", sans-serif;
+    font-family: "Corbel", "Helvetica Neue", sans-serif;
     width: 100%;
     position: sticky;
     top: 0;
@@ -79,7 +79,7 @@ li.currentitem:hover {
     color: #444;
 }
 .bodycontent > .bodyheader {
-    font-family:  "Source Sans Pro", "Corbel", "Helvetica Neue", sans-serif;
+    font-family: "Consolas", "Monaco", sans-serif;
     font-size: 2.25rem;
     font-weight: 600;
     margin-top: 6vh;
@@ -88,14 +88,15 @@ li.currentitem:hover {
 }
 .bodybody {
     font-weight: 400;
-    font-family: "Arimo", "Helvetica Neue", "Arial", sans-serif;
+    font-family: "Helvetica Neue", "Arial", sans-serif;
 }
 .bodybody > .project {
     color: #444;
 }
 .project > .projhead {
-    font-family:  "Source Sans Pro", "Corbel", "Helvetica Neue", sans-serif;
+    font-family:  "Consolas", "Monaco", sans-serif;
     margin-bottom: 2.3rem;
+    font-size: 1.85rem;
 }
 .project > .projdocs {
     margin-top: 2rem;
