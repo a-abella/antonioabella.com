@@ -79,7 +79,7 @@ li.currentitem:hover {
     color: #444;
 }
 .bodycontent > .bodyheader {
-    font-family: "Consolas", "Monaco", sans-serif;
+    font-family: "Consolas", "PT Mono", sans-serif;
     font-size: 2.25rem;
     font-weight: 600;
     margin-top: 6vh;
@@ -94,7 +94,7 @@ li.currentitem:hover {
     color: #444;
 }
 .project > .projhead {
-    font-family:  "Consolas", "Monaco", sans-serif;
+    font-family:  "Consolas", "PT Mono", sans-serif;
     margin-bottom: 2.3rem;
     font-size: 1.85rem;
 }
@@ -215,5 +215,5 @@ a {
 }
 code {
     background: #f1f1f1;
-    font-family: "Fira Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    font-family: "Consolas", "PT Mono", "Andale Mono", "Ubuntu Mono", monospace;
 }
