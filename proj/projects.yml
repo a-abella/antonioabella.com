@@ -24,16 +24,16 @@ dynamicenvs:
 
     <p>The centerpieces that made this system possible are the <a
     href="https://registry.terraform.io/providers/hashicorp/external/latest/docs/data-sources/data_source">Terraform
-    <code>external</code> datasource&#x1F5D7;</a> which enabled infrastructure
+    <code>external</code> datasource</a> which enabled infrastructure
     configurations to be fetched and generated from a centralized MySQL
     environment metadata table, the Ansible <a
-    href="https://docs.ansible.com/ansible/latest/collections/community/docker/docker_swarm_module.html#ansible-collections-community-docker-docker-swarm-module"><code>docker_swarm&#x1F5D7;</code></a>
+    href="https://docs.ansible.com/ansible/latest/collections/community/docker/docker_swarm_module.html#ansible-collections-community-docker-docker-swarm-module"><code>docker_swarm</code></a>
     and <a
-    href="https://docs.ansible.com/ansible/latest/collections/community/docker/docker_node_module.html#ansible-collections-community-docker-docker-node-module"><code>docker_node&#x1F5D7;</code></a>
+    href="https://docs.ansible.com/ansible/latest/collections/community/docker/docker_node_module.html#ansible-collections-community-docker-docker-node-module"><code>docker_node</code></a>
     modules with which EC2 instances could be dynamically added to and removed
     from the Swarm, and the Jenkins <a
     href="https://plugins.jenkins.io/extended-choice-parameter/">Extended Choice
-    Parameter plugin&#x1F5D7;</a> with which complex forms could be presented to
+    Parameter plugin</a> with which complex forms could be presented to
     users for fine-grained control over environment configuration.
 
 gitshrink:
@@ -51,12 +51,12 @@ gitshrink:
     100 MB maximum checked-in file size--our repo exceeded both.<br /><br />
 
     I presented two potential solutions--adopt <a
-    href="https://git-lfs.github.com/">Git LFS&#x1F5D7;</a>, performing a
+    href="https://git-lfs.github.com/">Git LFS</a>, performing a
     migration of binary files in history to LFS using <a
-    href="https://github.com/bozaro/git-lfs-migrate">git-lfs-migrate&#x1F5D7;</a>,
+    href="https://github.com/bozaro/git-lfs-migrate">git-lfs-migrate</a>,
     or simply strip all large files from history using <a
     href="https://rtyley.github.io/bfg-repo-cleaner/">BFG Repo
-    Cleaner&#x1F5D7;</a>. Migrating to LFS would preserve git history but incur
+    Cleaner</a>. Migrating to LFS would preserve git history but incur
     a storage cost on GitHub, whereas using BFG Repo Cleaner would alter
     historical commit IDs as all commit hashes would have to be recalculated
     after the content was removed from history. We decided that, given our
@@ -114,11 +114,11 @@ elasticingestnode:
     Our team was looking for a way to aggregate and report on certain API usage
     metrics which we could only retrieve from Docker-based HTTP logs. I had
     previously implemented Docker log aggregation with <a
-    href="https://www.elastic.co/beats/filebeat">Filebeat&#x1F5D7;</a> and <a
-    href="https://www.elastic.co/cloud/">Elastic Cloud&#x1F5D7;</a>. One of the
+    href="https://www.elastic.co/beats/filebeat">Filebeat</a> and <a
+    href="https://www.elastic.co/cloud/">Elastic Cloud</a>. One of the
     features of Elasticsearch is the <a
     href="https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html">ingest
-    pipeline&#x1F5D7;</a> where you can define parsing and mutation rules for
+    pipeline</a> where you can define parsing and mutation rules for
     inputs prior to indexing. Many people use Logstash as part of the "ELK
     stack" for this purpose, but it's less commonly known that parsing and
     mutation can also be done on Elasticsearch itself, making use of existing
@@ -172,10 +172,10 @@ zabbixactions:
     Eventually it was realized that if procedures and remediations could be
     defined for operators in runbooks, then there's no reason that runbook
     couldn't be executed automatically--this gave birth to tools like <a
-    href="https://www.rundeck.com/">Rundeck&#x1F5D7;</a>.<br /><br />
+    href="https://www.rundeck.com/">Rundeck</a>.<br /><br />
 
     We use many different monitoring tools internally. One of these tools is <a
-    href="https://www.zabbix.com/">Zabbix&#x1F5D7;</a>, a MySQL-based system
+    href="https://www.zabbix.com/">Zabbix</a>, a MySQL-based system
     monitoring suite. We like Zabbix for its flexibility--absolutely any
     arbitrary data that you can generate at a shell prompt can be regularly
     collected and monitored by Zabbix without the same kind of cardinality
@@ -206,7 +206,7 @@ geninfluxdata:
     Time-series data is at the heart of the application I support. Our teams'
     primary customer-facing product is (for the most part) a series of
     dashboards and reports displaying metric data backended by <a
-    href="https://www.influxdata.com/">InfluxDB&#x1F5D7;</a>. One day one of our
+    href="https://www.influxdata.com/">InfluxDB</a>. One day one of our
     QA engineers was expressing that it would be easier to compare the
     functionality of charts and graphs across different code versions if they
     were always rendering the same data, regardless of <i>when</i> the
@@ -226,7 +226,7 @@ dynamicinventory:
   title: Ansible dynamic inventory
   body: |
     I came into a new role as a DevOps Engineer at <a
-    href="https://smartbear.com/" style="color:#f5710f">SmartBear&#x1F5D7;</a>,
+    href="https://smartbear.com/" style="color:#f5710f">SmartBear</a>,
     working on an application with some pretty unique infrastructure challenges.
     In addition to a fairly standard AWS technology stack, my team had to manage
     a fleet of about 300 additional servers located in around 30 different
@@ -239,11 +239,11 @@ dynamicinventory:
     we had no direct control over system images or ad-hoc infrastructure
     deployments. Given the restriction imposed by the underlying infrastructure,
     <a
-    href="https://github.com/ansible/ansible"><code>ansible&#x1F5D7;</code></a>
+    href="https://github.com/ansible/ansible"><code>ansible</code></a>
     was the primary tool used to align systems with as much identicality as we
     could manage. To that end, <a
     href="https://docs.ansible.com/ansible/latest/user_guide/intro_dynamic_inventory.html">ansible
-    dynamic inventory&#x1F5D7;</a> provided a very powerful way to centrally
+    dynamic inventory</a> provided a very powerful way to centrally
     configure Ansible-managed hosts.<br /><br />
 
     Fortunately for us, our application already relied on a MySQL server
@@ -304,7 +304,7 @@ ransomdetection:
     created world-writable hidden directories at the root of every share, and
     named them so they sat first in alphabetical order. In each directory were
     thousands of almost-empty plaintext files. Using <a class="projlink"
-    href="https://github.com/rvoicilas/inotify-tools"><code>inotify-tools&#x1F5D7;</code></a>
+    href="https://github.com/rvoicilas/inotify-tools"><code>inotify-tools</code></a>
     to interface with Linux's <code>inotify()</code> function, I set up an
     inode watch on every file of each hidden directory. When a threshold value
     of files are modified or deleted, the server fires off an email containing
@@ -399,7 +399,7 @@ macscanner:
     and up-to-date source of device MAC addresses on the network so I could
     construct a <a class="projlink"
     href="https://en.wikipedia.org/wiki/Wake-on-LAN#Magic_packet">magic
-    packet&#x1F5D7;</a> containing a target PC's MAC address data. Enter
+    packet</a> containing a target PC's MAC address data. Enter
     macscanner.sh. Parses <code>nmap</code> output, self-cleans repeat entries,
     is multi-hostname-aware, and requires no maintenance or afterthought. Runs
     on any Linux server you have lying around that's online on your target
