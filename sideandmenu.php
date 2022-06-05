@@ -7,9 +7,9 @@
 
         <link href="styles/prism_themes/prism-nord.css" rel="stylesheet" title="default" />
         <link rel="stylesheet" type="text/css" href="/styles/fontawesome/css/fontello.css" title="default" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <!--<link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;600;700&family=Source+Sans+Pro:wght@200;400;600&display=swap" rel="stylesheet" title="default">
+        <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;600;700&family=Source+Sans+Pro:wght@200;400;600&display=swap" rel="stylesheet" title="default">-->
         
         <meta name="description" content="Antonio Abella - DevOps and SRE portfolio and resume">
         <meta name="viewport" content="width=device-width, initial-scale=1">
