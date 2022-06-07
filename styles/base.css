@@ -19,9 +19,10 @@ body {
     height: 100%;
     background-color: #27313e;
     background-image: url(../images/texture_dark.webp);
-    border-right: 7px solid #c7c7ce;
     text-align: center;
     font-family:  "Segoe UI", "Helvetica Neue", sans-serif;
+    box-shadow: 10px 0px 15px rgb(0 0 0 / 20%);
+    z-index: 999;
 }
 
 .right-content {
