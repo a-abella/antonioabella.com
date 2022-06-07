@@ -38,3 +38,11 @@
 .sidebar > .reachme > .sidelinks {
     display: none;
 }
+
+.bodycontent > .bodyheader {
+    line-height: 2.35rem;
+}
+
+.project > .projhead {
+    line-height: 1.75rem;
+}

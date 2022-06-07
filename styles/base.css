@@ -79,7 +79,7 @@ li.currentitem:hover {
     color: #444;
 }
 .bodycontent > .bodyheader {
-    font-family: "Consolas", "PT Mono", sans-serif;
+    font-family: "Consolas", "PT Mono", "Menlo", "Courier New", "Courier", monospace;
     font-size: 2.25rem;
     font-weight: 600;
     margin-top: 6vh;
@@ -94,7 +94,7 @@ li.currentitem:hover {
     color: #444;
 }
 .project > .projhead {
-    font-family:  "Consolas", "PT Mono", sans-serif;
+    font-family: "Consolas", "PT Mono", "Menlo", "Courier New", "Courier", monospace;
     margin-bottom: 2.3rem;
     font-size: 1.85rem;
 }
@@ -107,7 +107,7 @@ li.currentitem:hover {
     overflow: auto !important;
 }
 /* .project > pre > code {
-    
+
 } */
 .bodycontent > .bodybody {
     width: 90%;
@@ -215,5 +215,5 @@ a {
 }
 code {
     background: #f1f1f1;
-    font-family: "Consolas", "PT Mono", "Andale Mono", "Ubuntu Mono", monospace;
+    font-family: "Consolas", "PT Mono", "Andale Mono", "Ubuntu Mono", "Menlo", "Courier New", "Courier", monospace;
 }
