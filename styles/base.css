@@ -21,7 +21,7 @@ body {
     background-image: url(../images/texture_dark.webp);
     border-right: 7px solid #c7c7ce;
     text-align: center;
-    font-family:  "Corbel", "Helvetica Neue", sans-serif;
+    font-family:  "Segoe UI", "Helvetica Neue", sans-serif;
 }
 
 .right-content {
@@ -33,7 +33,7 @@ body {
     height: 100%;
 }
 .menubar {
-    font-family: "Corbel", "Helvetica Neue", sans-serif;
+    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
     width: 100%;
     position: sticky;
     top: 0;
