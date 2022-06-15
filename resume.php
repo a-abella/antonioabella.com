@@ -13,7 +13,7 @@
         </div>
         <div style="text-align: center; padding-top: 0.35in; padding-bottom: 0.25in">
 
-            <div style="font-size:1.6rem; font-weight:600">Antonio Abella
+            <div style="font-size:1.6rem; font-weight:600; margin-bottom: 0.15rem;">Antonio Abella
             </div>
             <div>
                 DevOps Engineer | Miami, FL
