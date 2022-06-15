@@ -40,12 +40,14 @@ body {
     top: 0;
     background-color: white;
     padding: 1vh 0 0.3vh 0;
+    box-shadow: 0px 6px 15px #fff;
 }
 .menubar > ul {
     list-style-type: none;
     text-align: center;
     margin: 0;
     padding: 0;
+    font-weight: 300;
 }
 li.menulist {
     display: inline-block;
@@ -55,25 +57,20 @@ li.menulist {
     margin: 0 1%;
     height: 2.2rem;
     background-color: white;
-    font-size: 1.5rem;
-    border-bottom: 3px solid #e4e0e0;
+    font-size: 1.6rem;
+    border-bottom: 1px solid #e4e0e0;
 }
 li.menulist:hover {
-    border-color: #aaa;
-    color: #8a8a8a;
+    border-color: #444;
+    color: #444;
 }
 li.currentitem {
-    border-color: #899eb7;
-    color: #737373;
-    font-weight: 400;
-}
-li.currentitem:hover {
-    border-color: #6d7c9a;
-    color: #737373;
+    border-color: #444;
+    color: #444;
 }
 .bodycontent {
     width: 72%;
-    padding-top: 4vh;
+    padding-top: 5vh;
     margin: 0 auto;
     word-wrap: break-word;
     text-align: left;
@@ -88,16 +85,17 @@ li.currentitem:hover {
     color: #444;
 }
 .bodybody {
-    font-weight: 400;
+    font-weight: 350;
     font-family: "Helvetica Neue", "Arial", sans-serif;
 }
 .bodybody > .project {
     color: #444;
 }
 .project > .projhead {
-    font-family: "Consolas", "PT Mono", "Menlo", "Courier New", "Courier", monospace;
-    margin-bottom: 2.3rem;
-    font-size: 1.85rem;
+    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+    font-weight: 350;
+    margin-bottom: 2.5rem;
+    font-size: 1.9rem;
 }
 .project > .projdocs {
     margin-top: 2rem;

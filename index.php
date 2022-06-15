@@ -1,7 +1,5 @@
 <?php require("sideandmenu.php"); ?>
 
-<!-- <div class="bodyheader">&gt;cat .bash_history</div> -->
-<div class="bodyheader">~$ cat .bash_history</div>
 <div class="bodybody">
     <?php
         #$projects = preg_grep('/^([^.])/', scandir('proj', 1));
@@ -21,7 +19,7 @@ EOD;
             }
             $entry = <<<EOD
             <div class="project" id="$proj">
-                <h2 class="projhead" style="font-weight: 700">{$proj_content['title']}</h2>
+                <h2 class="projhead">{$proj_content['title']}</h2>
 
                 <p>{$proj_content["body"]}
 
