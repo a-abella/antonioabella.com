@@ -40,7 +40,7 @@ body {
     top: 0;
     background-color: white;
     padding: 1vh 0 0.3vh 0;
-    box-shadow: 0px 6px 15px #fff;
+    box-shadow: 0px 5px 15px rgb(255 255 255 / 55%);
 }
 .menubar > ul {
     list-style-type: none;
