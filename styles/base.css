@@ -85,7 +85,6 @@ li.currentitem {
     color: #444;
 }
 .bodybody {
-    font-weight: 350;
     font-family: "Helvetica Neue", "Arial", sans-serif;
 }
 .bodybody > .project {
@@ -93,7 +92,7 @@ li.currentitem {
 }
 .project > .projhead {
     font-family: "Segoe UI", "Helvetica Neue", sans-serif;
-    font-weight: 350;
+    font-weight: 400;
     margin-bottom: 2.5rem;
     font-size: 1.9rem;
 }
