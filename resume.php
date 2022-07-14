@@ -1,17 +1,17 @@
 <?php require("sideandmenu.php"); ?>
 
-<div class="bodybody">
+<div class="bodybody" style="margin-top:0.3vh">
 <div class="resumebody">
         <div>
-            <div style="text-align: right">Save a copy:
+	    <div style="text-align: right; font-size:11pt;">Save a copy:
                 &nbsp;
-                <a href="resumes/resume-antonio-abella.pdf" target="_blank" class="projlink" rel="noopener">pdf</a>
+                <a href="resumes/resume-antonio-abella.pdf" target="_blank" class="projlink" rel="noopener" style="font-weight:600">pdf</a>
                 &nbsp;|&nbsp;
-                <a href="resumes/resume-antonio-abella.docx" target="_blank" class="projlink" rel="noopener">docx</a>
+                <a href="resumes/resume-antonio-abella.docx" target="_blank" class="projlink" rel="noopener" style="font-weight:600">docx</a>
                 &nbsp;|&nbsp;
-                <a href="resumes/resume-antonio-abella.txt" target="_blank" class="projlink" rel="noopener">txt</a></div>
+                <a href="resumes/resume-antonio-abella.txt" target="_blank" class="projlink" rel="noopener" style="font-weight:600">txt</a></div>
         </div>
-        <div style="text-align: center; padding-top: 0.35in; padding-bottom: 0.25in">
+        <div style="text-align: center; padding-top: 0in; padding-bottom: 0.25in">
 
             <div style="font-size:1.6rem; font-weight:600; margin-bottom: 0.15rem;">Antonio Abella
             </div>
