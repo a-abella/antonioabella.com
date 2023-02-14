@@ -3,7 +3,7 @@ featscale:
   title: Automatic vertical scaling for QA agility
   body: |
     Had myself a fun one-day project at the behest of one of our QA Engineers.
-    My <a class="projlink" href="#dynamicenvs">self-service feature env
+    My <a class="projlink" target="_self" href="#dynamicenvs">self-service feature env
     system</a> was a hit with our devs, but created unintended headaches for
     testers. On the one hand, independent feature stacks allowed for extremely
     easy A/B comparisons for QA. On the other, our high rate of feature
@@ -372,7 +372,7 @@ ransomdetection:
     Most ransomware variants encrypt volumes recursive and usually traverse a
     file system alphabetically. Knowing this, we can lay bait for ransomware,
     and then sound the alarm when notice something suspicious. When working on
-    my <a class="projlink" href="#smbdfssetup">Samba DFS project</a>, I
+    my <a class="projlink" target="_self" href="#smbdfssetup">Samba DFS project</a>, I
     created world-writable hidden directories at the root of every share, and
     named them so they sat first in alphabetical order. In each directory were
     thousands of almost-empty plaintext files. Using <a class="projlink"
@@ -466,7 +466,7 @@ psnettools:
 macscanner:
   title: Compiling MAC address data for WakeOnLan
   body: |
-    Developed in conjunction with my <a class="projlink"
+    Developed in conjunction with my <a class="projlink" target="_self"
     href="#psnettools">Wake-Send.ps1 PowerShell script</a>, I needed a reliable
     and up-to-date source of device MAC addresses on the network so I could
     construct a <a class="projlink"
