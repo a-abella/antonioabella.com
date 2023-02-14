@@ -33,7 +33,7 @@
             <div class="faceimg"></div>
             <h1>Antonio Abella</h1>
             <div class="sep"></div>
-            <h2>DevOps | Site Reliability</h2>
+            <h2>DevOps | Site Reliability | Platform Engineering</h2>
             <h3><a href="https://smartbear.com">SmartBear</a> | Miami, FL</h3>
             <div class="reachme">
                 <div class="sidelinks">

@@ -1,10 +1,10 @@
 body {
     margin: 0;
-    font-size: 14pt;
+    font-size: 12pt;
     font-family: "Helvetica Neue", "Arial", sans-serif;
     font-weight: 300;
     color: #555;
-    line-height: 20pt;
+    line-height: 18pt;
 }
 @media only screen and (max-width: 450px) {
     body {
@@ -94,7 +94,7 @@ li.currentitem {
     font-family: "Segoe UI", "Helvetica Neue", sans-serif;
     font-weight: 400;
     margin-bottom: 2.5rem;
-    font-size: 1.9rem;
+    font-size: 1.75rem;
 }
 .project > .projdocs {
     margin-top: 2rem;

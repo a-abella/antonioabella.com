@@ -26,7 +26,7 @@ featscale:
     undesirable--Terraform supplies a <code>-target=</code> command line option,
     allowing one to state-refresh, plan, and apply changes to individual modules
     or even individual resources using resource addressing. <i>However</i>,
-    Terraform itself chides you for even using it:<br /><br />
+    Terraform itself chides you for even using it:<br />
 
     <pre><code class="language-shell">╷
     │ Warning: Resource targeting is in effect
