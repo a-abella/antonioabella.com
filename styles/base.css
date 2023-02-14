@@ -85,7 +85,7 @@ li.currentitem {
     color: #444;
 }
 .bodybody {
-    font-family: "Helvetica Neue", "Arial", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 .bodybody > .project {
     color: #444;
