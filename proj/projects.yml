@@ -1,10 +1,10 @@
 ---
 featscale:
-  title: Automatic vertical Scaling for test agility
+  title: Automatic vertical scaling for QA agility
   body: |
     Had myself a fun one-day project at the behest of one of our QA Engineers.
     My <a class="projlink" href="#dynamicenvs">self-service feature env
-    system<a> was a hit with our devs, but created unintended headaches for
+    system</a> was a hit with our devs, but created unintended headaches for
     testers. On the one hand, independent feature stacks allowed for extremely
     easy A/B comparisons for QA. On the other, our high rate of feature
     development meant we ended up with way more feature envs than we initially
