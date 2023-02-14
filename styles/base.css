@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-size: 12pt;
+    font-size: 13pt;
     font-family: "Helvetica Neue", "Arial", sans-serif;
     font-weight: 300;
     color: #555;
@@ -94,7 +94,7 @@ li.currentitem {
     font-family: "Segoe UI", "Helvetica Neue", sans-serif;
     font-weight: 400;
     margin-bottom: 2.5rem;
-    font-size: 1.75rem;
+    font-size: 1.8rem;
 }
 .project > .projdocs {
     margin-top: 2rem;
