@@ -20,7 +20,7 @@
         <?php 
             #$titles = array("Console Commander","Command-line Captain","Webscale Warrior","Uptime Avenger","Cloud Conqueror","Data Defender","Automation Adjucator");
             #$myTitle = $titles[mt_rand(0, count($titles) - 1)];
-	    $myTitle = "DevOps | SRE";
+	    $myTitle = "DevOps | SRE | Platform Engineer";
         ?>
         <title>Antonio Abella - <?php echo $myTitle; ?></title>
         <base target="_blank" rel="noopener">
@@ -33,7 +33,7 @@
             <div class="faceimg"></div>
             <h1>Antonio Abella</h1>
             <div class="sep"></div>
-            <h2>DevOps | Site Reliability | Platform Engineering</h2>
+            <h2>DevOps | Site Reliability</h2>
             <h3><a href="https://smartbear.com">SmartBear</a> | Miami, FL</h3>
             <div class="reachme">
                 <div class="sidelinks">
