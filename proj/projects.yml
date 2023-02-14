@@ -1,4 +1,76 @@
 ---
+featscale:
+  title: Automatic vertical Scaling for test agility
+  body: |
+    Had myself a fun one-day project at the behest of one of our QA Engineers.
+    My <a class="projlink" href="#dynamicenvs">self-service feature env
+    system<a> was a hit with our devs, but created unintended headaches for
+    testers. On the one hand, independent feature stacks allowed for extremely
+    easy A/B comparisons for QA. On the other, our high rate of feature
+    development meant we ended up with way more feature envs than we initially
+    planned for, and cost-saving measures became necessary. One such measure was
+    placing a fairly low upper-limit on developer-requestable instance sizes.
+    This was fine for the devs who mostly idled or ran single-thread tests
+    against their environments, but our QA test  suffered.<br /><br />
+
+    To offset load-related timeouts, the QA Engineers reduced their test threads
+    which resulted in much longer testing durations. The rate of feature
+    development was threatening to outpace the rate of testing. I was asked to
+    automate a process for scaling up instance sizes at test initialization,
+    then scaling down upon completion.<br /><br />
+
+    For the most part this was a non-issue, except the feature environments were
+    provisioned from a shared Terraform state (something that is starting to
+    become its own problem), which grew to the point of annoyingly long
+    <code>terraform plan</code> times. The solution is simple but
+    undesirable--Terraform supplies a <code>-target=</code> command line option,
+    allowing one to state-refresh, plan, and apply changes to individual modules
+    or even individual resources using resource addressing. <i>However</i>,
+    Terraform itself chides you for even using it:<br /><br />
+
+    <pre><code class="language-shell">╷
+    │ Warning: Resource targeting is in effect
+    │
+    │ The -target option is not for routine use, and is provided only for exceptional situations such as recovering from errors or mistakes, or when Terraform specifically suggests to use it as part of an
+    │ error message.
+    ╵
+    </code></pre>
+
+    With great shame and heavy heart I write that I have sinned for, I have
+    designed a heavily-used internal system that makes frequent use of Terraform
+    resource targeting. But hey, it's working great.
+
+zeptrials:
+  title: Customer environment provisioning API with AWS Lambda
+  body: |
+    At SmartBear, one of our most in-demand SaaS products is <a
+    href="https://smartbear.com/test-management/zephyr-enterprise/">Zephyr
+    Enterprise</a>. Unfortunately, for years the customer trial spin-up
+    automation was poorly designed and prospective customers would face a wait
+    time of well over 25 minutes. The sales team was rightfully concerned with
+    the number of leads lost to slow trial delivery.<br /><br />
+
+    We set out to redesign the entire trial provisioning pipeline with a focus
+    on performance, self-service, and ease of integration. From the outset we
+    knew we wanted an API that the marketing team could use to request trials
+    and ping for trial status. The same API would offer trial extension and
+    termination functions for the sales team.<br /><br />
+    
+    As trials are inherently ephemeral, we knew we wanted to provision all
+    infrastructure with AWS SDKs instead of stateful IaC tools like Terraform
+    which can have notoriously slow executions due to state refreshes. We
+    selected Lambda for a zero-maintenance runtime environment and Python +
+    boto3 for maintainability as it is a <i>lingua franca</i> among our DevOps
+    teams. Given that SmartBear is the steward of the open-source Swagger suite
+    of API development tools, we naturally elected to use AWS API Gateway for
+    request routing as it natively consumes OpenAPI/Swagger API definitions to
+    scaffold your Gateway for you.<br /> <br />
+
+    Our team can proudly say that we delivered a fully-featured SaaS trial
+    management API to the sales and marketing departments that reduced customer
+    wait times from 25+ minutes to approximately 30 seconds. 
+
+
 dynamicenvs:
   title: Transient environments for Docker Swarm
   body: |
@@ -14,12 +86,13 @@ dynamicenvs:
     system that could:
 
     <ul>
-      <li>Provision and assign individualized AWS infrastructure</li>
-      <li>Tag all resources for cost analysis per-environment and per-user</li>
-      <li>Isolate Docker image builds to avoid poisoning each other's build caches</li>
-      <li>Support any size deployment, from individual microservices to full stack</li>
-      <li>Dynamically modify container environments as neighbor services are spun up or down</li>
-      <li>Alert on deployment inactivity to ensure against abandoned environments</li>
+      <li>Provision and assign individualized AWS infrastructure</li> <li>Tag
+      all resources for cost analysis per-environment and per-user</li>
+      <li>Isolate Docker image builds to avoid poisoning each other's build
+      caches</li> <li>Support any size deployment, from individual microservices
+      to full stack</li> <li>Dynamically modify container environments as
+      neighbor services are spun up or down</li> <li>Alert on deployment
+      inactivity to ensure against abandoned environments</li>
     </ul>
 
     <p>The centerpieces that made this system possible are the <a
@@ -33,8 +106,8 @@ dynamicenvs:
     modules with which EC2 instances could be dynamically added to and removed
     from the Swarm, and the Jenkins <a
     href="https://plugins.jenkins.io/extended-choice-parameter/">Extended Choice
-    Parameter plugin</a> with which complex forms could be presented to
-    users for fine-grained control over environment configuration.
+    Parameter plugin</a> with which complex forms could be presented to users
+    for fine-grained control over environment configuration.
 
 gitshrink:
   title: Trimming git object history
@@ -51,19 +124,18 @@ gitshrink:
     100 MB maximum checked-in file size--our repo exceeded both.<br /><br />
 
     I presented two potential solutions--adopt <a
-    href="https://git-lfs.github.com/">Git LFS</a>, performing a
-    migration of binary files in history to LFS using <a
-    href="https://github.com/bozaro/git-lfs-migrate">git-lfs-migrate</a>,
-    or simply strip all large files from history using <a
-    href="https://rtyley.github.io/bfg-repo-cleaner/">BFG Repo
-    Cleaner</a>. Migrating to LFS would preserve git history but incur
-    a storage cost on GitHub, whereas using BFG Repo Cleaner would alter
-    historical commit IDs as all commit hashes would have to be recalculated
-    after the content was removed from history. We decided that, given our
-    relatively small team, altering history was not a deal-beaker and we could
-    simply all re-clone after the repository was cleaned up. In the end, BFG
-    Repo Cleaner shrunk the repository to around 450 MB, a nearly 90% decrease
-    in footprint.
+    href="https://git-lfs.github.com/">Git LFS</a>, performing a migration of
+    binary files in history to LFS using <a
+    href="https://github.com/bozaro/git-lfs-migrate">git-lfs-migrate</a>, or
+    simply strip all large files from history using <a
+    href="https://rtyley.github.io/bfg-repo-cleaner/">BFG Repo Cleaner</a>.
+    Migrating to LFS would preserve git history but incur a storage cost on
+    GitHub, whereas using BFG Repo Cleaner would alter historical commit IDs as
+    all commit hashes would have to be recalculated after the content was
+    removed from history. We decided that, given our relatively small team,
+    altering history was not a deal-beaker and we could simply all re-clone
+    after the repository was cleaned up. In the end, BFG Repo Cleaner shrunk the
+    repository to around 450 MB, a nearly 90% decrease in footprint.
 
 composeconvert:
   title: Convert Compose v2 to v3
@@ -218,7 +290,7 @@ geninfluxdata:
     consistent testing. Eventually I would like to extend this tool to output
     data for other commonly used time-series databases, like Prometheus and
     Graphite.
-    # links:
+  # links:
   # - title: gen-sample-metrics.py - generate and write a reproducible set of metric data to InfluxDB
   #   href: https://github.com/a-abella/gen-sample-metrics
 
@@ -254,8 +326,8 @@ dynamicinventory:
     that was needed was a script to format each host row into Ansible
     inventory-compatible JSON.
   links:
-  - title: dynamic-inventory - Boilerplate components for SQL-based Ansible dynamic inventory
-    href: https://github.com/a-abella/dynamic-inventory
+    - title: dynamic-inventory - Boilerplate components for SQL-based Ansible dynamic inventory
+      href: https://github.com/a-abella/dynamic-inventory
 
 locateusers:
   title: Locate users on the network
@@ -270,8 +342,8 @@ locateusers:
     workstations, it was significantly faster than methods like PSTools'
     <code>PSLoggedOn.exe</code>.
   links:
-  - title: locateUser.ps1 - Quickly find where a user is logged in
-    href: https://github.com/a-abella/locateUser
+    - title: locateUser.ps1 - Quickly find where a user is logged in
+      href: https://github.com/a-abella/locateUser
 
 statefulreboots:
   title: Stateful workstation reboots
