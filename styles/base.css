@@ -95,6 +95,7 @@ li.currentitem {
     font-weight: 400;
     margin-bottom: 2.5rem;
     font-size: 1.8rem;
+    line-height: 2.25rem;
 }
 .project > .projdocs {
     margin-top: 2rem;
