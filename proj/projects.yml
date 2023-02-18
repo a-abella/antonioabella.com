@@ -40,6 +40,82 @@ featscale:
     designed a heavily-used internal system that makes frequent use of Terraform
     resource targeting. But hey, it's working great.
 
+mailmon:
+  title: Maintaining SMTP deliverability in an SMTP-hostile world
+  body: |
+    Once upon a time it wasn't uncommon for people to self-host outbound mail
+    servers--in fact it was one of the most common system configuration tasks.
+    Unfortunately, years of spam and bad actors have eroded the faith in
+    individual SMTP operators. As more and more mailboxes come under the control
+    of centralized organizations like Google and Microsoft whom never publish
+    <i>specific</i> deliverability guidelines in an effort to stay ahead of
+    spammers, maintaining deliverability gets harder every year. Further
+    centralization with the rise of services like Twilio's SendGrid allows for
+    enhanced trust and collaboration between large central mail services,
+    leaving individual operators behind. In 10 years time, it may well be
+    entirely impractical to send mail from an "untrusted" source (read: not
+    SendGrid or AWS or Azure or...).<br /><br />
+
+    My team at SmartBear maintains around 300 outbound SMTP servers from which
+    we deliver monitoring notifications to our customers. The high number of
+    servers is by design and is central to our products decentralized-monitoring
+    strategy. Since these are critical alerts, maintaining deliverability is
+    also critical. To this end I've had to develop high-resolution monitoring
+    solutions for several key metrics--IP reputation, SPF validity, DKIM
+    signing, proper reverse DNS resolution, and more.<br /><br />
+
+    Some of these are easy. DKIM just requires a running daemon on your sending
+    servers, and a valid DNS record under your sending domain, so monitoring the
+    existence of these is enough. Others are exceedingly difficult since it
+    relies on third-party uptime and cooperation--in particular, reverse DNS.
+    Our monitoring nodes are hosted by around 75 different cloud or colocation
+    providers around the world, and the IP address space is theirs. As a result,
+    reverse DNS resolution is their responsibility. We've seen it all when it
+    comes to reverse DNS issues--we had one major colocation provider operating
+    a non-HA authoritative nameserver and a power outage resulted in rDNS
+    resolution failures, tanking our mail deliverability from that location.
+    We've had other providers conduct sudden and improper zone cleanups, wiping
+    our records.<br /><br />
+
+    Maintaining deliverability is a best-effort exercise. If Google updates
+    their AI mail scanning algorithms and suddenly decides it doesn't like our
+    notification format and incorrectly categorizes us as spam, that reputation
+    shift rapidly propagates all over the world. DMARC reports can be clean as a
+    whistle, yet mail can still find its way to spam folders. With each passing
+    year the industry signals louder and louder--"if you want to send mail, you
+    have to pay someone to send it for you." This is a tremendously unfortunate
+    shift for an Internet that was the greatest medium of free communication at
+    its inception.<br /><br />
+
+    Fortunately for now, we can trick our way through the maze of sending
+    requirements. High TTLs on reverse DNS records help preserve deliverability
+    during third-party DNS outages. Programmatic SPF-record generation and
+    Route53's record APIs enable us to rapidly manipulate our monitoring node
+    pool without concerning ourselves with IP-trust issues. All-in-all we've
+    managed to create a reliable network of outbound mailers that takes
+    surprisingly few man-hours to maintain thanks to clever monitoring and
+    automation, though the future for self-hosted SMTP looks grim.
+
+dockerdevenv:
+  title: Docker as a VirtualBox-Vagrant replacement for Apple Silicon
+  body: |
+    Our developers' local workflow was disrupted by Apple's shift to ARM CPUs
+    when VirtualBox announced it would not be supporting the new architecture,
+    nor would they be integrating CPU emulation features. Thankfully Docker
+    Desktop's underlying VM <i>would</i> be updated with Qemu CPU emulation. The
+    provided a ready-made solution requiring minimal churn in the search for a
+    replacement.<br /><br />
+
+    At first we considered following industry trends and moving development
+    environments to cloud environments leveraging my <a class="projlink"
+    target="_self" href="#dynamicenvs">dynamic feature environments</a> as a
+    provisioning/onboarding system, but concerns about costs and latency (with
+    our development staff spread across North and South America and Europe)
+    drove us to retain local development capability. Considering we already paid
+    for Docker Desktop licenses it made further sense to consolidate costs.
+    Vagrant already supports Docker as a native Provider and was fairly
+    straightforward as a plug-and-play solution.
+
 zeptrials:
   title: Customer environment provisioning API with AWS Lambda
   body: |
