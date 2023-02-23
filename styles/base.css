@@ -96,6 +96,11 @@ li.currentitem {
     margin-bottom: 2.5rem;
     font-size: 1.8rem;
     line-height: 2.25rem;
+    /*offset for anchor links*/
+    padding-top: 4rem;
+    margin-top: -4rem;
+
+    
 }
 .project > .projdocs {
     margin-top: 2rem;

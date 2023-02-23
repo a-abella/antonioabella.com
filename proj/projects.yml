@@ -58,7 +58,7 @@ mailmon:
 
     My team at SmartBear maintains around 300 outbound SMTP servers from which
     we deliver monitoring notifications to our customers. The high number of
-    servers is by design and is central to our products decentralized-monitoring
+    servers is by design and is central to our product's decentralized-monitoring
     strategy. Since these are critical alerts, maintaining deliverability is
     also critical. To this end I've had to develop high-resolution monitoring
     solutions for several key metrics--IP reputation, SPF validity, DKIM
