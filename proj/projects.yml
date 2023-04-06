@@ -1,99 +1,82 @@
 ---
 featscale:
-  title: Automatic vertical scaling for QA agility
+  title: Scaling feature envs for automated E2E testing
   body: |
-    Had myself a fun one-day project at the behest of one of our QA Engineers.
-    My <a class="projlink" target="_self" href="#dynamicenvs">self-service feature env
-    system</a> was a hit with our devs, but created unintended headaches for
-    testers. On the one hand, independent feature stacks allowed for extremely
-    easy A/B comparisons for QA. On the other, our high rate of feature
-    development meant we ended up with way more feature envs than we initially
-    planned for, and cost-saving measures became necessary. One such measure was
-    placing a fairly low upper-limit on developer-requestable instance sizes.
-    This was fine for the devs who mostly idled or ran single-thread tests
-    against their environments, but our QA test  suffered.<br /><br />
-
-    To offset load-related timeouts, the QA Engineers reduced their test threads
-    which resulted in much longer testing durations. The rate of feature
-    development was threatening to outpace the rate of testing. I was asked to
-    automate a process for scaling up instance sizes at test initialization,
-    then scaling down upon completion.<br /><br />
-
-    For the most part this was a non-issue, except the feature environments were
-    provisioned from a shared Terraform state (something that is starting to
-    become its own problem), which grew to the point of annoyingly long
-    <code>terraform plan</code> times. The solution is simple but
-    undesirable--Terraform supplies a <code>-target=</code> command line option,
-    allowing one to state-refresh, plan, and apply changes to individual modules
-    or even individual resources using resource addressing. <i>However</i>,
-    Terraform itself chides you for even using it:<br />
+    At the request of our QA team, my <a class="projlink" target="_self"
+    href="#dynamicenvs">self-service feature env system</a> was extended to be
+    leveraged by our testing and integration processes. These environments were
+    originally conceptualized to allow parallel showcasing of in-development
+    features, but when designing the system I prioritized flexibility. The first
+    benefit of this flexibility has been enabling automated end-to-end testing
+    for every PR.<br /><br />
+    
+    To handle the real-life representative workloads that E2E suites could
+    generate, we needed to scale the environments up at test runtime and then
+    revert to a cost-efficient scale at completion. This was made surprisingly
+    simple by leveraging Terraform's <code>-target</code> flag, though that
+    requires (perhaps unwisely) disregarding Terraform's own warnings:<br/>
 
     <pre><code class="language-shell">╷
     │ Warning: Resource targeting is in effect
     │
     │ The -target option is not for routine use, and is provided only for exceptional situations such as recovering from errors or mistakes, or when Terraform specifically suggests to use it as part of an
     │ error message.
-    ╵
-    </code></pre>
+    </code></pre><br />
 
-    With great shame and heavy heart I write that I have sinned for, I have
-    designed a heavily-used internal system that makes frequent use of Terraform
-    resource targeting. But hey, it's working great.
+    Surely nothing bad has ever happened from ignoring a warning like that. The
+    risk has been worth it though, as it allowed me to deliver in two afternoons
+    greatly enhanced testing coverage for every new feature in review.
 
 mailmon:
   title: Maintaining SMTP deliverability in an SMTP-hostile world
   body: |
+    I maintain this page mostly as a portfolio to share my day-job projects, but
+    today I have to treat it like a blog. This is going to be a rant about the
+    ever-diminishing ability of independent SMTP operators to reliably send
+    mail.<br /><br />
+  
     Once upon a time it wasn't uncommon for people to self-host outbound mail
     servers--in fact it was one of the most common system configuration tasks.
     Unfortunately, years of spam and bad actors have eroded the faith in
-    individual SMTP operators. As more and more mailboxes come under the control
-    of centralized organizations like Google and Microsoft whom never publish
-    <i>specific</i> deliverability guidelines in an effort to stay ahead of
-    spammers, maintaining deliverability gets harder every year. Further
-    centralization with the rise of services like Twilio's SendGrid allows for
-    enhanced trust and collaboration between large central mail services,
-    leaving individual operators behind. In 10 years time, it may well be
-    entirely impractical to send mail from an "untrusted" source (read: not
-    SendGrid or AWS or Azure or...).<br /><br />
+    individual outbound-mail operators. As more and more mailboxes come under
+    the control of centralized organizations like Google and Microsoft whom
+    never publish <i>specific</i> deliverability guidelines in an effort to stay
+    ahead of spammers, maintaining deliverability gets harder every year.<br
+    /><br />
+    
+    Further centralization with the rise of services like Twilio's
+    SendGrid allows for enhanced trust and collaboration between large central
+    mail services, leaving individual operators behind. In 10 years time, it may
+    well be entirely impractical to send mail from an "untrusted" source (read:
+    not SendGrid or AWS or Azure or...).<br /><br />
 
     My team at SmartBear maintains around 300 outbound SMTP servers from which
     we deliver monitoring notifications to our customers. The high number of
-    servers is by design and is central to our product's decentralized-monitoring
-    strategy. Since these are critical alerts, maintaining deliverability is
-    also critical. To this end I've had to develop high-resolution monitoring
-    solutions for several key metrics--IP reputation, SPF validity, DKIM
-    signing, proper reverse DNS resolution, and more.<br /><br />
-
-    Some of these are easy. DKIM just requires a running daemon on your sending
-    servers, and a valid DNS record under your sending domain, so monitoring the
-    existence of these is enough. Others are exceedingly difficult since it
-    relies on third-party uptime and cooperation--in particular, reverse DNS.
-    Our monitoring nodes are hosted by around 75 different cloud or colocation
-    providers around the world, and the IP address space is theirs. As a result,
-    reverse DNS resolution is their responsibility. We've seen it all when it
-    comes to reverse DNS issues--we had one major colocation provider operating
-    a non-HA authoritative nameserver and a power outage resulted in rDNS
-    resolution failures, tanking our mail deliverability from that location.
-    We've had other providers conduct sudden and improper zone cleanups, wiping
-    our records.<br /><br />
+    servers is by design and is central to our product's
+    decentralized-monitoring strategy. Since these are critical alerts,
+    maintaining deliverability is also critical. To this end I've had to develop
+    high-resolution monitoring solutions for several key metrics--IP reputation,
+    SPF validity, DKIM signing, proper reverse DNS resolution, and more.<br
+    /><br />
 
     Maintaining deliverability is a best-effort exercise. If Google updates
-    their AI mail scanning algorithms and suddenly decides it doesn't like our
+    their ML mail scanning algorithms and suddenly decides it doesn't like our
     notification format and incorrectly categorizes us as spam, that reputation
-    shift rapidly propagates all over the world. DMARC reports can be clean as a
-    whistle, yet mail can still find its way to spam folders. With each passing
-    year the industry signals louder and louder--"if you want to send mail, you
-    have to pay someone to send it for you." This is a tremendously unfortunate
-    shift for an Internet that was the greatest medium of free communication at
-    its inception.<br /><br />
+    shift rapidly propagates to relays all over the world. DMARC reports can be
+    clean as a whistle, yet mail can still find its way to spam folders. With
+    each passing year the industry signals louder and louder--"if you want to
+    send mail, you have to pay someone to send it for you." This is a
+    tremendously unfortunate shift for an Internet that was the greatest medium
+    of free communication at its inception.<br /><br />
 
     Fortunately for now, we can trick our way through the maze of sending
     requirements. High TTLs on reverse DNS records help preserve deliverability
-    during third-party DNS outages. Programmatic SPF-record generation and
-    Route53's record APIs enable us to rapidly manipulate our monitoring node
-    pool without concerning ourselves with IP-trust issues. All-in-all we've
-    managed to create a reliable network of outbound mailers that takes
-    surprisingly few man-hours to maintain thanks to clever monitoring and
+    during third-party authoritative rDNS server outages. Programmatic
+    SPF-record generation and Route53's record APIs enable us to rapidly
+    manipulate our monitoring node pool's valid sender IP lists without
+    concerning ourselves with IP-trust issues. All-in-all we've managed to
+    create a reliable (though not fool-proof) network of outbound mailers that
+    takes surprisingly few man-hours to maintain thanks to clever monitoring and
     automation, though the future for self-hosted SMTP looks grim.
 
 dockerdevenv:
@@ -120,8 +103,8 @@ zeptrials:
   title: Customer environment provisioning API with AWS Lambda
   body: |
     At SmartBear, one of our most in-demand SaaS products is <a
-    href="https://smartbear.com/test-management/zephyr-enterprise/">Zephyr
-    Enterprise</a>. Unfortunately, for years the customer trial spin-up
+    href="https://smartbear.com/test-management/zephyr-enterprise/"><b>Zephyr
+    Enterprise</b></a>. Unfortunately, for years the customer trial spin-up
     automation was poorly designed and prospective customers would face a wait
     time of well over 25 minutes. The sales team was rightfully concerned with
     the number of leads lost to slow trial delivery.<br /><br />
@@ -130,14 +113,17 @@ zeptrials:
     on performance, self-service, and ease of integration. From the outset we
     knew we wanted an API that the marketing team could use to request trials
     and ping for trial status. The same API would offer trial extension and
-    termination functions for the sales team.<br /><br />
+    termination functions for the sales and customer success teams.<br /><br />
     
     As trials are inherently ephemeral, we knew we wanted to provision all
     infrastructure with AWS SDKs instead of stateful IaC tools like Terraform
     which can have notoriously slow executions due to state refreshes. We
     selected Lambda for a zero-maintenance runtime environment and Python +
     boto3 for maintainability as it is a <i>lingua franca</i> among our DevOps
-    teams. Given that SmartBear is the steward of the open-source Swagger suite
+    teams.<br /><br />
+    
+    Given that SmartBear is the steward of the open-source <a
+    href="https://swagger.io" style="color:#74c52e"><b>Swagger.io</b></a> suite
     of API development tools, we naturally elected to use AWS API Gateway for
     request routing as it natively consumes OpenAPI/Swagger API definitions to
     scaffold your Gateway for you.<br /> <br />
@@ -374,7 +360,7 @@ dynamicinventory:
   title: Ansible dynamic inventory
   body: |
     I came into a new role as a DevOps Engineer at <a
-    href="https://smartbear.com/" style="color:#f5710f">SmartBear</a>,
+    href="https://smartbear.com/" style="color:#f5710f"><b>SmartBear</b></a>,
     working on an application with some pretty unique infrastructure challenges.
     In addition to a fairly standard AWS technology stack, my team had to manage
     a fleet of about 300 additional servers located in around 30 different
