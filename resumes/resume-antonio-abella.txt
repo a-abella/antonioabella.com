@@ -9,41 +9,42 @@ me@antonioabella.com
 SKILLS:
 ======
 * Expertise in:
-    * Cloud Computing: Amazon AWS (EC2, Route53, RDS, S3, VPC, ACM, CloudWatch)
-    * Operating Systems: Ubuntu 18.04, 20.04; CentOS 7
-    * Programming Languages: Python, Shell (posix sh and bash), PowerShell
-    * Software & Tools: Docker, Git, Ansible, Terraform, Jenkins, Grafana, InfluxDB, Zabbix
-    * Hardware: Dell PowerEdge and HP ProLiant servers
+    * Cloud Computing: Amazon AWS (CloudWatch, EC2, EC2 Image Builder, ElastiCache, Lambda, RDS, Route53, S3, SNS, VPC, Boto3)
+    * Operating Systems: Ubuntu 16 – 22, CentOS 6 – 7, AlmaLinux 9
+    * Programming Languages: Python, Shell (sh/bash), PowerShell
+    * Software & Tools: Ansible, Docker, Git/GitHub, GH Actions, Grafana, InfluxDB, Jenkins, Terraform, Zabbix
 * Some experience with:
-    * Cloud Computing: Amazon AWS (IAM, EKS, Lambda, DynamoDB)
-    * Programming Languages: Groovy, Java, SQL, PHP, Javascript, Perl
-    * Software & Tools: MySQL/MariaDB, MongoDB, RabbitMQ, Memcached, NGINX, Make
-    * Hardware: Juniper and Cisco routers and firewalls, Cisco and HP managed switches
-* Additionally experienced with Windows Server 2012R2, VMware ESXi 6.0+, Active Directory 
-* Fully fluent in written and verbal English and Spanish 
+    * Cloud Computing: Amazon AWS (API Gateway, DocumentDB, DynamoDB, EKS, Elastic Beanstalk, IAM)
+    * Programming Languages: Groovy, Java, Javascript, Perl, PHP, SQL
+    * Software & Tools: ElasticSearch, Kafka, Kubernetes, MariaDB/MySQL, Memcached, MongoDB, NGINX, RabbitMQ, Traefik
+* Additionally experienced with Windows Server 2012 - 2022, VMware ESXi 6.0+, Active Directory
+* Some experience with Dell PowerEdge and HP ProLiant servers, Juniper and Cisco routers and firewalls, and Cisco and HP managed switches
+* Fully fluent in written and verbal English and Spanish
 
 
 WORK EXPERIENCE:
 ===============
 SmartBear Software
-Senior DevOps Engineer              September 2021 - present
-DevOps Engineer	                    July 2019 - September 2021
-Junior DevOps Engineer              July 2017 - July 2019
-
-	* Designed and implemented a dynamic iptables firewall configuration generator to improve reconfiguration performance on a cluster of 300 hosts. This implementation yielded a 99.95% improvement in runtime over the previous solution, resulting in over 12 hours saved per deployment.
-	* Built and administered a self-hosted InfluxDB Enterprise time-series database cluster hosting core application data. Oversaw migration of the entire data lifecycle from the previous solution. Worked with the development team to carry out performance and load benchmarking at production scale.
-	* Migrated core application legacy Docker Swarm clusters to latest Docker Swarm Mode. Defined cluster infrastructure in Terraform for reproducible provisioning and disaster recovery. Conducted staged rollout of new Swarm environments in coordination with development and QA teams. Reconstructed all related CI/CD pipelines to interface with new Docker and Swarm versions.
-	* Engineered platform for self-service provisioning and deployment of transient development environments within Docker Swarm. Extended Terraform configuration to source dynamic environment metadata from a central database. Provided the development team with the tools to accelerate testing and facilitate code comparisons.
+  Senior DevOps Engineer              September 2021 - present
+  DevOps Engineer                     July 2019 - September 2021
+  Junior DevOps Engineer              July 2017 - July 2019
+    * Architected a platform enabling automated provisioning and deployment of ephemeral development and demonstration environments within Docker Swarm. Enhanced Terraform configuration to dynamically fetch environment metadata from a configuration database, greatly accelerating the development team’s capacity for functional testing and enabling live cross-comparisons of feature branches.
+    * Designed, coded, and maintain a highly performant and stable customer-facing serverless API in Python on AWS Lambda, integrated with AWS API Gateway, for seamless request, generation, and management of SaaS product demo environments. Reduced provisioning time from over 20 minutes to under 60 seconds, replacing a much slower and unreliable legacy system.
+    * Architected and implemented a secure AWS AMI build and deployment pipeline for ephemeral CI agent machine images, enabling headless functional testing of interactive Windows desktop applications with automated rebuilding for latest operating system and software updates.
+    * Developed and deployed a dynamic `iptables` firewall configuration generator in Python to improve reconfiguration performance on a cluster of nearly 300 hosts. This implementation replaced a much slower legacy solution, and reduced runtimes from nearly 12 hours to under 5 minutes per cluster-wide deployment.
+    * Built and provide primary support and administration for a self-hosted production InfluxDB Enterprise time-series database cluster hosting core application data. Oversaw migration of entire customer-facing data lifecycle from previous MySQL-based solution. Cooperated with the development team to carry out performance benchmarking and load tests at production scale.
+    * Migrated core application legacy Docker Swarm clusters to latest Docker Swarm Mode. Defined cluster infrastructure in Terraform for reproducible provisioning and disaster recovery. Planned configuration to allow continuous, non-disruptive upgrades of cluster nodes. Designed and implemented AMI build pipeline for the automated configuration and upgrade of cluster node software. Configured all-new observability suites for monitoring and alerting on cluster and application health. Led and conducted staged rollout of new Swarm environments in coordination with development and QA teams. Reconstructed all related CI/CD pipelines to interface with new Docker and Swarm versions.
+    * Researched and rolled out centralized log aggregation solution on Elastic Cloud for core application container logs and metrics, providing greatly increased insight and awareness into current and historic platform and application health.
 
 Inktel Contact Center Solutions
 Junior Systems Administrator        April 2016 - July 2017
 
-	Responsibilities involved the administration of Active Directory Domain Services and Exchange mail, and the regular maintenance of VMware ESXi hypervisors, CentOS file servers, mail scanners, web servers, and Asterisk servers. Additionally tasked with researching and deploying low- or no-cost self-hosted tools and services to improve internal company functions.
+    Responsibilities involved the administration of Active Directory Domain Services and Exchange mail, and the regular maintenance of VMware ESXi hypervisors, CentOS file servers, mail scanners, web servers, and Asterisk servers. Additionally tasked with researching and deploying low- or no-cost self-hosted tools and services to improve internal company functions.
 
 
 EDUCATION:
 =========
-Florida International University	Dec 2015
+Florida International University    Dec 2015
 Miami, FL
 Bachelors of Science in Information Technology
 
