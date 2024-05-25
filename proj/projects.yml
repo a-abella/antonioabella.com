@@ -1,6 +1,92 @@
 ---
+winci:
+  title: Adventures in CI for Windows desktop apps
+  body: |
+    Our team took on some new responsibilities supporting the development of <a
+    href="https://smartbear.com/product/testcomplete/"
+    style="color:#1acafc"><b>TestComplete</b></a>, a functional UI testing tool
+    for web, mobile, and Windows desktop applications. TestComplete itself is a
+    Windows desktop application, so then the question looms, who tests the
+    testers? (No surprise, still us.)<br /><br />
+    
+    Due to some limitations in Windows APIs and the way TestComplete works, we
+    could not find a way to test TestComplete with TestComplete. So instead we
+    landed on <a href="https://robotframework.org/"
+    style="color:#00c0b5"><b>Robot Framework</b></a>, a Python-based functional
+    testing program for Windows desktop. However, massive hurdles remained to be
+    cleared.<br /><br />
+    
+    Functional desktop testing in Windows is not hard. Functional desktop
+    testing in Windows <i>on headless CI agents</i> is hard. Security around the
+    Windows desktop largely deals with the isolation of what Microsoft calls
+    "window stations." Interactive sessions get interactive window stations,
+    interactive sessions spawned by a non-interactive session (such as a new
+    session initialized by a CI agent running as a service) get a window
+    station, but in a sandbox with locked-down access to most system resources.
+    Two interactive sessions each get interactive window stations, but they
+    cannot interact due to process isolation rules that cannot be defeated.<br
+    /><br />
+    
+    If your CI agents are long-lived, it's not such a big deal. You can
+    initialize an interactive desktop session to a remote CI agent server with
+    Remote Desktop, then manually launch the CI agent process into that session.
+    All child processes of that foreground agent process will inherit the
+    interactive window station, and your functional UI desktop tests will run
+    just fine. <i>But if your CI agents are ephemeral,</i> there's no
+    opportunity to manually initialize that session.<br /><br />
+    
+    So step one--initialize an interactive session immediately up CI agent
+    provisioning. Windows thankfully provides a way to auto-login an
+    Administrator user, which spawns an interactive session on the EC2
+    instance's "local" display. From now on, the CI agent is no longer headless.
+    It's pseudo-headless. It has a desktop, it has a virtual display, it
+    renders, but none of it is "real."<br /><br />
+    
+    Step two--launch the CI agent into the foreground of the interactive
+    session, so all its child processes inherit access to the window station. A
+    simple Windows Task Scheduler task can be created to launch any process on
+    logon, to the foreground or background. In our case our CI system was
+    Jenkins, and the CI agent process was not actually the parent--the Jenkins
+    server connects to its ephemeral Windows agents via OpenSSH Server for
+    Windows and transfers the java agent binary for execution. So in this case,
+    SSHD was the parent process with access to the window station, the Jenkins
+    agent process was a child that inherits, and then the <i>agent's child
+    processes</i>, like Robot Framework, inherit that access too.<br /><br />
+    
+    Even this was a challenge, as SSHD on Windows was designed to run as a
+    Windows Service, and security and filesystem access rules around it are
+    different when forced to run in foreground mode via <code>sshd -d</code>,
+    which is a debugging parameter. For security purposes when this debugging
+    parameter is used, the SSHD process cannot use password authentication, only
+    one connection is allowed, and the SSHD process exist on connection
+    termination. If launched as a non-Administrator, then SSHD cannot access the
+    system Host-Keys files, and initialization fails. Each of these problems
+    was, eventually, iteratively, found and solved.<br /><br />
+    
+    Ultimately it was a long road to discover a not-very-complicated solution.
+    Our EC2 Image Builder pipelines now customize Windows Server images for this
+    purpose, rebuilding weekly for OS updates as well as on every new
+    TestComplete release. A dozen other customizations were necessary--the
+    virtual EC2 display defaults to 1024x768, which smushes desktop elements and
+    interferes with the Robot Framework tests. A dozen security features dealing
+    with remote access and session isolation had to be disabled. However,
+    considering the ephemerality of the agents and their lack of connectivity
+    back to internal systems, the risk was minimal.<br /><br />
+    
+    The reward for weeks of effort was seeing a screenshot of a mouse click on a
+    desktop. And I'm the right kind of idiot to get excited about that.<br /><br
+    />
+    
+    That said, no one in this industry space likes Windows, and reasons like
+    this are why. "Programmatic", "automated", "scripted", "headless"--these are
+    all words that Microsoft doesn't consider when designing their systems. And
+    as the software development industry increasingly abandons the Windows
+    operating system, community support gets harder and harder to come by. For
+    as simple of a solution as this ultimately required, I couldn't find any
+    examples or write-ups anywhere of anyone doing it before.<br /><br />
+
 featscale:
-  title: Scaling feature envs for automated E2E testing
+  title: Scaling feature envs for heavy E2E testing
   body: |
     At the request of our QA team, my <a class="projlink" target="_self"
     href="#dynamicenvs">self-service feature env system</a> was extended to be
