@@ -1,4 +1,11 @@
 ---
+rdstrx:
+  title: 98% reduction in RDS <code>io/aurora_redo_log_flush</code> waits
+  body: |
+    Years in the making. Long-standing queuing issues eliminated.
+    <br /><br />
+    <img src="proj/images/aurora-trx-commit-waits.webp" width="100%" height="100%">
+
 winci:
   title: Adventures in CI for Windows desktop apps
   body: |
