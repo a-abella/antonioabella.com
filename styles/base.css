@@ -125,7 +125,7 @@ li.currentitem {
 .faceimg {
     height: 245px;
     width: 245px;
-    background-image: url("/images/face.webp");
+    background-image: url("https://gravatar.com/avatar/f9eeacad132c455449927366917ffe9b15296dc22c5d7369e3369276a506b42e?s=245");
     background-repeat: no-repeat;
     margin: 20% auto 8% auto;
     background-size: cover;
