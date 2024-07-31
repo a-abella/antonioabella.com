@@ -150,18 +150,18 @@ li.currentitem {
 }
 .sidebar > h3 {
     color: #ddd;
-    font-size: 1.5rem;
+    font-size: 1.38rem;
     font-weight: 200;
     margin: 0;
     padding: 0;
 }
 .sidebar > h3 > a {
-    color: #ff9647;
+    color: #4798ff;
     display: inline-block;
     /*border-bottom: 1px solid #f5710f;*/
 }
 .sidebar > h3 > a:hover {
-    border-bottom: 1px solid #ff9647;
+    border-bottom: 1px solid #4798ff;
 }
 .sidebar > .sep {
     height: 0.5rem;
