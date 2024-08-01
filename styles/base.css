@@ -145,23 +145,23 @@ li.currentitem {
     font-size: 1.8rem;
     line-height: 3rem;
     font-weight: 200;
-    margin: 0;
+    margin: 0.1rem 0rem 0.2rem 0.0rem;
     padding: 0;
 }
 .sidebar > h3 {
     color: #ddd;
-    font-size: 1.38rem;
+    font-size: 1.3rem;
     font-weight: 200;
     margin: 0;
     padding: 0;
 }
 .sidebar > h3 > a {
-    color: #4798ff;
+    color: #6aaafd;
     display: inline-block;
-    /*border-bottom: 1px solid #f5710f;*/
+    font-weight: 400;
 }
 .sidebar > h3 > a:hover {
-    border-bottom: 1px solid #4798ff;
+    border-bottom: 1px solid #6aaafd;
 }
 .sidebar > .sep {
     height: 0.5rem;
